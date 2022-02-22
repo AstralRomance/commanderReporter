@@ -33,13 +33,15 @@ jobs:
           TARGET: ${{ secrets.REMOTE_WORKDIR }}/scripts
 
     - name: Deploy
-      uses: appleboy/ssh-action@master
       env:
         WORKDIR: ${{ secrets.REMOTE_WORKDIR }}
+      uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
         key: ${{ secrets.SERVER_SSH_KEY }}
         envs: WORKDIR
         script_stop: true
-        script: bash ${{ secrets.REMOTE_WORKDIR }}/scripts/deploy.sh
+        script: | 
+          export WORKDIR=$WORKDIR
+          bash ${{ secrets.REMOTE_WORKDIR }}/scripts/deploy.sh

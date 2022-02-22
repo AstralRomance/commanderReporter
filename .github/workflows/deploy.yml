@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Deploy to Server
+    - name: Push code update to server
       uses: easingthemes/ssh-deploy@main
       env:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
@@ -20,4 +20,26 @@ jobs:
           SOURCE: "src/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.REMOTE_TARGET }}
+          TARGET: ${{ secrets.REMOTE_WORKDIR }}/src
+  
+    - name: Push scripts update to server
+      uses: easingthemes/ssh-deploy@main
+      env:
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          ARGS: "-rltgoDzvO --delete"
+          SOURCE: "scripts/"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.REMOTE_WORKDIR }}/scripts
+
+    - name: Deploy
+      uses: appleboy/ssh-action@master
+      env:
+        WORKDIR: ${{ secrets.REMOTE_WORKDIR }}
+      with:
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        key: ${{ secrets.SERVER_SSH_KEY }}
+        envs: WORKDIR
+        script_stop: true
+        script: bash ${{ secrets.REMOTE_WORKDIR }}/scripts/deploy.sh

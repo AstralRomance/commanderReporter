@@ -132,3 +132,6 @@ dmypy.json
 Events
 *.code-workspace
 *.patch
+
+
+/frontend/node_modules

@@ -34,17 +34,17 @@ def generate_round(event_id: str, round_number: int, manager_svc: eventManagerSv
     output_info = manager_svc.get_full_event_data(event_id)
     return output_info
 
-@router.put('change-event-player/{event_id}/{player_id}')
+@router.put('/change-event-player/{event_id}/{player_id}')
 def update_player_on_event(event_id: str, player_id: str, player_data: AddPlayerToEvent, manager_svc: eventManagerSvc = Depends()):
     actual_player_data = manager_svc.update_player_on_event(event_id, player_id, player_data)
     return actual_player_data
 
-@router.delete('remove-player-from-event/{event_id}/{player_id}')
+@router.delete('/remove-player-from-event/{event_id}/{player_id}')
 def remove_player_from_event(event_id: str, player_id: str, manager_svc: eventManagerSvc = Depends()):
     manager_svc.remove_player_from_event(event_id, player_id)
     return manager_svc.get_full_event_data(event_id)
 
-@router.post('change-event-state/{event_id}')
+@router.post('/change-event-state/{event_id}')
 def change_event_state(event_id: str, target_state: str, manager_svc: eventManagerSvc = Depends()):
     manager_svc.change_event_state(event_id, target_state)
     return manager_svc.get_full_event_data(event_id)

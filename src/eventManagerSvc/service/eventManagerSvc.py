@@ -34,7 +34,7 @@ class eventManagerSvc:
         return (points * position_coefficient * round_coefficient) + sub_points / 15
 
     def get_full_event_data(self, event_id: str) -> Event:
-        return Event.to_dict(self.session.find_event_as_object(event_id))
+        return self.session.find_event(event_id)
 
     def change_event_state(self, event_id: str, target_state: str):
         return self.session.change_event_status(event_id, {'Status': target_state})
@@ -43,14 +43,14 @@ class eventManagerSvc:
         return self.session.update_player_on_event(event_id, player_id, player_data)
 
     def add_player_to_event(self, event_id: str, player_data: dict) -> Player:
-        target_event = self.session.find_event_as_object(event_id)
+        target_event = self.session.find_event(event_id)
         target_player_data = self.gen_default_player_params(copy(dict(player_data)))
         target_player_data = Player.to_object(target_player_data)
-        if target_event.players:
-            target_event.players.append(target_player_data)
+        if target_event.get('Players'):
+            target_event['Players'].append(target_player_data)
         else:
-            target_event.players = [target_player_data]
-        self.session.replace_event_as_object(event_id, target_event)
+            target_event['Players'] = [target_player_data]
+        self.session.replace_event(event_id, target_event)
         return Player.to_dict(target_player_data)
 
     def remove_player_from_event(self, event_id: str, player_id: str) -> Event:

@@ -12,7 +12,7 @@ export default class EventCard extends Component{
 
     componentDidMount()
     {
-        fetch("http://localhost:8002/events/", {mode: 'no-cors'})
+        fetch("https://edh-reporter.nikitacartes.xyz/events/", {mode: 'no-cors'})
         .then(res => res.json())
         .then(
             (result) => {

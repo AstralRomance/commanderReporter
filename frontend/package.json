@@ -26,7 +26,7 @@
       "react-app/jest"
     ]
   },
-  "proxy": "https://zalupa.nikitacartes.xyz",
+  "proxy": "https://edh-reporter.nikitacartes.xyz",
   "browserslist": {
     "production": [
       ">0.2%",

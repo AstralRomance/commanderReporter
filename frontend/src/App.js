@@ -1,17 +1,13 @@
-import React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
-import { useRoutes } from './routes'
+import React, {useState, useEffect} from 'react'
 import 'materialize-css'
-
+import EventCard from './components/EventCard';
 
 function App() {
-  const routes = useRoutes()
   return (
-    <Router>
-    <div className='container'>
-      {routes}
+    <div className='App'>
+        <h1>There is all events</h1>
+        <EventCard />
     </div>
-    </Router>
   );
 }
 

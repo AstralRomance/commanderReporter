@@ -1,5 +1,7 @@
 from typing import List
 from fastapi import APIRouter, Depends, Response, status
+from fastapi.encoders import jsonable_encoder
+from fastapi.responses import JSONResponse
 from ..models.events import EventBase, CreateEvent
 from ..service.eventSvc import EventService
 

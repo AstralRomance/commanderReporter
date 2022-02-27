@@ -16,7 +16,6 @@ export default class EventCard extends Component{
         .then(res => res.json())
         .then(
             (result) => {
-                console.log(result)
                 this.setState(
                     {
                         isLoaded: true,
@@ -31,20 +30,20 @@ export default class EventCard extends Component{
             }
         )
     }
-
+    // 
     render () {
         const {error, isLoaded, items} = this.state;
         if (error) {
             return <h2>Error {error.message}</h2>
-        } else if (!isLoaded) {
-            return <h2>Loading</h2>
-        } else {
-            return  (
+        }
+        else {
+            return (
+                //<p>{items.map(item => {return item.Event_name})}</p>
                 <ul>
-                    {items.map(item => {
-                        <li key={item.Event_id}>
+                    {items.map(item => { return(
+                        <li>
                             {item.Event_name}
-                        </li>
+                        </li>)
                     })}
                 </ul>
             )

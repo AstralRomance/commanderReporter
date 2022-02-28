@@ -38,7 +38,6 @@ export default class EventCard extends Component{
         }
         else {
             return (
-                //<p>{items.map(item => {return item.Event_name})}</p>
                 <ul>
                     {items.map(item => { return(
                         <li>

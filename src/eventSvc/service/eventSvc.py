@@ -14,7 +14,7 @@ class EventService:
     def _get(self, event_id: str) -> dict:
         event = self.session.find_event(event_id)
         if not event:
-            raise HTTPException('No event with chosen ID')
+            raise HTTPException(status_code=404, detail='No event with chosen ID')
         return event
 
     def get_event(self, event_id: str) -> dict:

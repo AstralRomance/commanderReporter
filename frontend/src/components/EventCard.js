@@ -12,7 +12,7 @@ export default class EventCard extends Component{
 
     componentDidMount()
     {
-        fetch("https://edh-reporter.nikitacartes.xyz/events/")
+        fetch("http://localhost:8002/events/all-events")
         .then(res => res.json())
         .then(
             (result) => {
@@ -38,13 +38,23 @@ export default class EventCard extends Component{
         }
         else {
             return (
-                <ul>
-                    {items.map(item => { return(
-                        <li>
-                            {item.Event_name}
-                        </li>)
-                    })}
-                </ul>
+                <div class="row">
+                    <div class="col s10 m3">
+                            {items.map(item => {return (
+                                <div class="card blue-grey darken-1">
+                                    <div class="card-content white-text">
+                                        <span class="card-title">
+                                            <h4>{item.Event_name}</h4>
+                                            <p>{item.Event_date}</p>
+                                        </span>
+                                    </div>
+                                    <div class="card-action">
+                                        <a href="#">Link to event page</a>
+                                    </div>
+                                </div>
+                        )})}
+                    </div>
+                </div>
             )
         }
     }

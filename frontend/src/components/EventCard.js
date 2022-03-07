@@ -45,7 +45,7 @@ export default class EventCard extends Component{
                                     <div class="card-content white-text">
                                         <span class="card-title">
                                             <h4>{item.Event_name}</h4>
-                                            <p>{item.Event_date}</p>
+                                            <p>{item.Event_Date}</p>
                                         </span>
                                     </div>
                                     <div class="card-action">

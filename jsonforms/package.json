@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "cypress": "^6.1.0",
-    "react-scripts": "^4.0.1",
+    "react-scripts": "^4.0.3",
     "start-server-and-test": "^1.11.6"
   },
   "scripts": {

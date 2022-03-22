@@ -3,10 +3,12 @@ import 'materialize-css'
 import EventCard from './components/EventCard';
 
 function App() {
+  const isBackgroundRed = false;
   return (
-    <div className='App'>
-        <h1>There is all events</h1>
-        <EventCard />
+    <div className={isBackgroundRed ? 'background-red' : 'background-blue'}>
+      <div className='App'>
+          <EventCard />
+      </div>
     </div>
   );
 }

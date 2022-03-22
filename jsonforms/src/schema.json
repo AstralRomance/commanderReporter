@@ -1,0 +1,82 @@
+{
+  "type": "object",
+  "properties": {
+    "Event_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Event_Date": {
+      "type": "string",
+      "format": "date"
+    },
+    "Status": {
+      "type": "string",
+      "enum": ["Open", "Closed", "хз", "Я не помню"]
+    },
+	
+	"Players": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Player_name": {
+            "type": "string"
+          },
+          "Commander": {
+            "type": "string"
+          },
+          "Deck_link": {
+            "type": "string"
+          },
+          "Points": {
+            "type": "integer"
+          },
+          "Sub_points": {
+            "type": "integer"
+          },
+          "Has_autowin": {
+            "type": "integer"
+          },
+          "Status": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+	
+	"Rounds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Number": {
+            "type": "integer"
+          },
+		  "Players_per_table" : {
+			"type": "array",
+			"items": {
+			  "type": "object",
+			  "properties": {
+			    "Table_number": {
+			  	  "type": "integer"
+			    },
+			    "Players_on_table" : {
+				  "type": "array",
+				  "items": {
+                    "type": "object",
+					"properties": {
+					  "Player": {
+					    "type": "string"
+				      }
+					}
+				  }
+			    }
+			  }
+			}
+		  }
+        }
+      }
+    }
+  },
+  "required": ["Event_name", "Event_Date"]
+}

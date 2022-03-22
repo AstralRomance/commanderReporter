@@ -9,10 +9,6 @@
       "type": "string",
       "format": "date"
     },
-    "Status": {
-      "type": "string",
-      "enum": ["Open", "Closed", "хз", "Я не помню"]
-    },
 	
 	"Players": {
       "type": "array",

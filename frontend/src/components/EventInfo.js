@@ -6,20 +6,28 @@ export default class EventInfo extends Component{
         this.state = {
             error: null,
             isLoaded: false,
-            eventData: null
+            eventId: null,
+            eventName: null,
+            eventDate: null,
+            eventPlayers: []
         }
     };
 
     componentDidMount(){
-        fetch("http://localhost:8002/events/8477f080-8066-448d-9101-84579f3faf23")
+        fetch("http://localhost:8000/event-manager/get-full-event-data/8477f080-8066-448d-9101-84579f3faf23")
         .then(res => res.json())
         .then(
             (result) => {
                 this.setState(
                     {
                         isLoaded: true,
-                        evendData: result
+                        eventId: result.Event_id,
+                        eventName: result.Event_name,
+                        eventDate: result.Event_Date,
+                        eventPlayers: result.Players
                     });
+                console.log(result)
+                console.log(result.Players)
             },
             (error) => {
                 this.setState({
@@ -31,9 +39,36 @@ export default class EventInfo extends Component{
     }
 
     render () {
+        const {error, isLoaded, eventId, eventName, eventDate, eventPlayers} = this.state;
         return (
-            <div className="EventInfoContainer">
-                <h1 align="center">evendData.Event_name</h1>
+            <div className="container">
+                <h1 align="center">{eventName}</h1>
+                <h3 align="center">{eventDate}</h3>
+                <div className="row">
+                    <div className="col s10">
+                            <ul className="tabs">
+                                <li className="tab col s4"><a href="#start">Start</a></li>
+                                <li className="tab col s4"><a href="#round1">Round 1</a></li>
+                                <li className="tab col s4"><a href="#round1">Round 1</a></li>
+                            </ul>
+                    </div>
+                </div>
+                <div className="row">
+                    {eventPlayers.map(player => { return (
+                        <div className="col s2 offset-s10">
+                            <div className="card horizontal">
+                                <div className="card-stacked">
+                                    <div className="card-content">{player.Player_name}</div>
+                                </div>
+                                <div className="card-action">
+                                    <a class="waves-effect waves-light btn-small">
+                                        Remove
+                                    </a>
+                                </div>
+                    </div>
+                </div>
+                    )})}
+                    </div>
             </div>
         )
     }

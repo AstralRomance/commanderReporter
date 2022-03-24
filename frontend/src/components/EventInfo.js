@@ -48,27 +48,38 @@ export default class EventInfo extends Component{
                     <div className="col s10">
                             <ul className="tabs">
                                 <li className="tab col s4"><a href="#start">Start</a></li>
-                                <li className="tab col s4"><a href="#round1">Round 1</a></li>
+                                <li className="tab col s4"><a href="#Standings">Standings</a></li>
                                 <li className="tab col s4"><a href="#round1">Round 1</a></li>
                             </ul>
                     </div>
                 </div>
+                
                 <div className="row">
-                    {eventPlayers.map(player => { return (
-                        <div className="col s2 offset-s10">
-                            <div className="card horizontal">
-                                <div className="card-stacked">
-                                    <div className="card-content">{player.Player_name}</div>
+                    <div className="col s4 offset-s10">
+                        <ul className="collection with-header">
+                            <li className="collection-header"><h5>Players</h5></li>
+                        {eventPlayers.map(player => {return (
+                            <li className="collection-item">
+                                {player.Player_name}
+                                <div className="input-field inline" width="48">
+                                    <input id="points_inline" type="text" class="validate" />
+                                    <label for="points_inline">Points</label>
                                 </div>
-                                <div className="card-action">
-                                    <a class="waves-effect waves-light btn-small">
-                                        Remove
-                                    </a>
+                                <div className="input-field inline" width="48">
+                                    <input id="tiebreaks_inline" type="text" class="validate" />
+                                    <label for="tiebreaks_inline">Tiebreaks</label>
                                 </div>
+                                <button>
+                                    Submit
+                                </button>
+                                <button>
+                                    Remove
+                                </button>
+                            </li>
+                        )})}
+                        </ul>
                     </div>
                 </div>
-                    )})}
-                    </div>
             </div>
         )
     }

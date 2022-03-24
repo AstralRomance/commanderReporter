@@ -30,7 +30,7 @@ export default class EventCard extends Component{
             }
         )
     }
-    // 
+    
     render () {
         const {error, isLoaded, items} = this.state;
         if (error) {
@@ -40,7 +40,7 @@ export default class EventCard extends Component{
             return (
                 <div className="container">
                     <h1 align="center">There is all events</h1>
-                    <div class="row">
+                    <div className="row">
                                 {items.map(item => {return (
                                     <div className="col s4">
                                         <div className="card blue-grey darken-1">
@@ -52,7 +52,7 @@ export default class EventCard extends Component{
                                             </div>
                                             <div className="card-action">
                                                 {/* Good way is rework it using NavLink */}
-                                                <a href={`http://localhost:3000/events/${item.Event_id}`}>Go to event {'>'}</a>
+                                                <a href={`http://localhost:3000/event/${item.Event_id}`}>Go to event {'>'}</a>
                                             </div>
                                         </div>
                                     </div>

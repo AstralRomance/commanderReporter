@@ -76,52 +76,66 @@ export default class Json extends Component{
 
     render () {
         return (
-        <div><h1>Our Event</h1>
-        <Formik
-        initialValues={initialData}
-        onSubmit={values =>
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              }, 500)
-        }
-        render={({values}) => (
-            <Form>
-              <Field name="Event_id"/>
-              <Field name="Event_name"/>
-              <Field name="Event_Date"/>
-              <FieldArray name="Players"
-                          render={arrayHelpers => (
-                              <div>
-                                {values.Players && values.Players.length > 0 ? (
-                                    values.Players.map((player, index) => (
-                                        <div key={index}>
-                                          <Field name={`Players.${index}.Player_name`}/>
-                                          <Field name={`Players.${index}.Commander`}/>
-                                          <Field name={`Players.${index}.Deck_link`}/>
-                                          <Field name={`Players.${index}.Points`}/>
-                                          <Field name={`Players.${index}.Sub_points`}/>
-                                          <Field name={`Players.${index}.Has_autowin`}/>
-                                          <Field name={`Players.${index}.Status`}/>
-                                          <button type="button"
-                                                  onClick={() => arrayHelpers.remove(index)}
-                                                  >
-                                            -
-                                          </button>
-                                          <button type="button"
-                                                  onClick={() => arrayHelpers.insert(index)}
-                                                  >
-                                            +
-                                          </button>
+        <div>
+            <h1>Our Event</h1>
+            <Formik
+            onSubmit={values =>
+                setTimeout(() => {
+                alert(JSON.stringify(values, null, 2));
+                }, 500)
+            }
+            render={({values}) => (
+                <div className="row">
+                    <div className="col s6">
+                        <Form align="left">
+                        <Field name="Event_id"/>
+                        <Field name="Event_name"/>
+                        <Field name="Event_Date"/>
+                        </Form>
+                    </div>
+                    <div className="col s4">
+                        <Form align="center">
+                            <Field name="Player_name" />
+                            <Field name="Commander" />
+                            <Field name="Deck_link" />
+                            <button type="submit">
+                                add player
+                            </button>
+                        </Form>
+                    </div>
+                <div className="row">
+                <Form>
+                        <FieldArray name="Players"
+                                    render={arrayHelpers => (
+                                        <div className="col s2 offset-s10">
+                                            {values.Players && values.Players.length > 0 ? (
+                                                values.Players.map((player, index) => (
+                                                    <div key={index}>
+                                                    <Field name={`Players.${index}.Player_name`}/>
+                                                    <Field name={`Players.${index}.Commander`}/>
+                                                    <Field name={`Players.${index}.Deck_link`}/>
+                                                    <button type="button"
+                                                            onClick={() => arrayHelpers.remove(index)}
+                                                            >
+                                                        -
+                                                    </button>
+                                                    <button type="button"
+                                                            onClick={() => arrayHelpers.insert(index)}
+                                                            >
+                                                        +
+                                                    </button>
+                                                    </div>
+                                                ))
+                                            ) : (<button>Nothing</button>) }
+                                            <div>
+                                            <button type="submit">Sumbit</button>
+                                            </div>
                                         </div>
-                                    ))
-                                ) : (<button>Nothing</button>) }
-                                <div>
-                                  <button type="submit">Sumbit</button>
-                                </div>
-                              </div>
-                          )}
-                          />
-            </Form>
+                                    )}
+                                    />
+                    </Form>
+                </div>
+            </div>
         )}/>
         </div>
         );

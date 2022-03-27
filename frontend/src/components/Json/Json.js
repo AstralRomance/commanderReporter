@@ -77,7 +77,12 @@ export default class Json extends Component{
     render () {
         return (
         <div>
-            <h1>Our Event</h1>
+            <h1 align="center">New Event</h1>
+            <div className="row">
+                <button className="btn waves-effect waves-light-large col s1">
+                    Start!
+                </button>
+            </div>
             <Formik
             onSubmit={values =>
                 setTimeout(() => {
@@ -92,20 +97,17 @@ export default class Json extends Component{
                             <Field name="Event_name"/>
                             <Field name="Event_Date"/>
                             {/* onClick={fetch("http://localhost:8002/events/add-event", {method: "POST"})} */}
-                            <button type="submit">
+                            <button className="btn waves-effect waves-light" type="submit">
                                 Create event
                             </button>
                         </Form>
-                    <button>
-                        Start!
-                    </button>
                     </div>
                     <div className="col s4">
-                        <Form align="center">
+                        <Form align="left">
                             <Field name="Player_name" />
                             <Field name="Commander" />
                             <Field name="Deck_link" />
-                            <button type="submit">
+                            <button className="btn waves-effect waves-light" type="submit">
                                 add player
                             </button>
                         </Form>

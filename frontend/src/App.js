@@ -4,6 +4,7 @@ import 'materialize-css'
 import EventCard from './components/EventCard';
 import EventInfo from './components/EventInfo'
 import CreateEvent from './components/CreateEvent'
+import Json from './components/Json/Json'
 
 function App() {
   const isBackgroundRed = false;
@@ -28,6 +29,7 @@ function App() {
               <Route exact path="/event" element={<EventInfo />} />
               <Route exact path="/create-event" element={<CreateEvent />} />
               <Route path="/" element={<Navigate replace to="/events" />} />
+              <Route path="/json" element={<Json/>} />
             </Routes>
           </Router>
       </div>

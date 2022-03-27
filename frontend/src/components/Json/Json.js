@@ -88,10 +88,17 @@ export default class Json extends Component{
                 <div className="row">
                     <div className="col s6">
                         <Form align="left">
-                        <Field name="Event_id"/>
-                        <Field name="Event_name"/>
-                        <Field name="Event_Date"/>
+                            <Field name="Event_id"/>
+                            <Field name="Event_name"/>
+                            <Field name="Event_Date"/>
+                            {/* onClick={fetch("http://localhost:8002/events/add-event", {method: "POST"})} */}
+                            <button type="submit">
+                                Create event
+                            </button>
                         </Form>
+                    <button>
+                        Start!
+                    </button>
                     </div>
                     <div className="col s4">
                         <Form align="center">
@@ -103,39 +110,7 @@ export default class Json extends Component{
                             </button>
                         </Form>
                     </div>
-                <div className="row">
-                <Form>
-                        <FieldArray name="Players"
-                                    render={arrayHelpers => (
-                                        <div className="col s2 offset-s10">
-                                            {values.Players && values.Players.length > 0 ? (
-                                                values.Players.map((player, index) => (
-                                                    <div key={index}>
-                                                    <Field name={`Players.${index}.Player_name`}/>
-                                                    <Field name={`Players.${index}.Commander`}/>
-                                                    <Field name={`Players.${index}.Deck_link`}/>
-                                                    <button type="button"
-                                                            onClick={() => arrayHelpers.remove(index)}
-                                                            >
-                                                        -
-                                                    </button>
-                                                    <button type="button"
-                                                            onClick={() => arrayHelpers.insert(index)}
-                                                            >
-                                                        +
-                                                    </button>
-                                                    </div>
-                                                ))
-                                            ) : (<button>Nothing</button>) }
-                                            <div>
-                                            <button type="submit">Sumbit</button>
-                                            </div>
-                                        </div>
-                                    )}
-                                    />
-                    </Form>
                 </div>
-            </div>
         )}/>
         </div>
         );

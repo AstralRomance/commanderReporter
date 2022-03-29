@@ -158,6 +158,10 @@ export default class Json extends Component {
                                         <Field name="Player_name" placeholder="Player_name"/>
                                         <Field name="Commander" placeholder="Commander"/>
                                         <Field name="Deck_link" placeholder="Deck_link"/>
+                                        <button className="btn waves-effect waves-light" type="button"
+                                                onClick={() => arrayHelpers.remove(index)}>
+                                            Delete this player
+                                        </button>
                                     </div>))}
                                     <button className="btn waves-effect waves-light" type="button"
                                             onClick={() => arrayHelpers.push({

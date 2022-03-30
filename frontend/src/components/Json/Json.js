@@ -91,9 +91,11 @@ fetch(myRequest)
 export default class Json extends Component {
 
     render() {
-        return (<div>
+        return (
+        <div>
             <h1 align="center">New Event</h1>
-            <div className="row" onClick={() => {
+            <div className="row">
+                <button className="btn waves-effect waves-light-large col s1" onClick={() => {
                 const xhr = new XMLHttpRequest();
                 // Add event_id
                 xhr.open("POST", "http://localhost:8002/event-manager/change-event-state/", true);
@@ -107,7 +109,6 @@ export default class Json extends Component {
                 const data = JSON.stringify("Started", null, 2);
                 xhr.send(data);
             }}>
-                <button className="btn waves-effect waves-light-large col s1">
                     Start!
                 </button>
             </div>
@@ -134,7 +135,7 @@ export default class Json extends Component {
                 render={({values, setFieldValue}) => (<div className="row">
                     <div className="col s6">
                         <Form align="left">
-                            <Field name="Event_id" readOnly placeholder="Event_id"/>
+                            {/* <Field name="Event_id" readOnly placeholder="Event_id"/> */}
                             <Field name="Event_name" placeholder="Event_name"/>
                             <DatePicker
                                 selected={values.startDate}

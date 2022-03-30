@@ -15,6 +15,7 @@ class PlayerInfo(AddPlayerToEvent):
     Deck_link: Union[str, None]
     Points: int
     Sub_points: int
+    Hidden_points: float
 
 class BaseEvenForPlayer(BaseModel):
     Event_id: str

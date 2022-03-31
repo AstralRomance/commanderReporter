@@ -39,6 +39,7 @@ class GeneralEventInfo(BaseModel):
     Event_name: str
     Event_Date: datetime
     Players: List[PlayerInfo]
+    Rounds: List
 
 class FullEventInfo(BaseModel):
     pass

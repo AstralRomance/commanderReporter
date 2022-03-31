@@ -12,7 +12,8 @@ export default class EventInfo extends Component{
             eventId: null,
             eventName: null,
             eventDate: null,
-            eventPlayers: []
+            eventPlayers: [],
+            eventRounds: []
         }
     };
 
@@ -23,16 +24,17 @@ export default class EventInfo extends Component{
         .then(
             (result) => {
                 const sortedPlayers = result.Players.sort(function(a, b) {return parseFloat(b.Hidden_points) - parseFloat(a.Hidden_points);})
+                const rounds = result.Rounds
                 this.setState(
                     {
-                        isLoaded: true,
                         eventId: result.Event_id,
                         eventName: result.Event_name,
                         eventDate: result.Event_Date,
-                        eventPlayers: sortedPlayers
+                        eventPlayers: sortedPlayers,
+                        eventRounds: rounds
                     });
                 console.log(result)
-                console.log(result.Players)
+                console.log(rounds)
             },
             (error) => {
                 this.setState({
@@ -43,73 +45,121 @@ export default class EventInfo extends Component{
         )
     }
 
+    update_points () {
+        
+    }
+
     render () {
-        const {error, isLoaded, eventId, eventName, eventDate, eventPlayers} = this.state;
+        const {error, isLoaded, eventId, eventName, eventDate, eventPlayers, eventRounds} = this.state;
         return (
             <div>
                 <h1 align="center">{eventName}</h1>
                 <h3 align="center">{eventDate}</h3>
                 <div className="row">
+                    <button className="btn waves-effect waves-light-large col s2">
+                        New Round
+                    </button>
+                    <button className="btn waves-effect waves-light-large col s1">
+                        Finish Event
+                    </button>
+                </div>
+                <div className="row">
                     <div className="col s12">
                             <ul ref={Tabs=>{this.Tabs = Tabs;}} className="tabs z-depth-1" id="eventTabs">
                                 <li className="tab col"><a href="#standings">Standings</a></li>
                                 <li className="tab col"><a href="#players">Players</a></li>
-                                <li className="tab col"><a href="#round1">Round 1</a></li>
+                                {
+                                    eventRounds.map(round => {
+                                        return (
+                                            <li className="tab col"><a href={`#round${round.Number}`}>{`Round ${round.Number}`}</a></li>
+                                        )
+                                    })
+                                }
                             </ul>
-
                             <div id="standings" className="col s12">
-                                <ul className="collection with-header">
-                                    <li className="collection-header">
-                                        <h5>Standings</h5>
-                                    </li>
-                                    {
-                                        eventPlayers.map((player, index) => {
-                                            return(
-                                                <li className="collection-item">
-                                                    <h5>{index + 1}</h5>
-                                                    <h5>{player.Player_name}    </h5>
-                                                    <h6>{player.Points}    </h6>
-                                                    <h6>{player.Sub_points}    </h6>
-                                                </li>
-                                            )
-                                        })
-                                    }
-                                </ul>
+                                <table className="highlight">
+                                    <tbody>
+                                        {
+                                            eventPlayers.map((player, index) => {
+                                                return(
+                                                    <tr>
+                                                        <td>{index + 1}</td>
+                                                        <td>{player.Player_name}</td>
+                                                        <td>{player.Points}</td>
+                                                        <td>{player.Sub_points}</td>
+                                                    </tr>
+                                                )
+                                            })
+                                        }
+                                    </tbody>
+                                </table>
                             </div>
                             <div id="players" className="col s12">
-                                <ul className="collection with-header">
-                                <li className="collection-header"><h5>Players</h5></li>
-                                    {eventPlayers.map(player => {return (
-                                        <li className="collection-item">
-                                            {player.Player_name}
-                                            <div className="input-field">
-                                                <input id="points" type="text" className="validate" />
-                                                <label for="points">Points</label>
-                                            </div>
-                                            <div className="input-field">
-                                                <input id="tiebreaks" type="text" className="validate" />
-                                                <label for="tiebreaks">Tiebreaks</label>
-                                            </div>
-                                            <span>
-                                                <button>
-                                                    Submit
-                                                </button>
-                                                <button>
-                                                    Remove
-                                                </button>
-                                            </span>
-                                        </li>
-                            )})}
-                            </ul>
+                            <table className="highlight">
+                                    <tbody>
+                                        {
+                                            eventPlayers.map(player => {
+                                                return(
+                                                    <tr>
+                                                        <td width="20%">{player.Player_name}</td>
+                                                        <td width="5%">{player.Points}</td>
+                                                        <td width="5%">{player.Sub_points}</td>
+                                                        <td width="20%">
+                                                            <div className="input-field">
+                                                                <input id="points" type="text" className="validate" />
+                                                                <label for="points">Points</label>
+                                                            </div>
+                                                        </td>
+                                                        <td width="20%">
+                                                            <div className="input-field">
+                                                                <input id="tiebreaks" type="text" className="validate" />
+                                                                <label for="tiebreaks">Tiebreaks</label>
+                                                            </div>
+                                                        </td>
+                                                        <td width="20%">
+                                                            <button className="btn waves-effect waves-light" type="submit">
+                                                                Submit
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                )
+                                            })
+                                        }
+                                    </tbody>
+                                </table>
                         </div>
-                        <div id="round1" className="col s12">
-                            <h3>
-                                Test info
-                            </h3>
+                        <div className="col">
+                        {
+                            eventRounds.map(round => {
+                                return (
+                                    <div id={`round${round.Number}`}>
+                                        {
+                                            round.Players_on_table.map(table_info => {
+                                                return (
+                                                    <div className="col s4">
+                                                        <div className="card blue-grey darken-1">
+                                                        {
+                                                            table_info.Table_players.map(player => {
+                                                                return(
+                                                                    <div className="card-content white-text">
+                                                                        {player}
+                                                                    </div>
+                                                                )
+                                                            })
+                                                        }
+                                                        </div>
+                                                    </div>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                )
+                            })
+                        }
                         </div>
                     </div>
                 </div>
             </div>
         )
     }
-}
+}  

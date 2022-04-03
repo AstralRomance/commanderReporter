@@ -3,6 +3,19 @@ import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 
 
+function updatePointsRequest(endpoint, event_id, player_id, params, data, callback) {
+    const xhr = new XMLHttpRequest();
+    xhr.open("PUT", "http://localhost:8000/event-manager/" + endpoint + "/" + event_id + "/" + player_id + "?" + params, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            callback(JSON.parse(xhr.responseText));
+        }
+    };
+    xhr.send(JSON.stringify(data));
+}
+
+
 export default class EventInfo extends Component{
     constructor(props){
         super(props)
@@ -45,10 +58,6 @@ export default class EventInfo extends Component{
         )
     }
 
-    update_points () {
-        
-    }
-
     render () {
         const {error, isLoaded, eventId, eventName, eventDate, eventPlayers, eventRounds} = this.state;
         return (
@@ -56,11 +65,11 @@ export default class EventInfo extends Component{
                 <h1 align="center">{eventName}</h1>
                 <h3 align="center">{eventDate}</h3>
                 <div className="row">
+                    <button className="btn waves-effect waves-light-large col s1 offset-s11">
+                        Finish Event
+                    </button>
                     <button className="btn waves-effect waves-light-large col s2">
                         New Round
-                    </button>
-                    <button className="btn waves-effect waves-light-large col s1">
-                        Finish Event
                     </button>
                 </div>
                 <div className="row">
@@ -106,18 +115,24 @@ export default class EventInfo extends Component{
                                                         <td width="5%">{player.Sub_points}</td>
                                                         <td width="20%">
                                                             <div className="input-field">
-                                                                <input id="points" type="text" className="validate" />
+                                                                <input id={`${player.Player_id}+1`} type="text" className="validate" />
                                                                 <label for="points">Points</label>
                                                             </div>
                                                         </td>
                                                         <td width="20%">
                                                             <div className="input-field">
-                                                                <input id="tiebreaks" type="text" className="validate" />
+                                                                <input id={`${player.Player_id}+2`} type="text" className="validate" />
                                                                 <label for="tiebreaks">Tiebreaks</label>
                                                             </div>
                                                         </td>
                                                         <td width="20%">
-                                                            <button className="btn waves-effect waves-light" type="submit">
+                                                            <button className="btn waves-effect waves-light" type="submit" onClick={() =>{
+                                                                updatePointsRequest("update-player-points",
+                                                                                    eventId, player.Player_id,
+                                                                                    "round_num=2",
+                                                                                    {"Points": document.getElementById(`${player.Player_id}+1`).value,
+                                                                                     "Sub_points": document.getElementById(`${player.Player_id}+2`).value})
+                                                            }}>
                                                                 Submit
                                                             </button>
                                                         </td>
@@ -128,26 +143,32 @@ export default class EventInfo extends Component{
                                     </tbody>
                                 </table>
                         </div>
-                        <div className="col">
                         {
                             eventRounds.map(round => {
                                 return (
                                     <div id={`round${round.Number}`}>
                                         {
                                             round.Players_on_table.map(table_info => {
-                                                return (
-                                                    <div className="col s4">
-                                                        <div className="card blue-grey darken-1">
-                                                        {
-                                                            table_info.Table_players.map(player => {
-                                                                return(
-                                                                    <div className="card-content white-text">
-                                                                        {player}
-                                                                    </div>
-                                                                )
-                                                            })
-                                                        }
-                                                        </div>
+                                                return(
+                                                    <div className="col s6">
+                                                        <ul className="collection with-header">
+                                                            <li className="collection-header">
+                                                                <h5>
+                                                                    Table {table_info.Table_num}
+                                                                </h5>
+                                                            </li>
+                                                            {
+                                                                table_info.Table_players.map(player => {
+                                                                    return(
+                                                                    <li className="collection-item">
+                                                                        <h6>
+                                                                            {player}
+                                                                        </h6>
+                                                                    </li>
+                                                                    )
+                                                                })
+                                                            }
+                                                        </ul>
                                                     </div>
                                                 )
                                             })
@@ -156,10 +177,9 @@ export default class EventInfo extends Component{
                                 )
                             })
                         }
-                        </div>
                     </div>
                 </div>
             </div>
         )
     }
-}  
+}

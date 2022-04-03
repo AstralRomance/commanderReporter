@@ -22,7 +22,7 @@ def remove_player_from_event(event_id: str, player_id: str, manager_svc: EventMa
     return manager_svc.remove_player_from_event(event_id, player_id)
 
 
-@router.put('/update-player-points/{event_id}/{Round_num}/{player_id}')
+@router.put('/update-player-points/{event_id}/{player_id}')
 def update_player_points(event_id: str, player_id: str, round_num: int, player_data: UpdatePlayerPoints,
                          manager_svc: EventManagerSvc = Depends()):
     return manager_svc.update_player_points(event_id, player_id, round_num, player_data)

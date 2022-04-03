@@ -16,6 +16,19 @@ export const DatePickerField = ({...props}) => {
     />);
 };
 
+function postRequest(endpoint, id, data, callback) {
+    const xhr = new XMLHttpRequest();
+    // Add event_id
+    xhr.open("POST", "http://localhost:8002/" + endpoint + "/" + id, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            callback(JSON.parse(xhr.responseText));
+        }
+    };
+    xhr.send(data);
+}
+
 let initialData = {
     "Event_id": "8477f080-8066-448d-9101-84579f3faf23",
     "Event_name": "string",
@@ -91,24 +104,15 @@ fetch(myRequest)
 export default class Json extends Component {
 
     render() {
-        return (
-        <div>
+        return (<div>
             <h1 align="center">New Event</h1>
             <div className="row">
-                <button className="btn waves-effect waves-light-large col s1" onClick={() => {
-                const xhr = new XMLHttpRequest();
-                // Add event_id
-                xhr.open("POST", "http://localhost:8002/event-manager/change-event-state/", true);
-                xhr.setRequestHeader("Content-Type", "application/json");
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-                        const json = JSON.parse(xhr.responseText);
-                        console.log(json);
-                    }
-                };
-                const data = JSON.stringify("Started", null, 2);
-                xhr.send(data);
-            }}>
+                <button id="startButton" className="btn waves-effect waves-light-large col s1" onClick={() => {
+                    postRequest("event-manager/change-event-state", document.getElementById("Event_id").value, JSON.stringify("Started", null, 2), () => {
+                        document.getElementById("startButton").textContent = "Started";
+                        document.getElementById("startButton").setAttribute("disabled", "disabled");
+                    });
+                }}>
                     Start!
                 </button>
             </div>
@@ -119,23 +123,14 @@ export default class Json extends Component {
                     Players: [{Player_name: "Player_name", Commander: "Commander", Deck_link: "Deck_link"}]
                 }}
                 onSubmit={values => {
-                    const xhr = new XMLHttpRequest();
-                    xhr.open("POST", "http://localhost:8002/events/add-event/", true);
-                    xhr.setRequestHeader("Content-Type", "application/json");
-                    xhr.onreadystatechange = function () {
-                        if (xhr.readyState === 4 && xhr.status === 200) {
-                            const json = JSON.parse(xhr.responseText);
-                            console.log(json);
-                        }
-                    };
-                    const data = JSON.stringify(values, null, 2);
-                    console.log(data)
-                    xhr.send(data);
+                    postRequest("events/add-event", "", JSON.stringify(values, null, 2), json => {
+                        document.getElementById("Event_id").value = json.Event_id;
+                    });
                 }}
                 render={({values, setFieldValue}) => (<div className="row">
                     <div className="col s6">
                         <Form align="left">
-                            {/* <Field name="Event_id" readOnly placeholder="Event_id"/> */}
+                            <Field name="Event_id" id="Event_id" readOnly type="hidden" placeholder="Event_id"/>
                             <Field name="Event_name" placeholder="Event_name"/>
                             <DatePicker
                                 selected={values.startDate}
@@ -144,7 +139,6 @@ export default class Json extends Component {
                                 name="Event_Date"
                                 onChange={date => setFieldValue('startDate', date)}
                             />
-                            {/*<Field name="Event_Date" placeholder="Event_Date"/>*/}
                             <button className="btn waves-effect waves-light" type="submit">
                                 Create event
                             </button>
@@ -156,9 +150,9 @@ export default class Json extends Component {
                                 name="Players"
                                 render={arrayHelpers => (<div>
                                     {values.Players.map((player, index) => (<div key={index}>
-                                        <Field name="Player_name" placeholder="Player_name"/>
-                                        <Field name="Commander" placeholder="Commander"/>
-                                        <Field name="Deck_link" placeholder="Deck_link"/>
+                                        <Field name={`Players.${index}.Player_name`} placeholder="Player_name"/>
+                                        <Field name={`Players.${index}.Commander`} placeholder="Commander"/>
+                                        <Field name={`Players.${index}.Deck_link`} placeholder="Deck_link"/>
                                         <button className="btn waves-effect waves-light" type="button"
                                                 onClick={() => arrayHelpers.remove(index)}>
                                             Delete this player

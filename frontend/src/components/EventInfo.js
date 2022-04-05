@@ -57,9 +57,9 @@ class EventInfo extends Component{
     componentDidMount(){
         M.Tabs.init(this.Tabs)
         console.log('$$$$$$$$$$$$$$$$$$$$$$$')
-        // const { target_event_id } = this.props.match
-        console.log(this.props.location.search)
-        const target_url = `http://localhost:8000/event-manager/get-full-event-data/8477f080-8066-448d-9101-84579f3faf23`
+        const actual_url = document.URL;
+        const target_event_id = actual_url.split('/').at(-1)
+        const target_url = `http://localhost:8000/event-manager/get-full-event-data/${target_event_id}`
         fetch(target_url)
         .then(res => res.json())
         .then(

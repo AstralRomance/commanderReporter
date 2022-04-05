@@ -27,7 +27,7 @@ function App() {
           <Router>
             <Routes>
               <Route exact path="/events" element={<EventCard />} />
-              <Route exact path="/event/:target_event_id" element={<EventInfo />} />
+              <Route exact path={"event/:target_event_id"} element={<EventInfo />} />
               <Route exact path="/create-event" element={<CreateEvent />} />
               <Route path="/" element={<Navigate replace to="/events" />} />
               <Route path="/json" element={<Json/>} />

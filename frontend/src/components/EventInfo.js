@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 
-
 function updatePointsRequest(endpoint, event_id, player_id, params, data, callback) {
     const xhr = new XMLHttpRequest();
     xhr.open("PUT", "http://localhost:8000/event-manager/" + endpoint + "/" + event_id + "/" + player_id + "?" + params, true);
@@ -15,8 +14,33 @@ function updatePointsRequest(endpoint, event_id, player_id, params, data, callba
     xhr.send(JSON.stringify(data));
 }
 
+function generateNewRound(endpoint, event_id, params, callback)
+{
+    const xhr = new XMLHttpRequest();
+    xhr.open("PUT", "http://localhost:8000/event-manager/" + endpoint + "/" + event_id + "?" + params);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            callback(JSON.parse(xhr.responseText));
+        }
+    };
+    xhr.send();
+}
 
-export default class EventInfo extends Component{
+function finishEvent(endpoint, event_id, params, callback)
+{
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost:8000/event-manager/" + endpoint + "/" + event_id + "?" + params);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            callback(JSON.parse(xhr.responseText));
+        }
+    };
+    xhr.send();
+}
+
+class EventInfo extends Component{
     constructor(props){
         super(props)
         this.state = {
@@ -32,12 +56,18 @@ export default class EventInfo extends Component{
 
     componentDidMount(){
         M.Tabs.init(this.Tabs)
-        fetch("http://localhost:8000/event-manager/get-full-event-data/8477f080-8066-448d-9101-84579f3faf23")
+        console.log('$$$$$$$$$$$$$$$$$$$$$$$')
+        // const { target_event_id } = this.props.match
+        console.log(this.props.location.search)
+        const target_url = `http://localhost:8000/event-manager/get-full-event-data/8477f080-8066-448d-9101-84579f3faf23`
+        fetch(target_url)
         .then(res => res.json())
         .then(
             (result) => {
+                console.log(result)
                 const sortedPlayers = result.Players.sort(function(a, b) {return parseFloat(b.Hidden_points) - parseFloat(a.Hidden_points);})
                 const rounds = result.Rounds
+                console.log(rounds)
                 this.setState(
                     {
                         eventId: result.Event_id,
@@ -46,8 +76,6 @@ export default class EventInfo extends Component{
                         eventPlayers: sortedPlayers,
                         eventRounds: rounds
                     });
-                console.log(result)
-                console.log(rounds)
             },
             (error) => {
                 this.setState({
@@ -65,10 +93,10 @@ export default class EventInfo extends Component{
                 <h1 align="center">{eventName}</h1>
                 <h3 align="center">{eventDate}</h3>
                 <div className="row">
-                    <button className="btn waves-effect waves-light-large col s1 offset-s11">
+                    <button className="btn waves-effect waves-light-large col s1 offset-s11" type="submit" onClick={() => {finishEvent("change-event-state", eventId, "target_state=finished")}}>
                         Finish Event
                     </button>
-                    <button className="btn waves-effect waves-light-large col s2">
+                    <button className="btn waves-effect waves-light-large col s2" type="submit" onClick={() => {generateNewRound("generate-round", eventId, `round_num=${eventRounds.length+1}`)}}>
                         New Round
                     </button>
                 </div>
@@ -109,7 +137,7 @@ export default class EventInfo extends Component{
                                         {
                                             eventPlayers.map(player => {
                                                 return(
-                                                    <tr>
+                                                    <tr height="80%">
                                                         <td width="20%">{player.Player_name}</td>
                                                         <td width="5%">{player.Points}</td>
                                                         <td width="5%">{player.Sub_points}</td>
@@ -129,7 +157,7 @@ export default class EventInfo extends Component{
                                                             <button className="btn waves-effect waves-light" type="submit" onClick={() =>{
                                                                 updatePointsRequest("update-player-points",
                                                                                     eventId, player.Player_id,
-                                                                                    "round_num=2",
+                                                                                    `round_num=${eventRounds.length}`,
                                                                                     {"Points": document.getElementById(`${player.Player_id}+1`).value,
                                                                                      "Sub_points": document.getElementById(`${player.Player_id}+2`).value})
                                                             }}>
@@ -161,9 +189,7 @@ export default class EventInfo extends Component{
                                                                 table_info.Table_players.map(player => {
                                                                     return(
                                                                     <li className="collection-item">
-                                                                        <h6>
-                                                                            {player}
-                                                                        </h6>
+                                                                        {player.name}
                                                                     </li>
                                                                     )
                                                                 })
@@ -183,3 +209,5 @@ export default class EventInfo extends Component{
         )
     }
 }
+
+export default EventInfo

@@ -5,6 +5,7 @@ import EventCard from './components/EventCard';
 import EventInfo from './components/EventInfo'
 import CreateEvent from './components/CreateEvent'
 import Json from './components/Json/Json'
+import EventInfoComponent from './components/EventInfo';
 
 function App() {
   const isBackgroundRed = false;
@@ -26,7 +27,7 @@ function App() {
           <Router>
             <Routes>
               <Route exact path="/events" element={<EventCard />} />
-              <Route exact path="/event" element={<EventInfo />} />
+              <Route exact path="/event/:target_event_id" element={<EventInfo />} />
               <Route exact path="/create-event" element={<CreateEvent />} />
               <Route path="/" element={<Navigate replace to="/events" />} />
               <Route path="/json" element={<Json/>} />

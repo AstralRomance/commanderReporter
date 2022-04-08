@@ -1,12 +1,28 @@
 from typing import List, Union
 from datetime import datetime
 from pydantic import BaseModel
-    
+
 
 class AddPlayerToEvent(BaseModel):
     Player_name: str
     Commander: str
     Deck_link: Union[str, None]
+
+
+class PlayerOnTable(BaseModel):
+    name: str
+    id: str
+
+
+class Table(BaseModel):
+    Table_num: int
+    Table_players: List[PlayerOnTable]
+
+
+class Round(BaseModel):
+    Number: int
+    Players_on_table: List[Table]
+
 
 class PlayerInfo(AddPlayerToEvent):
     Player_id: str
@@ -17,9 +33,11 @@ class PlayerInfo(AddPlayerToEvent):
     Sub_points: int
     Hidden_points: float
 
+
 class BaseEvenForPlayer(BaseModel):
     Event_id: str
     player_data: AddPlayerToEvent
+
 
 class PlayerBase(BaseModel):
     Player_id: int
@@ -30,16 +48,20 @@ class PlayerBase(BaseModel):
     Sub_points: int
     Has_autowin: bool
 
+
 class UpdatePlayerPoints(BaseModel):
     Points: int
     Sub_points: int
+
 
 class GeneralEventInfo(BaseModel):
     Event_id: str
     Event_name: str
     Event_Date: datetime
     Players: List[PlayerInfo]
-    Rounds: List
+    Rounds: Union[List[Round], None]
+    Is_finished: bool
+
 
 class FullEventInfo(BaseModel):
     pass

@@ -1,0 +1,187 @@
+{
+    "_id": {
+      "$oid": "61f91b355da79d6d256b95cd"
+    },
+    "Event_id": "8477f080-8066-448d-9101-84579f3faf23",
+    "Event_name": "string",
+    "Event_Date": "0",
+    "Status": "created",
+    "Players": [
+      {
+        "Player_id": "5e1d5965-6d8f-4de1-a6ab-8f77c2ca131c",
+        "Player_name": "qweqweqwe5",
+        "Commander": "string",
+        "Deck_link": "string",
+        "Points": 3,
+        "Sub_points": 4,
+        "Has_autowin": 0,
+        "Status": false,
+        "Hidden_points": 3.599999999999998
+      },
+      {
+        "Player_id": "7b180db0-ccb6-4eba-9baa-272d22beaf50",
+        "Player_name": "qweqweqwe",
+        "Commander": "string",
+        "Deck_link": "string",
+        "Points": 0,
+        "Sub_points": 0,
+        "Has_autowin": 0,
+        "Status": false,
+        "Hidden_points": 9.599999999999998
+      },
+      {
+        "Player_id": "7701faa7-767b-4be2-b5ef-7bd4c6f22a42",
+        "Player_name": "qweqweqwe3",
+        "Commander": "string",
+        "Deck_link": "string",
+        "Points": 0,
+        "Sub_points": 0,
+        "Has_autowin": 0,
+        "Status": false,
+        "Hidden_points": 7.599999999999998
+      },
+      {
+        "Player_id": "7bdbba66-4a0c-482d-98e7-a6f531d06d94",
+        "Player_name": "qweqweqwe4",
+        "Commander": "string",
+        "Deck_link": "string",
+        "Points": 0,
+        "Sub_points": 0,
+        "Has_autowin": 0,
+        "Status": false,
+        "Hidden_points": 3.599999999999998
+      },
+      {
+        "Player_id": "419980a5-dfb6-435d-a838-f5d44bf0593e",
+        "Player_name": "qweqweqwe11",
+        "Commander": "string",
+        "Deck_link": "string",
+        "Points": 0,
+        "Sub_points": 0,
+        "Has_autowin": 0,
+        "Status": false,
+        "Hidden_points": 5.599999999999998
+      },
+      {
+        "Player_id": "31cd8f92-5b33-4029-8d1e-7590b686ec5b",
+        "Player_name": "qweqweqwe6",
+        "Commander": "string",
+        "Deck_link": "string",
+        "Points": 0,
+        "Sub_points": 0,
+        "Has_autowin": 0,
+        "Status": false,
+        "Hidden_points": 11.599999999999998
+      },
+      {
+        "Player_id": "58b7c5d9-9790-4918-8319-630d64dc61d2",
+        "Player_name": "qweqweqwe8",
+        "Commander": "string",
+        "Deck_link": "string",
+        "Points": 0,
+        "Sub_points": 0,
+        "Has_autowin": 0,
+        "Status": false,
+        "Hidden_points": 9.999999998
+      },
+      {
+        "Player_id": "91299d44-4055-4887-afc3-09ffdb73884c",
+        "Player_name": "qweqweqwe9",
+        "Commander": "string",
+        "Deck_link": "string",
+        "Points": 0,
+        "Sub_points": 0,
+        "Has_autowin": 0,
+        "Status": false,
+        "Hidden_points": 10.599999999999998
+      }
+    ],
+    "Rounds": [
+      {
+        "Number": 1,
+        "Players_on_table": [
+          {
+            "Table_num": 1,
+            "Table_players": [
+              {
+                "name": "qweqweqwe4",
+                "id": "7bdbba66-4a0c-482d-98e7-a6f531d06d94"
+              },
+              {
+                "name": "qweqweqwe5",
+                "id": "5e1d5965-6d8f-4de1-a6ab-8f77c2ca131c"
+              },
+              {
+                "name": "qweqweqwe",
+                "id": "7b180db0-ccb6-4eba-9baa-272d22beaf50"
+              },
+              {
+                "name": "qweqweqwe6",
+                "id": "31cd8f92-5b33-4029-8d1e-7590b686ec5b"
+              }
+            ]
+          },
+          {
+            "Table_num": 2,
+            "Table_players": [
+              {
+                "name": "qweqweqwe8",
+                "id": "58b7c5d9-9790-4918-8319-630d64dc61d2"
+              },
+              {
+                "name": "qweqweqwe9",
+                "id": "91299d44-4055-4887-afc3-09ffdb73884c"
+              },
+              {
+                "name": "qweqweqwe3",
+                "id": "7701faa7-767b-4be2-b5ef-7bd4c6f22a42"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Number": 2,
+        "Players_on_table": [
+          {
+            "Table_num": 1,
+            "Table_players": [
+              {
+                "name": "qweqweqwe8",
+                "id": "58b7c5d9-9790-4918-8319-630d64dc61d2"
+              },
+              {
+                "name": "qweqweqwe6",
+                "id": "31cd8f92-5b33-4029-8d1e-7590b686ec5b"
+              },
+              {
+                "name": "qweqweqwe",
+                "id": "7b180db0-ccb6-4eba-9baa-272d22beaf50"
+              },
+              {
+                "name": "qweqweqwe9",
+                "id": "91299d44-4055-4887-afc3-09ffdb73884c"
+              }
+            ]
+          },
+          {
+            "Table_num": 2,
+            "Table_players": [
+              {
+                "name": "qweqweqwe3",
+                "id": "7701faa7-767b-4be2-b5ef-7bd4c6f22a42"
+              },
+              {
+                "name": "qweqweqwe4",
+                "id": "7bdbba66-4a0c-482d-98e7-a6f531d06d94"
+              },
+              {
+                "name": "qweqweqwe5",
+                "id": "5e1d5965-6d8f-4de1-a6ab-8f77c2ca131c"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

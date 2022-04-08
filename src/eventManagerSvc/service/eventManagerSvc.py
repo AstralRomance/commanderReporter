@@ -2,8 +2,10 @@ import random
 from copy import copy
 from operator import itemgetter
 
-from databaseSvc.databaseManipulation import DataBaseManipulation
 from fastapi import Depends
+from loguru import logger
+
+from databaseSvc.databaseManipulation import DataBaseManipulation
 
 
 class EventManagerSvc:
@@ -60,13 +62,12 @@ class EventManagerSvc:
 
     def update_player_points(self, event_id: str, player_id: str, round_number: int, player_data: dict):
         target_event = self.session.find_event(event_id)
-
+        
         target_player = None
         for player in target_event['Players']:
             if player['Player_id'] == player_id:
                 target_player = player
                 break
-
         target_round = None
         for event_round in target_event.get('Rounds'):
             if event_round['Number'] == round_number:
@@ -79,8 +80,8 @@ class EventManagerSvc:
         tables = target_round['Players_on_table']
         player_turn_position = None
         for table in tables:
-            table_players = tables[table]
-            player_turn_position = table_players.index(player_id) if player_id in table_players else None
+            table_players_ids = [player_id['id'] for player_id in table['Table_players']]
+            player_turn_position = table_players_ids.index(player_id) if player_id in table_players_ids else None
             if player_turn_position:
                 break
         if not player_turn_position:
@@ -94,8 +95,9 @@ class EventManagerSvc:
             target_player['Hidden_points'] += player_hidden_points
         else:
             target_player['Hidden_points'] = player_hidden_points
+        logger.debug('*'*50)
+        logger.debug(target_player)
         self.session.update_player(event_id, player_id, target_player)
-
         return target_player
 
     def generate_round(self, event_id: str, round_number: int):

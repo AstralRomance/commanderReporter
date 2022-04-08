@@ -12,7 +12,7 @@ export default class EventCard extends Component{
     };
 
     componentDidMount(){
-        fetch("http://localhost:8002/events/all-events")
+        fetch("https://edh-reporter.nikitacartes.xyz/events/all-events")
         .then(res => res.json())
         .then(
             (result) => {
@@ -42,7 +42,7 @@ export default class EventCard extends Component{
                     <h1 align="center">There is all events</h1>
                     <div className="row">
                                 {items.map(item => {return (
-                                    <div className="col s4">
+                                    <div className="col s4" key={item.Event_id}>
                                         <div className="card blue-grey darken-1">
                                             <div className="card-content white-text">
                                                 <span className="card-title">

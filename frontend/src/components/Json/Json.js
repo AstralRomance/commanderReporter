@@ -19,7 +19,7 @@ export const DatePickerField = ({...props}) => {
 function postRequest(endpoint, id, data, callback) {
     const xhr = new XMLHttpRequest();
     // Add event_id
-    xhr.open("POST", "http://localhost:8002/" + endpoint + "/" + id, true);
+    xhr.open("POST", "https://edh-reporter.nikitacartes.xyz/" + endpoint + "/" + id, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -84,7 +84,7 @@ export default class Json extends Component {
                                         <Field name={`Players.${index}.Deck_link`} placeholder="Deck_link"/>
                                         <button className="btn waves-effect waves-light" type="button"
                                                 onClick={() => {
-                                                    postRequest("/remove-player",
+                                                    postRequest("remove-player",
                                                         document.getElementById("Event_id").value,
                                                         document.getElementById(`Players.${index}.Player_id`).value,
                                                         () => {arrayHelpers.remove(index)})}}>

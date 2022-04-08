@@ -4,7 +4,7 @@ import "materialize-css/dist/css/materialize.min.css";
 
 function updatePointsRequest(endpoint, event_id, player_id, params, data, callback) {
     const xhr = new XMLHttpRequest();
-    xhr.open("PUT", "http://localhost:8000/event-manager/" + endpoint + "/" + event_id + "/" + player_id + "?" + params, true);
+    xhr.open("PUT", "https://edh-reporter.nikitacartes.xyz/event-manager/" + endpoint + "/" + event_id + "/" + player_id + "?" + params, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -17,7 +17,7 @@ function updatePointsRequest(endpoint, event_id, player_id, params, data, callba
 function generateNewRound(endpoint, event_id, params, callback)
 {
     const xhr = new XMLHttpRequest();
-    xhr.open("PUT", "http://localhost:8000/event-manager/" + endpoint + "/" + event_id + "?" + params);
+    xhr.open("PUT", "https://edh-reporter.nikitacartes.xyz/event-manager/" + endpoint + "/" + event_id + "?" + params);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -30,7 +30,7 @@ function generateNewRound(endpoint, event_id, params, callback)
 function finishEvent(endpoint, event_id, params, callback)
 {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:8000/event-manager/" + endpoint + "/" + event_id + "?" + params);
+    xhr.open("POST", "https://edh-reporter.nikitacartes.xyz/event-manager/" + endpoint + "/" + event_id + "?" + params);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -59,7 +59,7 @@ class EventInfo extends Component{
         console.log('$$$$$$$$$$$$$$$$$$$$$$$')
         const actual_url = document.URL;
         const target_event_id = actual_url.split('/').at(-1)
-        const target_url = `http://localhost:8000/event-manager/get-full-event-data/${target_event_id}`
+        const target_url = `https://edh-reporter.nikitacartes.xyz/event-manager/get-full-event-data/${target_event_id}`
         fetch(target_url)
         .then(res => res.json())
         .then(
@@ -100,6 +100,7 @@ class EventInfo extends Component{
                         New Round
                     </button>
                 </div>
+
                 <div className="row">
                     <div className="col s12">
                             <ul ref={Tabs=>{this.Tabs = Tabs;}} className="tabs z-depth-1" id="eventTabs">
@@ -108,7 +109,7 @@ class EventInfo extends Component{
                                 {
                                     eventRounds.map(round => {
                                         return (
-                                            <li className="tab col"><a href={`#round${round.Number}`}>{`Round ${round.Number}`}</a></li>
+                                            <li className="tab col" key={round.Number}><a href={`#round${round.Number}`}>{`Round ${round.Number}`}</a></li>
                                         )
                                     })
                                 }
@@ -119,7 +120,7 @@ class EventInfo extends Component{
                                         {
                                             eventPlayers.map((player, index) => {
                                                 return(
-                                                    <tr>
+                                                    <tr key={index}>
                                                         <td>{index + 1}</td>
                                                         <td>{player.Player_name}</td>
                                                         <td>{player.Points}</td>
@@ -137,20 +138,20 @@ class EventInfo extends Component{
                                         {
                                             eventPlayers.map(player => {
                                                 return(
-                                                    <tr height="80%">
+                                                    <tr height="80%" key={player.Player_id}>
                                                         <td width="20%">{player.Player_name}</td>
                                                         <td width="5%">{player.Points}</td>
                                                         <td width="5%">{player.Sub_points}</td>
                                                         <td width="20%">
                                                             <div className="input-field">
-                                                                <input id={`${player.Player_id}+1`} type="text" className="validate" />
-                                                                <label for="points">Points</label>
+                                                                <input id={`${player.Player_id}+2`} type="text" className="validate" />
+                                                                <label htmlFor={`${player.Player_id}+2`}>Points</label>
                                                             </div>
                                                         </td>
                                                         <td width="20%">
                                                             <div className="input-field">
                                                                 <input id={`${player.Player_id}+2`} type="text" className="validate" />
-                                                                <label for="tiebreaks">Tiebreaks</label>
+                                                                <label htmlFor={`${player.Player_id}+2`}>Tiebreaks</label>
                                                             </div>
                                                         </td>
                                                         <td width="20%">
@@ -173,12 +174,13 @@ class EventInfo extends Component{
                         </div>
                         {
                             eventRounds.map(round => {
-                                return (
-                                    <div id={`round${round.Number}`}>
+                                return ([
+                                    <hr/>,
+                                    <div id={`round${round.Number}`} className="row" key={`round${round.Number}`}>
                                         {
                                             round.Players_on_table.map(table_info => {
                                                 return(
-                                                    <div className="col s6">
+                                                    <div className="col s6" key={table_info.Table_num}>
                                                         <ul className="collection with-header">
                                                             <li className="collection-header">
                                                                 <h5>
@@ -188,7 +190,7 @@ class EventInfo extends Component{
                                                             {
                                                                 table_info.Table_players.map(player => {
                                                                     return(
-                                                                    <li className="collection-item">
+                                                                    <li className="collection-item" key={player.id}>
                                                                         {player.name}
                                                                     </li>
                                                                     )
@@ -199,7 +201,7 @@ class EventInfo extends Component{
                                                 )
                                             })
                                         }
-                                    </div>
+                                    </div>]
                                 )
                             })
                         }

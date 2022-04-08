@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { NavLink } from 'react-router-dom'
 
 export default class EventCard extends Component{
-    constructor(props ){
+    constructor(props){
         super(props)
         this.state = {
             error: null,
@@ -10,9 +11,8 @@ export default class EventCard extends Component{
         }
     };
 
-    componentDidMount()
-    {
-        fetch("http://localhost:8002/events/all-events")
+    componentDidMount(){
+        fetch("https://edh-reporter.nikitacartes.xyz/events/all-events")
         .then(res => res.json())
         .then(
             (result) => {
@@ -30,7 +30,7 @@ export default class EventCard extends Component{
             }
         )
     }
-    // 
+    
     render () {
         const {error, isLoaded, items} = this.state;
         if (error) {
@@ -38,21 +38,25 @@ export default class EventCard extends Component{
         }
         else {
             return (
-                <div class="row">
-                    <div class="col s10 m3">
-                            {items.map(item => {return (
-                                <div class="card blue-grey darken-1">
-                                    <div class="card-content white-text">
-                                        <span class="card-title">
-                                            <h4>{item.Event_name}</h4>
-                                            <p>{item.Event_Date}</p>
-                                        </span>
+                <div className="container">
+                    <h1 align="center">There is all events</h1>
+                    <div className="row">
+                                {items.map(item => {return (
+                                    <div className="col s4" key={item.Event_id}>
+                                        <div className="card blue-grey darken-1">
+                                            <div className="card-content white-text">
+                                                <span className="card-title">
+                                                    <h4>{item.Event_name}</h4>
+                                                    <p>{item.Event_Date}</p>
+                                                </span>
+                                            </div>
+                                            <div className="card-action">
+                                                {/* Good way is rework it using NavLink */}
+                                                <a href={`http://localhost:3000/event/${item.Event_id}`}>Go to event {'>'}</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="card-action">
-                                        <a href="#">Link to event page</a>
-                                    </div>
-                                </div>
-                        )})}
+                            )})}
                     </div>
                 </div>
             )

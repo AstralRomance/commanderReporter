@@ -56,7 +56,6 @@ class EventInfo extends Component {
 
     componentDidMount() {
         M.Tabs.init(this.Tabs)
-        console.log('$$$$$$$$$$$$$$$$$$$$$$$')
         const actual_url = document.URL;
         const target_event_id = actual_url.split('/').at(-1)
         const target_url = `https://edh-reporter.nikitacartes.xyz/event-manager/get-full-event-data/${target_event_id}`
@@ -202,7 +201,7 @@ class EventInfo extends Component {
                                     </ul>
                                 </div>)
                             })}
-                        </div>)
+                    </div>)
                     })}
                 </div>
             </div>

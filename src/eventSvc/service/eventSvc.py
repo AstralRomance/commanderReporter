@@ -25,6 +25,7 @@ class EventService:
         actual_event_data = dict(event_data)
         actual_event_data['Status'] = 'created'
         actual_event_data['Event_id'] = str(uuid4())
+        actual_event_data['Rounds'] = []
         self.session.insert_event(actual_event_data)
         return actual_event_data
 

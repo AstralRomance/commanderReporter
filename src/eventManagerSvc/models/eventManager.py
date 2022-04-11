@@ -60,7 +60,7 @@ class GeneralEventInfo(BaseModel):
     Event_Date: datetime
     Players: List[PlayerInfo]
     Rounds: Union[List[Round], None]
-    Is_finished: bool
+    Status: str
 
 
 class FullEventInfo(BaseModel):

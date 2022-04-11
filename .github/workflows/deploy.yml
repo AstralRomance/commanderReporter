@@ -44,7 +44,6 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '17'
-        cache: 'npm'
     - run: npm install
       working-directory: frontend
     - run: npm run build

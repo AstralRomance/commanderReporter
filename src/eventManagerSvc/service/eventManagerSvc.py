@@ -63,44 +63,37 @@ class EventManagerSvc:
             return {'error': 'Event already finished'}  # Change this to http exception
 
     def update_player_points(self, event_id: str, player_id: str, round_number: int, player_data: dict):
-        target_event = self.session.find_event(event_id)
-        
-        target_player = None
-        for player in target_event['Players']:
-            if player['Player_id'] == player_id:
-                target_player = player
-                break
-        target_round = None
-        for event_round in target_event.get('Rounds'):
+        try:
+            target_player = self.session.find_player_on_event(event_id, player_id).get('Players')[0]
+        except Exception as e:
+            return 404
+        target_event_rounds = self.session.find_event(event_id).get('Rounds')
+        target_table = None
+        for event_round in target_event_rounds:
             if event_round['Number'] == round_number:
-                target_round = event_round
-                break
-
-        if not target_round:
-            return None  # Replace to not found response
-
-        tables = target_round['Players_on_table']
-        player_turn_position = None
-        for table in tables:
-            table_players_ids = [player_id['id'] for player_id in table['Table_players']]
-            player_turn_position = table_players_ids.index(player_id) if player_id in table_players_ids else None
-            if player_turn_position:
-                break
-        if not player_turn_position:
-            return None
-        player_hidden_points = self.gen_player_hidden_points(player_turn_position, round_number,
-                                                             int(target_player['Points']),
-                                                             int(target_player['Sub_points']))
-        target_player['Points'] += player_data.Points
-        target_player['Sub_points'] += player_data.Sub_points
-        if target_player.get('Hidden_points'):
-            target_player['Hidden_points'] += player_hidden_points
-        else:
-            target_player['Hidden_points'] = player_hidden_points
-        logger.debug('*'*50)
-        logger.debug(target_player)
+                for table in event_round['Players_on_table']:
+                    if player_id in [t_id['id'] for t_id in table['Table_players']]:
+                        target_table = table
+        logger.debug(target_table)
+        table_players = [player['id'] for player in target_table['Table_players']]
+        logger.debug(table_players)
+        player_turn_pos = table_players.index(target_player['Player_id'])+1
+        player_hidden_points = self.gen_player_hidden_points(player_turn_pos, round_number, int(target_player['Points']), int(target_player['Sub_points']))
+        target_player['Points'] += target_player['Points']
+        target_player['Sub_points'] += target_player['Sub_points']
+        target_player['Hidden_points'] += target_player['Hidden_points']
+        logger.debug(player_id)
         self.session.update_player(event_id, player_id, target_player)
-        return target_player
+        # target_player['Points'] += player_data.Points
+        # target_player['Sub_points'] += player_data.Sub_points
+        # if target_player.get('Hidden_points'):
+        #     target_player['Hidden_points'] += player_hidden_points
+        # else:
+        #     target_player['Hidden_points'] = player_hidden_points
+        # t = self.session.update_player(event_id, player_id, target_player)
+        # logger.debug('*'*50)
+        # logger.debug(t)
+        # return target_player
 
     def generate_round(self, event_id: str, round_number: int):
         target_event = self.session.find_event(event_id)

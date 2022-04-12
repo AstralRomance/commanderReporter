@@ -64,11 +64,12 @@ class DataBaseManipulation:
 
     def update_player(self, event_id: str, player_id: str, player_data: dict):
         t = self.session.update_one({'Event_id': str(event_id)},
-                                    {'$set': {'Players.$[element]': dict(player_data)}},
-                                    array_filters=[{'element': {'Player_id': str(player_id)}}])
+                                    {'$set': {'Players.$[element]': player_data}},
+                                    array_filters=[{'element.Player_id': {'$eq': player_id}}])
         logger.debug(t.matched_count)
         logger.debug(t.modified_count)
         logger.debug(t.raw_result)
+        return t.modified_count == 1
 
     @Logger()
     def find_player_on_event(self, event_id: str, player_id: str):

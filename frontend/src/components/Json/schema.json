@@ -38,40 +38,6 @@
           }
         }
       }
-    },
-	
-	"Rounds": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "Number": {
-            "type": "integer"
-          },
-		  "Players_per_table" : {
-			"type": "array",
-			"items": {
-			  "type": "object",
-			  "properties": {
-			    "Table_number": {
-			  	  "type": "integer"
-			    },
-			    "Players_on_table" : {
-				  "type": "array",
-				  "items": {
-                    "type": "object",
-					"properties": {
-					  "Player": {
-					    "type": "string"
-				      }
-					}
-				  }
-			    }
-			  }
-			}
-		  }
-        }
-      }
     }
   },
   "required": ["Event_name", "Event_Date"]

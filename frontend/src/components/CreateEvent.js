@@ -5,9 +5,9 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 
-function postRequest(endpoint, id, data, callback) {
+function doRequest(endpoint, id, data, callback, method = "POST") {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://edh-reporter.nikitacartes.xyz/" + endpoint + "/" + id, true);
+    xhr.open(method, "https://edh-reporter.nikitacartes.xyz/" + endpoint + "/" + id, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -18,14 +18,15 @@ function postRequest(endpoint, id, data, callback) {
 }
 
 function addPlayer(element) {
-    postRequest("event-manager/add-player", document.getElementById("Event_id").value, {
-        "Player_name": element.target.parentNode.children[2].value,
-        "Commander": element.target.parentNode.children[4].value,
-        "Deck_link": element.target.parentNode.children[6].value
-    }, (json) => {
+    doRequest("event-manager/add-player", document.getElementById("Event_id").value, JSON.stringify({
+        "Player_name": element.target.parentNode.children[1].value,
+        "Commander": element.target.parentNode.children[2].value,
+        "Deck_link": element.target.parentNode.children[3].value
+    }, null, 2), (json) => {
         element.target.parentNode.children[0].value = json.Player_id;
-        element.target.parentNode.children[8].setAttribute("disabled", "disabled");
-        element.target.parentNode.children[9].removeAttribute("disabled");
+        element.target.parentNode.children[4].setAttribute("disabled", "disabled");
+        element.target.parentNode.children[5].removeAttribute("disabled");
+        element.target.parentNode.children[5].onclick = deletePlayer;
 
         let row = document.createElement("tr");
 
@@ -48,16 +49,14 @@ function addPlayer(element) {
         inputDeck.placeholder = "Deck_link";
 
         let addButton = document.createElement("button");
-        addButton.classList.add("Add_player btn waves-effect waves-light");
+        addButton.classList.add("Add_player", "btn", "waves-effect", "waves-light");
         addButton.type = "button";
-        // addButton.setAttribute("onClick", "addPlayer(this);");
         addButton.onclick = addPlayer;
         addButton.textContent = "Add this player";
 
         let deleteButton = document.createElement("button");
-        deleteButton.classList.add("Delete_player btn waves-effect waves-light");
+        deleteButton.classList.add("Delete_player", "btn", "waves-effect", "waves-light");
         deleteButton.type = "button";
-        // deleteButton.setAttribute("onClick", "deletePlayer(this);");
         deleteButton.onclick = deletePlayer;
         deleteButton.textContent = "Delete this player";
         deleteButton.setAttribute("disabled", "disabled");
@@ -76,9 +75,9 @@ function addPlayer(element) {
 
 
 function deletePlayer(element) {
-    postRequest("event-manager/remove-player", document.getElementById("Event_id").value + "/" + element.target.parentNode.children[0].value, {}, () => {
+    doRequest("event-manager/remove-player", document.getElementById("Event_id").value + "/" + element.target.parentNode.children[0].value, "", () => {
         element.target.parentNode.parentNode.parentNode.removeChild(element.target.parentNode.parentNode.parentNode.lastElementChild);
-    })
+    }, "DELETE")
 }
 
 export default class CreateEvent extends Component {
@@ -91,7 +90,7 @@ export default class CreateEvent extends Component {
             <h1 align="center">New Event</h1>
             <div className="row">
                 <button id="startButton" className="btn waves-effect waves-light-large col s1" onClick={() => {
-                    postRequest("event-manager/change-event-state", document.getElementById("Event_id").value,"Started", () => {
+                    doRequest("event-manager/change-event-state", document.getElementById("Event_id").value, "Started", () => {
                         document.getElementById("startButton").textContent = "Started";
                         document.getElementById("startButton").setAttribute("disabled", "disabled");
                     });
@@ -113,7 +112,7 @@ export default class CreateEvent extends Component {
                         />
 
                         <button className="btn waves-effect waves-light" type="submit" id="EventCreate" onClick={() => {
-                            postRequest("events/add-event", "", JSON.stringify({
+                            doRequest("events/add-event", "", JSON.stringify({
                                 "Event_name": document.getElementById("Event_name").value,
                                 "Event_Date": document.getElementById("Event_Date").value
                             }, null, 2), json => {
@@ -132,10 +131,10 @@ export default class CreateEvent extends Component {
                         <tbody>
                         <tr>
                             <td>
-                                <input className="Player_id" readOnly type="hidden"/><br/>
-                                <input className="Player_name" placeholder="Player_name"/><br/>
-                                <input className="Commander" placeholder="Commander"/><br/>
-                                <input className="Deck_link" placeholder="Deck_link"/><br/>
+                                <input className="Player_id" readOnly type="hidden"/>
+                                <input className="Player_name" placeholder="Player_name"/>
+                                <input className="Commander" placeholder="Commander"/>
+                                <input className="Deck_link" placeholder="Deck_link"/>
                                 <button className="Add_player btn waves-effect waves-light" type="button"
                                         onClick={addPlayer}>
                                     Add this player

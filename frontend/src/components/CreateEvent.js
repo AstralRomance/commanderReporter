@@ -1,4 +1,4 @@
-import React, {Component, useState} from "react";
+import React, {Component} from "react";
 
 import DatePicker from "react-datepicker";
 
@@ -18,7 +18,7 @@ function postRequest(endpoint, id, data, callback) {
 }
 
 function addPlayer(element) {
-    postRequest("add-player", document.getElementById("Event_id").value, {
+    postRequest("event-manager/add-player", document.getElementById("Event_id").value, {
         "Player_name": element.target.parentNode.children[2].value,
         "Commander": element.target.parentNode.children[4].value,
         "Deck_link": element.target.parentNode.children[6].value
@@ -76,7 +76,7 @@ function addPlayer(element) {
 
 
 function deletePlayer(element) {
-    postRequest("remove-player", document.getElementById("Event_id").value + "/" + element.target.parentNode.children[0].value, {}, () => {
+    postRequest("event-manager/remove-player", document.getElementById("Event_id").value + "/" + element.target.parentNode.children[0].value, {}, () => {
         element.target.parentNode.parentNode.parentNode.removeChild(element.target.parentNode.parentNode.parentNode.lastElementChild);
     })
 }

@@ -34,7 +34,7 @@ class EventManagerSvc:
         return self.session.find_event(event_id)
 
     def change_event_state(self, event_id: str, target_state: str):
-        return self.session.update_event(event_id, {'Status': target_state})
+        return self.session.update_event(event_id, {'Status': target_state}) is not None
 
     def update_player_on_event(self, event_id: str, player_id: str, player_data: dict):
         return self.session.update_player(event_id, player_id, player_data)

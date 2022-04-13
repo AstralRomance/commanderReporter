@@ -36,4 +36,3 @@ def update_event(event_id: str, event_data: CreateEvent, service: EventService =
 @router.delete('/delete-event/{event_id}', response_model=bool)
 def delete_event(event_id: str, service: EventService = Depends()):
     return service.delete_event(event_id)
-    # return Response(status_code=status.HTTP_204_NO_CONTENT)

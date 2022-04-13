@@ -8,19 +8,25 @@ from loguru import logger
 
 from databaseSvc.databaseManipulation import DataBaseManipulation
 
+from src.eventManagerSvc.models.eventManager import AddPlayerToEvent
+
 
 class EventManagerSvc:
     def __init__(self, session=Depends(DataBaseManipulation)):
         self.session = session
 
-    def gen_default_player_params(self, player_data: dict) -> dict:
-        player_data['Points'] = 0
-        player_data['Sub_points'] = 0
-        player_data['Has_autowin'] = 0
-        player_data['Hidden_points'] = 0
-        player_data['Status'] = False
-        player_data['Player_id'] = str(uuid4())
-        return player_data
+    def gen_default_player_params(self, player_data: AddPlayerToEvent) -> dict:
+        new_player = {'Points': 0,
+                      'Sub_points': 0,
+                      'Has_autowin': 0,
+                      'Hidden_points': 0,
+                      'Status': False,
+                      'Player_id': str(uuid4()),
+                      'Player_name': player_data.Player_name,
+                      'Commander': player_data.Commander}
+        if player_data.Deck_link:
+            new_player['Deck_link'] = player_data.Deck_link
+        return new_player
 
     def gen_player_hidden_points(self, turn_postition: int, round_number: int, points: int, sub_points: int) -> float:
         """
@@ -34,14 +40,14 @@ class EventManagerSvc:
         return self.session.find_event(event_id)
 
     def change_event_state(self, event_id: str, target_state: str):
-        return self.session.update_event(event_id, {'Status': target_state}) is not None
+        return self.session.update_event(event_id, {'Status': target_state})
 
     def update_player_on_event(self, event_id: str, player_id: str, player_data: dict):
         return self.session.update_player(event_id, player_id, player_data)
 
-    def add_player_to_event(self, event_id: str, player_data: dict) -> dict:
+    def add_player_to_event(self, event_id: str, player_data: AddPlayerToEvent) -> dict:
         target_event = self.session.find_event(event_id)
-        target_player_data = self.gen_default_player_params(copy(dict(player_data)))
+        target_player_data = self.gen_default_player_params(player_data)
         if target_event.get('Players'):
             target_event['Players'].append(target_player_data)
         else:

@@ -8,7 +8,7 @@ from loguru import logger
 
 from databaseSvc.databaseManipulation import DataBaseManipulation
 
-from src.eventManagerSvc.models.eventManager import AddPlayerToEvent
+from eventManagerSvc.models.eventManager import AddPlayerToEvent
 
 
 class EventManagerSvc:

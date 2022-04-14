@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   build:
@@ -11,10 +11,10 @@ jobs:
     environment: ssh_deploy
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Push code update to server
-      uses: easingthemes/ssh-deploy@main
-      env:
+      - uses: actions/checkout@v3
+      - name: Push code update to server
+        uses: easingthemes/ssh-deploy@main
+        env:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
           ARGS: "-rltgoDzvO --delete --exclude=.env"
           SOURCE: "src/"
@@ -22,10 +22,10 @@ jobs:
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_WORKDIR }}/src
-  
-    - name: Push scripts update to server
-      uses: easingthemes/ssh-deploy@main
-      env:
+
+      - name: Push scripts update to server
+        uses: easingthemes/ssh-deploy@main
+        env:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
           ARGS: "-rltgoDzvO --delete"
           SOURCE: "scripts/"
@@ -34,17 +34,36 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_WORKDIR }}/scripts
 
-    - name: Deploy
-      env:
-        WORKDIR: ${{ secrets.REMOTE_WORKDIR }}
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.REMOTE_HOST }}
-        port: ${{ secrets.REMOTE_PORT }}
-        username: ${{ secrets.REMOTE_USER }}
-        key: ${{ secrets.SERVER_SSH_KEY }}
-        envs: WORKDIR
-        script_stop: true
-        script: | 
-          export WORKDIR=$WORKDIR
-          bash ${{ secrets.REMOTE_WORKDIR }}/scripts/deploy.sh
+      - name: Deploy backend
+        env:
+          WORKDIR: ${{ secrets.REMOTE_WORKDIR }}
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          port: ${{ secrets.REMOTE_PORT }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          envs: WORKDIR
+          script_stop: true
+          script: |
+            export WORKDIR=$WORKDIR
+            bash ${{ secrets.REMOTE_WORKDIR }}/scripts/deploy.sh
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '17'
+      - run: npm install
+        working-directory: frontend
+      - run: npm run build
+        working-directory: frontend
+
+      - name: Push frontend update to server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          ARGS: "-rltgoDzvO --delete"
+          SOURCE: "frontend/build"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.REMOTE_WORKDIR }}/frontend

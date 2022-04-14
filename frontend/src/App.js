@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import 'materialize-css'
 import EventCard from './components/EventCard';
 import EventInfo from './components/EventInfo'
-import Json from './components/Json/Json'
+import CreateEvent from "./components/CreateEvent";
 
 function App() {
   const isBackgroundRed = false;
@@ -26,7 +26,7 @@ function App() {
             <Routes>
               <Route exact path="/events" element={<EventCard />} />
               <Route exact path={"event/:target_event_id"} element={<EventInfo />} />
-              <Route exact path="/create-event" element={<Json />} />
+              <Route exact path="/create-event" element={<CreateEvent />} />
               <Route path="/" element={<Navigate replace to="/events" />} />
             </Routes>
           </Router>

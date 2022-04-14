@@ -154,25 +154,25 @@ class EventInfo extends Component {
                                     <td width="5%">{player.Sub_points}</td>
                                     <td width="20%">
                                         <div className="input-field">
-                                            <input id={`${player.Player_id}+2`} type="text"
+                                            <input id={`Points_${player.Player_id}`} type="text"
                                                    className="validate"/>
-                                            <label htmlFor={`${player.Player_id}+2`}>Points</label>
+                                            <label htmlFor={`Points_${player.Player_id}`}>Points</label>
                                         </div>
                                     </td>
                                     <td width="20%">
                                         <div className="input-field">
-                                            <input id={`${player.Player_id}+2`} type="text"
+                                            <input id={`Tiebreaks_${player.Player_id}`} type="text"
                                                    className="validate"/>
-                                            <label htmlFor={`${player.Player_id}+2`}>Tiebreaks</label>
+                                            <label htmlFor={`Tiebreaks_${player.Player_id}`}>Tiebreaks</label>
                                         </div>
                                     </td>
                                     <td width="20%">
                                         <button className="btn waves-effect waves-light" type="submit"
                                                 onClick={() => {
                                                     updatePointsRequest("update-player-points", eventId, player.Player_id, `round_num=${eventRounds.length}`, {
-                                                        "Points": document.getElementById(`${player.Player_id}+1`).value,
-                                                        "Sub_points": document.getElementById(`${player.Player_id}+2`).value
-                                                    })
+                                                        "Points": document.getElementById(`Points_${player.Player_id}`).value,
+                                                        "Sub_points": document.getElementById(`Tiebreaks_${player.Player_id}`).value
+                                                    }, ()=>{})
                                                 }}>
                                             Submit
                                         </button>

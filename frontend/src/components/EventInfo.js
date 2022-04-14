@@ -96,7 +96,7 @@ class EventInfo extends Component {
                     Finish Event
                 </button>
                 <button className="btn waves-effect waves-light-large col s2" type="submit" onClick={() => {
-                    generateNewRound("generate-round", eventId, `round_num=${eventRounds.length + 1}`, (result) => {
+                    generateNewRound("generate-round", eventId, `round_number=${eventRounds.length + 1}`, (result) => {
                         console.log(result)
                         const sortedPlayers = result.Players.sort(function (a, b) {
                             return parseFloat(b.Hidden_points) - parseFloat(a.Hidden_points);

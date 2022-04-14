@@ -53,6 +53,23 @@ class EventInfo extends Component {
         }
     };
 
+    changeState(result) {
+        const sortedPlayers = result.Players.sort(function (a, b) {
+            return parseFloat(b.Hidden_points) - parseFloat(a.Hidden_points);
+        })
+        const rounds = result.Rounds
+        console.log(rounds)
+        this.setState({
+            eventId: result.Event_id,
+            eventName: result.Event_name,
+            eventDate: result.Event_Date,
+            eventPlayers: sortedPlayers,
+            eventRounds: rounds,
+            finished: result.Is_finished
+        });
+    }
+
+
     componentDidMount() {
         M.Tabs.init(this.Tabs)
         const actual_url = document.URL;
@@ -61,20 +78,8 @@ class EventInfo extends Component {
         fetch(target_url)
             .then(res => res.json())
             .then((result) => {
-                console.log(result)
-                const sortedPlayers = result.Players.sort(function (a, b) {
-                    return parseFloat(b.Hidden_points) - parseFloat(a.Hidden_points);
-                })
-                const rounds = result.Rounds
-                console.log(rounds)
-                this.setState({
-                    eventId: result.Event_id,
-                    eventName: result.Event_name,
-                    eventDate: result.Event_Date,
-                    eventPlayers: sortedPlayers,
-                    eventRounds: rounds,
-                    finished: result.Is_finished
-                });
+                console.log(result);
+                this.changeState(result);
             }, (error) => {
                 this.setState({
                     isLoaded: true, error
@@ -90,25 +95,14 @@ class EventInfo extends Component {
             <div className="row">
                 <button className="btn waves-effect waves-light-large col s1 offset-s11" type="submit"
                         onClick={() => {
-                            finishEvent("change-event-state", eventId, "target_state=finished")
+                            finishEvent("change-event-state", eventId, "target_state=finished", () => {})
                         }}>
                     Finish Event
                 </button>
                 <button className="btn waves-effect waves-light-large col s2" type="submit" onClick={() => {
                     generateNewRound("generate-round", eventId, `round_number=${eventRounds.length + 1}`, (result) => {
-                        console.log(result)
-                        const sortedPlayers = result.Players.sort(function (a, b) {
-                            return parseFloat(b.Hidden_points) - parseFloat(a.Hidden_points);
-                        })
-                        const rounds = result.Rounds
-                        console.log(rounds)
-                        this.setState({
-                            eventId: result.Event_id,
-                            eventName: result.Event_name,
-                            eventDate: result.Event_Date,
-                            eventPlayers: sortedPlayers,
-                            eventRounds: rounds
-                        });
+                        console.log(result);
+                        this.changeState(result)
                     })
                 }}>
                     New Round
@@ -172,7 +166,19 @@ class EventInfo extends Component {
                                                     updatePointsRequest("update-player-points", eventId, player.Player_id, `round_num=${eventRounds.length}`, {
                                                         "Points": document.getElementById(`Points_${player.Player_id}`).value,
                                                         "Sub_points": document.getElementById(`Tiebreaks_${player.Player_id}`).value
-                                                    }, ()=>{})
+                                                    }, () => {
+                                                        const target_url = "https://edh-reporter.nikitacartes.xyz/event-manager/get-full-event-data/" + eventId
+                                                        fetch(target_url)
+                                                            .then(res => res.json())
+                                                            .then((result) => {
+                                                                console.log(result);
+                                                                this.changeState(result);
+                                                            }, (error) => {
+                                                                this.setState({
+                                                                    isLoaded: true, error
+                                                                });
+                                                            })
+                                                    })
                                                 }}>
                                             Submit
                                         </button>
@@ -200,7 +206,7 @@ class EventInfo extends Component {
                                     </ul>
                                 </div>)
                             })}
-                    </div>)
+                        </div>)
                     })}
                 </div>
             </div>

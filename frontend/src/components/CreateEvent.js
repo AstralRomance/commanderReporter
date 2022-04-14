@@ -91,8 +91,7 @@ export default class CreateEvent extends Component {
             <div className="row">
                 <button id="startButton" className="btn waves-effect waves-light-large col s1" onClick={() => {
                     doRequest("event-manager/change-event-state", document.getElementById("Event_id").value, "Started", () => {
-                        document.getElementById("startButton").textContent = "Started";
-                        document.getElementById("startButton").setAttribute("disabled", "disabled");
+                        window.location.href="event/" + document.getElementById("Event_id").value;
                     });
                 }}>
                     Start!

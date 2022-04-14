@@ -17,8 +17,8 @@ function updatePointsRequest(endpoint, event_id, player_id, params, data, callba
 function generateNewRound(endpoint, event_id, params, callback) {
     const xhr = new XMLHttpRequest();
     // Ломает базу
-    // xhr.open("PUT", "https://edh-reporter.nikitacartes.xyz/event-manager/" + endpoint + "/" + event_id + "?" + params);
-    xhr.open("GET", "https://edh-reporter.nikitacartes.xyz/event-manager/get-full-event-data/" + event_id)
+    xhr.open("PUT", "https://edh-reporter.nikitacartes.xyz/event-manager/" + endpoint + "/" + event_id + "?" + params);
+    // xhr.open("GET", "https://edh-reporter.nikitacartes.xyz/event-manager/get-full-event-data/" + event_id)
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {

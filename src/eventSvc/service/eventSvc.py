@@ -23,7 +23,7 @@ class EventService:
         return event
 
     def create_event(self, event_data: CreateEvent) -> dict:
-        actual_event_data = dict(event_data)
+        actual_event_data = event_data.dict()
         actual_event_data['Status'] = 'created'
         actual_event_data['Event_id'] = str(uuid4())
         actual_event_data['Rounds'] = []

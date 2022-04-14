@@ -52,7 +52,7 @@ export default class EventCard extends Component{
                                             </div>
                                             <div className="card-action">
                                                 {/* Good way is rework it using NavLink */}
-                                                <a href={`http://localhost:3000/event/${item.Event_id}`}>Go to event {'>'}</a>
+                                                <a href={`/event/${item.Event_id}`}>Go to event {'>'}</a>
                                             </div>
                                         </div>
                                     </div>

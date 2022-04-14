@@ -1,6 +1,7 @@
 from typing import List
 from uuid import uuid4
 import uuid
+from datetime import datetime
 
 from databaseSvc.databaseManipulation import DataBaseManipulation
 from fastapi import HTTPException, Depends
@@ -22,10 +23,11 @@ class EventService:
         return event
 
     def create_event(self, event_data: CreateEvent) -> dict:
-        actual_event_data = dict(event_data)
+        actual_event_data = event_data.dict()
         actual_event_data['Status'] = 'created'
         actual_event_data['Event_id'] = str(uuid4())
         actual_event_data['Rounds'] = []
+        actual_event_data['Event_Date'] = datetime.strptime(actual_event_data['Event_Date'], '%d %B, %Y')
         self.session.insert_event(actual_event_data)
         return actual_event_data
 

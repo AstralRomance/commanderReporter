@@ -27,7 +27,7 @@ class EventService:
         actual_event_data['Status'] = 'created'
         actual_event_data['Event_id'] = str(uuid4())
         actual_event_data['Rounds'] = []
-        actual_event_data['Event_Date'] = datetime.strptime(actual_event_data['Event_Date'], '%d %B, %Y')
+        actual_event_data['Event_Date'] = str(datetime.strptime(actual_event_data['Event_Date'], '%d %B, %Y'))
         self.session.insert_event(actual_event_data)
         return actual_event_data
 

@@ -49,6 +49,6 @@ def remove_player_from_event(event_id: str, player_id: str, manager_svc: EventMa
     return manager_svc.get_full_event_data(event_id)
 
 
-@router.post('/change-event-state/{event_id}')
+@router.post('/change-event-state/{event_id}', response_model=GeneralEventInfo)
 def change_event_state(event_id: str, target_state: str, manager_svc: EventManagerSvc = Depends()):
     return manager_svc.change_event_state(event_id, target_state)

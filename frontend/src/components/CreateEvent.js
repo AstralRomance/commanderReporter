@@ -17,6 +17,18 @@ function doRequest(endpoint, id, data, callback, method = "POST") {
     xhr.send(data);
 }
 
+function changeEventState(endpoint, id, params, callback, method="POST") {
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, "https://edh-reporter.nikitacartes.xyz/" + endpoint + "/" + id + "?" + params, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            callback(JSON.parse(xhr.responseText));
+        }
+    };
+    xhr.send();
+}
+
 function addPlayer(element) {
     doRequest("event-manager/add-player", document.getElementById("Event_id").value, JSON.stringify({
         "Player_name": element.target.parentNode.children[1].value,
@@ -90,7 +102,7 @@ export default class CreateEvent extends Component {
             <h1 align="center">New Event</h1>
             <div className="row">
                 <button id="startButton" className="btn waves-effect waves-light-large col s1" onClick={() => {
-                    doRequest("event-manager/change-event-state", document.getElementById("Event_id").value, "Started", () => {
+                    changeEventState("event-manager/change-event-state", document.getElementById("Event_id").value, "target_state=Started", () => {
                         window.location.href="event/" + document.getElementById("Event_id").value;
                     });
                 }}>

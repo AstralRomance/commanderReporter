@@ -1,0 +1,19 @@
+import json
+import databaseManipulation
+
+compare_list = []
+
+with open('mongo_schema.json') as json_file:
+    data = json.load(json_file)
+    print(data)
+    
+dbm = databaseManipulation.DataBaseManipulation
+
+def compare_find_event():
+    dbmFind = dbm.find_event
+    compare_list.append(data['Event_id'])
+    if type(dbmFind) == type(compare_list[0]):
+        return 'find_event is fine'
+    else:
+        print(''.join(f'find_event returns {type(dbmFind)} instead of {type(compare_list[0])}'))
+        compare_list = []

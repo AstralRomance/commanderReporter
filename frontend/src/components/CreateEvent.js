@@ -20,6 +20,7 @@ function doRequest(endpoint, id, data, callback, method = "POST") {
 function changeEventState(endpoint, id, params, callback, method="POST") {
     const xhr = new XMLHttpRequest();
     xhr.open(method, "https://edh-reporter.nikitacartes.xyz/" + endpoint + "/" + id + "?" + params, true);
+    console.log("https://edh-reporter.nikitacartes.xyz/" + endpoint + "/" + id + "?" + params)
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {

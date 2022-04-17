@@ -22,7 +22,7 @@ class TestBaseEventWorkflow:
     def test_add_players(self, generate_workflow_target_event, setup_database_connection, target_players_number):
         event_data = generate_workflow_target_event
         mongo_session = setup_database_connection
-        target_endpoint = f'{DEFAULT_LOCAL_MANAGER}/event-manager/add-player/{event_data["Event_id"]}'
+        target_endpoint = f'{DEFAULT_TARGET_ENV}/event-manager/add-player/{event_data["Event_id"]}'
         for _ in range(target_players_number):
             player_name = ''.join([letter for letter in random.sample(list(ascii_lowercase), random.randint(1, 8))])
             player_commander = ''.join([letter for letter in random.sample(list(ascii_lowercase), random.randint(1, 5))])
@@ -35,8 +35,8 @@ class TestBaseEventWorkflow:
     def test_update_players_points_and_round_gen(self, generate_workflow_target_event, setup_database_connection, rounds_number):
         event_info = generate_workflow_target_event
         mongo_session = setup_database_connection
-        round_generate_endpoint = f'{DEFAULT_LOCAL_MANAGER}/event-manager/generate-round/{event_info["Event_id"]}'
-        update_points_endpoint = f'{DEFAULT_LOCAL_MANAGER}/event-manager/update-player-points/{event_info["Event_id"]}/'
+        round_generate_endpoint = f'{DEFAULT_TARGET_ENV}/event-manager/generate-round/{event_info["Event_id"]}'
+        update_points_endpoint = f'{DEFAULT_TARGET_ENV}/event-manager/update-player-points/{event_info["Event_id"]}/'
         for round_number in range(1, rounds_number):
             round_gen_response = requests.put(round_generate_endpoint, params={'round_number': round_number})
             assert round_gen_response.ok, round_gen_response.json()

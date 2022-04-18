@@ -37,6 +37,7 @@ class EventManagerSvc:
         logger.debug(position_coefficient)
         logger.debug(round_coefficient)
         logger.debug((points * position_coefficient * round_coefficient) + sub_points / 15)
+        return points + (sub_points / 10)
             
 
     def get_full_event_data(self, event_id: str) -> dict:
@@ -89,8 +90,8 @@ class EventManagerSvc:
             player_turn_pos = table_players.index(target_player['Player_id'])+1
         else:
             player_turn_pos = 1
-        target_player['Points'] += player_data.Points
-        target_player['Sub_points'] += player_data.Sub_points
+        target_player['Points'] += int(player_data.Points)
+        target_player['Sub_points'] += int(player_data.Sub_points)
         player_hidden_points = self.gen_player_hidden_points(player_turn_pos,
                                                              round_number,
                                                              int(target_player['Points']),

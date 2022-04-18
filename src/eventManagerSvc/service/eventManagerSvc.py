@@ -31,14 +31,14 @@ class EventManagerSvc:
     def gen_player_hidden_points(self, turn_postition: int, round_number: int, points: int, sub_points: int) -> float:
         """
             This is only my fantasies, we need to discuss this thing. This is only template for calculating points.
+            Now used basic standings generation. Sort by points than by tiebreaks
         """
         position_coefficient = 1 + (turn_postition / 10)
         round_coefficient = 1 + round_number / 10 if round_number > 1 else 1
         logger.debug(position_coefficient)
         logger.debug(round_coefficient)
         logger.debug((points * position_coefficient * round_coefficient) + sub_points / 15)
-        return points + (sub_points / 10)
-            
+        return points + (sub_points / 10)         
 
     def get_full_event_data(self, event_id: str) -> dict:
         return self.session.find_event(event_id)

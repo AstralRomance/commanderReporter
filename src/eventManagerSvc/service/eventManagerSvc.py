@@ -37,7 +37,7 @@ class EventManagerSvc:
         logger.debug(position_coefficient)
         logger.debug(round_coefficient)
         logger.debug((points * position_coefficient * round_coefficient) + sub_points / 15)
-        return points + sub_points / 10
+            
 
     def get_full_event_data(self, event_id: str) -> dict:
         return self.session.find_event(event_id)

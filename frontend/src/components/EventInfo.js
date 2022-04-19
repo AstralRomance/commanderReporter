@@ -120,8 +120,6 @@ class EventInfo extends Component {
                         this.Tabs = Tabs;
                     }} className="tabs z-depth-1" id="eventTabs">
                         <li className="tab col"><a href="#standings">Standings</a></li>
-
-                        {!finished && <li className="tab col"><a href="#players">Players</a></li>}
                         {eventRounds.map(round => {
                             return (<li className="tab col" key={round.Number}><a
                                 href={`#round${round.Number}`}>{`Round ${round.Number}`}</a></li>)
@@ -172,21 +170,25 @@ class EventInfo extends Component {
                                                     <div className="col s2 push-s2">
                                                         <button className="btn waves-effect waves-light" type="submit"
                                                                 onClick={() => {
+                                                                    const actual_points = document.getElementById(`Points_${player.id}`).value;
+                                                                    const actual_tiebreaks = document.getElementById(`Tiebreaks_${player.id}`).value;
+                                                                    document.getElementById(`Points_${player.id}`).value = '';
+                                                                    document.getElementById(`Tiebreaks_${player.id}`).value = '';
                                                                     updatePointsRequest("update-player-points", eventId, player.id, `round_num=${eventRounds.length}`, {
-                                                                        "Points": document.getElementById(`Points_${player.id}`).value,
-                                                                        "Sub_points": document.getElementById(`Tiebreaks_${player.id}`).value
+                                                                        "Points": actual_points,
+                                                                        "Sub_points": actual_tiebreaks
                                                                     }, () => {
                                                                         const target_url = "https://edh-reporter.nikitacartes.xyz/event-manager/get-full-event-data/" + eventId
                                                                         fetch(target_url)
                                                                             .then(res => res.json())
                                                                             .then((result) => {
                                                                                 console.log(result);
-                                                                                this.changeState(result);
+                                                                                this.changeState(result);                                                                                
                                                                             }, (error) => {
                                                                                 this.setState({
                                                                                     isLoaded: true, error
                                                                                 });
-                                                                            })
+                                                                            });
                                                                     })
                                                                 }}>
                                                                     Submit

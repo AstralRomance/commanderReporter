@@ -39,6 +39,11 @@ function finishEvent(endpoint, event_id, params, callback) {
     xhr.send();
 }
 
+function removePlayer(){
+    // const xhr = new XMLHttpRequest();
+
+}
+
 class EventInfo extends Component {
     constructor(props) {
         super(props)
@@ -115,10 +120,6 @@ class EventInfo extends Component {
                         this.Tabs = Tabs;
                     }} className="tabs z-depth-1" id="eventTabs">
                         <li className="tab col"><a href="#standings">Standings</a></li>
-
-                        {!finished && <li className="tab col"><a href="#players">Players</a></li>}
-
-
                         {eventRounds.map(round => {
                             return (<li className="tab col" key={round.Number}><a
                                 href={`#round${round.Number}`}>{`Round ${round.Number}`}</a></li>)
@@ -138,60 +139,10 @@ class EventInfo extends Component {
                             </tbody>
                         </table>
                     </div>
-                    <div id="players" className="col s12">
-                        <table className="highlight">
-                            <tbody>
-                            {eventPlayers.map(player => {
-                                return (<tr height="80%" key={player.Player_id}>
-                                    <td width="20%">{player.Player_name}</td>
-                                    <td width="5%">{player.Points}</td>
-                                    <td width="5%">{player.Sub_points}</td>
-                                    <td width="20%">
-                                        <div className="input-field">
-                                            <input id={`Points_${player.Player_id}`} type="text"
-                                                   className="validate"/>
-                                            <label htmlFor={`Points_${player.Player_id}`}>Points</label>
-                                        </div>
-                                    </td>
-                                    <td width="20%">
-                                        <div className="input-field">
-                                            <input id={`Tiebreaks_${player.Player_id}`} type="text"
-                                                   className="validate"/>
-                                            <label htmlFor={`Tiebreaks_${player.Player_id}`}>Tiebreaks</label>
-                                        </div>
-                                    </td>
-                                    <td width="20%">
-                                        <button className="btn waves-effect waves-light" type="submit"
-                                                onClick={() => {
-                                                    updatePointsRequest("update-player-points", eventId, player.Player_id, `round_num=${eventRounds.length}`, {
-                                                        "Points": document.getElementById(`Points_${player.Player_id}`).value,
-                                                        "Sub_points": document.getElementById(`Tiebreaks_${player.Player_id}`).value
-                                                    }, () => {
-                                                        const target_url = "https://edh-reporter.nikitacartes.xyz/event-manager/get-full-event-data/" + eventId
-                                                        fetch(target_url)
-                                                            .then(res => res.json())
-                                                            .then((result) => {
-                                                                console.log(result);
-                                                                this.changeState(result);
-                                                            }, (error) => {
-                                                                this.setState({
-                                                                    isLoaded: true, error
-                                                                });
-                                                            })
-                                                    })
-                                                }}>
-                                            Submit
-                                        </button>
-                                    </td>
-                                </tr>)
-                            })}
-                            </tbody>
-                        </table>
-                    </div>
                     {eventRounds.map(round => {
                         return (<div id={`round${round.Number}`} className="row" key={`round${round.Number}`}>
                             {round.Players_on_table.map(table_info => {
-                                return (<div className="col s6" key={table_info.Table_num}>
+                                return (<div className="col s4" key={table_info.Table_num}>
                                     <ul className="collection with-header">
                                         <li className="collection-header">
                                             <h5>
@@ -200,7 +151,50 @@ class EventInfo extends Component {
                                         </li>
                                         {table_info.Table_players.map(player => {
                                             return (<li className="collection-item" key={player.id}>
-                                                {player.name}
+                                                <div className="row container valign-wrapper">
+                                                    <div className="col s3"><strong>{player.name}</strong></div>
+                                                    <div className="col s2 push-s1">
+                                                        <div className="input-field push-s1">
+                                                            <input id={`Points_${player.id}`} type="text"
+                                                                className="validate"/>
+                                                            <label htmlFor={`Points_${player.id}`}>Points</label>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col s2 push-s1">
+                                                        <div className="input-field">
+                                                            <input id={`Tiebreaks_${player.id}`} type="text"
+                                                                className="validate"/>
+                                                            <label htmlFor={`Tiebreaks_${player.id}`}>Tiebreaks</label>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col s2 push-s2">
+                                                        <button className="btn waves-effect waves-light" type="submit"
+                                                                onClick={() => {
+                                                                    const actual_points = document.getElementById(`Points_${player.id}`).value;
+                                                                    const actual_tiebreaks = document.getElementById(`Tiebreaks_${player.id}`).value;
+                                                                    document.getElementById(`Points_${player.id}`).value = '';
+                                                                    document.getElementById(`Tiebreaks_${player.id}`).value = '';
+                                                                    updatePointsRequest("update-player-points", eventId, player.id, `round_num=${eventRounds.length}`, {
+                                                                        "Points": actual_points,
+                                                                        "Sub_points": actual_tiebreaks
+                                                                    }, () => {
+                                                                        const target_url = "https://edh-reporter.nikitacartes.xyz/event-manager/get-full-event-data/" + eventId
+                                                                        fetch(target_url)
+                                                                            .then(res => res.json())
+                                                                            .then((result) => {
+                                                                                console.log(result);
+                                                                                this.changeState(result);                                                                                
+                                                                            }, (error) => {
+                                                                                this.setState({
+                                                                                    isLoaded: true, error
+                                                                                });
+                                                                            });
+                                                                    })
+                                                                }}>
+                                                                    Submit
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </li>)
                                         })}
                                     </ul>

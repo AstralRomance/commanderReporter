@@ -43,11 +43,24 @@ class EventManagerSvc:
     def get_full_event_data(self, event_id: str) -> dict:
         return self.session.find_event(event_id)
 
+    def get_event_player(self, event_id: str, player_id: str) -> dict:
+        event_data = self.get_full_event_data(event_id)
+        target_player = None
+        for player in event_data['Players']:
+            if player['Player_id'] == player_id:
+                target_player = player
+                break
+        return target_player
+
     def change_event_state(self, event_id: str, target_state: str):
         return self.session.update_event(event_id, {'Status': target_state})
 
     def update_player_on_event(self, event_id: str, player_id: str, player_data: dict):
-        return self.session.update_player(event_id, player_id, player_data)
+        player = self.get_event_player(event_id, player_id)
+        player_data = dict(player_data)
+        for target_key in player_data:
+            player[target_key] = player_data[target_key]
+        return self.session.update_player(event_id, player_id, dict(player))
 
     def add_player_to_event(self, event_id: str, player_data: AddPlayerToEvent) -> dict:
         target_event = self.session.find_event(event_id)

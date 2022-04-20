@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends
+from loguru import logger
 
 from ..models.eventManager import AddPlayerToEvent, PlayerInfo, GeneralEventInfo, UpdatePlayerPoints
 from ..service.eventManagerSvc import EventManagerSvc
@@ -37,10 +38,11 @@ def generate_round(event_id: str, round_number: int, manager_svc: EventManagerSv
     return manager_svc.get_full_event_data(event_id)
 
 
-@router.put('/change-event-player/{event_id}/{player_id}')
+@router.put('/change-event-player/{event_id}/{player_id}', response_model=PlayerInfo)
 def update_player_on_event(event_id: str, player_id: str, player_data: AddPlayerToEvent,
                            manager_svc: EventManagerSvc = Depends()):
-    return manager_svc.update_player_on_event(event_id, player_id, player_data)
+    manager_svc.update_player_on_event(event_id, player_id, player_data)
+    return manager_svc.get_event_player(event_id, player_id)
 
 
 @router.delete('/remove-player-from-event/{event_id}/{player_id}')

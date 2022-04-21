@@ -60,7 +60,7 @@ class EventManagerSvc:
         player_data = dict(player_data)
         for target_key in player_data:
             player[target_key] = player_data[target_key]
-        return self.session.update_player(event_id, player_id, dict(player))
+        self.session.update_player(event_id, player_id, dict(player))
 
     def add_player_to_event(self, event_id: str, player_data: AddPlayerToEvent) -> dict:
         target_event = self.session.find_event(event_id)

@@ -117,11 +117,9 @@ class EventManagerSvc:
 
     def generate_round(self, event_id: str, round_number: int):
         target_event = self.session.find_event(event_id)
-        logger.debug('*'*100)
-        logger.debug(target_event)
         target_players_data = [{'name': player['Player_name'],
                                 'id': player['Player_id'],
-                                'Hidden_points': player['Hidden_points']} for player in target_event['Players']]
+                                'Hidden_points': player['Hidden_points']} for player in target_event['Players'] if not player['Status']]
         if round_number == 1:
             for _ in range(5):
                 random.shuffle(target_players_data)

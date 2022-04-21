@@ -39,9 +39,16 @@ function finishEvent(endpoint, event_id, params, callback) {
     xhr.send();
 }
 
-function removePlayer(){
-    // const xhr = new XMLHttpRequest();
-
+function updatePlayerInfo(endpoint, event_id, player_id, data, callback){
+    const xhr = new XMLHttpRequest();
+    xhr.open("PUT", "https://edh-reporter.nikitacartes.xyz/event-manager/" + endpoint + "/" + event_id + "/" + player_id);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            callback(JSON.parse(xhr.responseText));
+        }
+    };
+    xhr.send(JSON.stringify(data));
 }
 
 class EventInfo extends Component {
@@ -120,6 +127,7 @@ class EventInfo extends Component {
                         this.Tabs = Tabs;
                     }} className="tabs z-depth-1" id="eventTabs">
                         <li className="tab col"><a href="#standings">Standings</a></li>
+                        <li className="tab col"><a href="#players">Players</a></li>
                         {eventRounds.map(round => {
                             return (<li className="tab col" key={round.Number}><a
                                 href={`#round${round.Number}`}>{`Round ${round.Number}`}</a></li>)
@@ -132,12 +140,80 @@ class EventInfo extends Component {
                                 return (<tr key={index}>
                                     <td>{index + 1}</td>
                                     <td>{player.Player_name}</td>
+                                    <td>{player.Commander}</td>
                                     <td>{player.Points}</td>
                                     <td>{player.Sub_points}</td>
                                 </tr>)
                             })}
                             </tbody>
                         </table>
+                    </div>
+                    <div id="players">
+                        <div className="col s12">
+                        <table className="highlight">
+                            <tbody>
+                            {
+                                eventPlayers.map((player) => {
+                                    return (
+                                        <tr>
+                                            <td>{player.Player_name}</td>
+                                            <td>{player.Commander}</td>
+                                            <td>
+                                                <div className="input-field push-s1">
+                                                    <input id={`Name_${player.Player_id}`} type="text"
+                                                        className="validate"/>
+                                                    <label htmlFor={`Name_${player.Player_id}`}>Name</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className="input-field push-s1">
+                                                    <input id={`Commander_${player.Player_id}`} type="text"
+                                                        className="validate"/>
+                                                    <label htmlFor={`Commander_${player.Player_id}`}>Commander</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <button className="btn waves-effect waves-light" type="submit" onClick={() => {
+                                                    //xhr.open("PUT", "https://edh-reporter.nikitacartes.xyz/event-manager/" + endpoint + "/" + event_id + "/" + player_id);
+                                                                    let player_name = document.getElementById(`Name_${player.Player_id}`).value;
+                                                                    if (player_name == "")
+                                                                    {
+                                                                        player_name = player.Player_name
+                                                                    };
+                                                                    let player_commander = document.getElementById(`Commander_${player.Player_id}`).value
+                                                                    if (player_commander == "")
+                                                                    {
+                                                                        player_commander = player.Commander
+                                                                    };
+                                                                    // Deck link is temporary empty.
+                                                                    updatePlayerInfo("change-event-player",
+                                                                                     eventId,
+                                                                                     player.Player_id,
+                                                                                     {"Player_name": player_name, "Commander": player_commander, "Deck_link": ""},
+                                                                                     () => {
+                                                                                        const target_url = "https://edh-reporter.nikitacartes.xyz/event-manager/get-full-event-data/" + eventId
+                                                                                        fetch(target_url)
+                                                                                            .then(res => res.json())
+                                                                                            .then((result) => {
+                                                                                                console.log(result);
+                                                                                                this.changeState(result);                                                                                
+                                                                                            }, (error) => {
+                                                                                                this.setState({
+                                                                                                    isLoaded: true, error
+                                                                                                });
+                                                                                            });
+                                                                                    })
+                                                                }}>
+                                                    Submit
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    )
+                                })
+                            }
+                            </tbody>
+                        </table>
+                        </div>
                     </div>
                     {eventRounds.map(round => {
                         return (<div id={`round${round.Number}`} className="row" key={`round${round.Number}`}>

@@ -74,5 +74,3 @@ class DataBaseManipulation:
             {'Event_id': str(event_id)},
             {'$set': {'Rounds.$[].Players_on_table.$[].Table_players.$[element].name': new_player_name}},
             array_filters=[{'element.id': {'$eq': player_id}}])
-        print(update_cursor.matched_count)
-        print(update_cursor.modified_count)

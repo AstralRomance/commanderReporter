@@ -51,6 +51,18 @@ function updatePlayerInfo(endpoint, event_id, player_id, data, callback){
     xhr.send(JSON.stringify(data));
 }
 
+function addPlayer(endpoint, event_id, data, callback){
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost:8000/event-manager/" + endpoint + "/" + event_id)
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            callback(JSON.parse(xhr.responseText));
+        }
+    };
+    xhr.send(JSON.stringify(data))
+}
+
 class EventInfo extends Component {
     constructor(props) {
         super(props)
@@ -152,6 +164,49 @@ class EventInfo extends Component {
                         <div className="col s12">
                         <table className="highlight">
                             <tbody>
+                            <tr>
+                                <td><h6><strong>Add player</strong></h6></td>
+                                <td>
+                                    <div className="input-field">
+                                        <input id="new_player_name" type="text"
+                                            className="validate"/>
+                                        <label htmlFor="new_player_name">Name</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div className="input-field">
+                                        <input id="new_player_commander" type="text"
+                                            className="validate"/>
+                                        <label htmlFor="new_player_commander">Commander</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button className="btn waves-effect waves-light"
+                                            type="submit"
+                                            onClick={() => {
+                                                addPlayer("add-player",
+                                                            eventId,
+                                                            {"Player_name": document.getElementById("new_player_name").value,
+                                                            "Commander": document.getElementById("new_player_commander").value,
+                                                            "Deck_link": ""},
+                                                            () => {
+                                                            const target_url = "https://edh-reporter.nikitacartes.xyz/event-manager/get-full-event-data/" + eventId
+                                                            fetch(target_url)
+                                                                .then(res => res.json())
+                                                                .then((result) => {
+                                                                    console.log(result);
+                                                                    this.changeState(result);                                                                                
+                                                                }, (error) => {
+                                                                    this.setState({
+                                                                        isLoaded: true, error
+                                                                    });
+                                                                });
+                                                        })
+                                            }}>
+                                        Add player
+                                    </button>
+                                </td>
+                            </tr>
                             {
                                 eventPlayers.map((player) => {
                                     return (
@@ -159,14 +214,14 @@ class EventInfo extends Component {
                                             <td>{player.Player_name}</td>
                                             <td>{player.Commander}</td>
                                             <td>
-                                                <div className="input-field push-s1">
+                                                <div className="input-field">
                                                     <input id={`Name_${player.Player_id}`} type="text"
                                                         className="validate"/>
                                                     <label htmlFor={`Name_${player.Player_id}`}>Name</label>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className="input-field push-s1">
+                                                <div className="input-field">
                                                     <input id={`Commander_${player.Player_id}`} type="text"
                                                         className="validate"/>
                                                     <label htmlFor={`Commander_${player.Player_id}`}>Commander</label>
@@ -174,7 +229,6 @@ class EventInfo extends Component {
                                             </td>
                                             <td>
                                                 <button className="btn waves-effect waves-light" type="submit" onClick={() => {
-                                                    //xhr.open("PUT", "https://edh-reporter.nikitacartes.xyz/event-manager/" + endpoint + "/" + event_id + "/" + player_id);
                                                                     let player_name = document.getElementById(`Name_${player.Player_id}`).value;
                                                                     if (player_name == "")
                                                                     {
@@ -204,7 +258,48 @@ class EventInfo extends Component {
                                                                                             });
                                                                                     })
                                                                 }}>
-                                                    Submit
+                                                    Change player
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <div className="input-field push-s1">
+                                                    <input id={`PPoints_${player.Player_id}`} type="text"
+                                                        className="validate"/>
+                                                    <label htmlFor={`Points_${player.Player_id}`}>Points</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className="input-field">
+                                                    <input id={`PTiebreaks_${player.Player_id}`} type="text"
+                                                        className="validate"/>
+                                                    <label htmlFor={`Tiebreaks_${player.Player_id}`}>Tiebreaks</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <button className="btn waves-effect waves-light" type="submit"
+                                                        onClick={() => {
+                                                            const actual_points = document.getElementById(`Points_${player.Player_id}`).value;
+                                                            const actual_tiebreaks = document.getElementById(`Tiebreaks_${player.id}`).value;
+                                                            document.getElementById(`PPoints_${player.Player_id}`).value = '';
+                                                            document.getElementById(`PTiebreaks_${player.Player_id}`).value = '';
+                                                            updatePointsRequest("update-player-points", eventId, player.Player_id, `round_num=${eventRounds.length}`, {
+                                                                "Points": actual_points,
+                                                                "Sub_points": actual_tiebreaks
+                                                            }, () => {
+                                                                const target_url = "https://edh-reporter.nikitacartes.xyz/event-manager/get-full-event-data/" + eventId
+                                                                fetch(target_url)
+                                                                    .then(res => res.json())
+                                                                    .then((result) => {
+                                                                        console.log(result);
+                                                                        this.changeState(result);                                                                                
+                                                                    }, (error) => {
+                                                                        this.setState({
+                                                                            isLoaded: true, error
+                                                                        });
+                                                                    });
+                                                            })
+                                                        }}>
+                                                            Submit
                                                 </button>
                                             </td>
                                         </tr>

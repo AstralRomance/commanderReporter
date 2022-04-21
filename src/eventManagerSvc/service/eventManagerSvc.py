@@ -61,6 +61,7 @@ class EventManagerSvc:
         for target_key in player_data:
             player[target_key] = player_data[target_key]
         self.session.update_player(event_id, player_id, dict(player))
+        self.session.update_player_on_table(event_id, player_id, player_data['Player_name'])
 
     def add_player_to_event(self, event_id: str, player_data: AddPlayerToEvent) -> dict:
         target_event = self.session.find_event(event_id)
@@ -138,8 +139,6 @@ class EventManagerSvc:
             players_to_tables = players_on_tables[:-1]
         [random.shuffle(table) for table in players_to_tables]
         tables_data = [{'Table_num': table_num+1, 'Table_players': players_to_tables[table_num]} for table_num in range(len(players_to_tables))]
-        logger.debug('*'*100)
-        logger.debug(target_event)
         if target_event.get('Rounds'):
             target_event['Rounds'].append({'Number': round_number,
                                            'Players_on_table': tables_data})

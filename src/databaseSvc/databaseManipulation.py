@@ -63,8 +63,14 @@ class DataBaseManipulation:
         return self.session.delete_one({'Event_id': event_id}).deleted_count == 1
 
     @Logger()
-    def update_player(self, event_id: str, player_id: str, player_data: dict):
+    def update_player(self, event_id: str, player_id: str, player_data: dict) -> bool:
         update_cursor = self.session.update_one({'Event_id': str(event_id)},
                                                 {'$set': {'Players.$[element]': player_data}},
                                                 array_filters=[{'element.Player_id': {'$eq': player_id}}])
         return update_cursor.modified_count == 1
+
+    def update_player_on_table(self, event_id: str, player_id: str, new_player_name: str) -> None:
+        update_cursor = self.session.update_many(
+            {'Event_id': str(event_id)},
+            {'$set': {'Rounds.$[].Players_on_table.$[].Table_players.$[element].name': new_player_name}},
+            array_filters=[{'element.id': {'$eq': player_id}}])

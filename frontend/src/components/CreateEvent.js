@@ -17,7 +17,7 @@ function doRequest(endpoint, id, data, callback, method = "POST") {
     xhr.send(data);
 }
 
-function changeEventState(endpoint, id, params, callback, method="POST") {
+function changeEventState(endpoint, id, params, callback, method = "POST") {
     const xhr = new XMLHttpRequest();
     xhr.open(method, "https://edh-reporter.nikitacartes.xyz/" + endpoint + "/" + id + "?" + params, true);
     console.log("https://edh-reporter.nikitacartes.xyz/" + endpoint + "/" + id + "?" + params)
@@ -82,21 +82,38 @@ function addPlayer(element) {
         cell.appendChild(deleteButton);
         row.appendChild(cell);
 
-        element.target.parentNode.parentNode.parentNode.appendChild(row);
+        element.target.parentNode.parentNode.parentNode.prepend(row);
     })
 }
 
 
 function deletePlayer(element) {
     doRequest("event-manager/remove-player", document.getElementById("Event_id").value + "/" + element.target.parentNode.children[0].value, "", () => {
-        element.target.parentNode.parentNode.parentNode.removeChild(element.target.parentNode.parentNode.parentNode.lastElementChild);
+        const players = document.getElementsByClassName("Player_id");
+        const playerId = element.target.parentNode.children[0].value;
+        for (let i = 0; i < players.length; i++) {
+            if (players.item(i).value === playerId) {
+                element.target.parentNode.remove();
+                break;
+            }
+        }
     }, "DELETE")
 }
 
 export default class CreateEvent extends Component {
     constructor(props) {
-        super(props)
+        super(props);
+        this.state = {
+            startDate: new Date()
+        };
+        this.handleChange = this.handleChange.bind(this);
     };
+
+    handleChange(date) {
+        this.setState({
+            startDate: date
+        });
+    }
 
     render() {
         return (<div>
@@ -104,7 +121,7 @@ export default class CreateEvent extends Component {
             <div className="row">
                 <button id="startButton" className="btn waves-effect waves-light-large col s1" onClick={() => {
                     changeEventState("event-manager/change-event-state", document.getElementById("Event_id").value, "target_state=Started", () => {
-                        window.location.href="event/" + document.getElementById("Event_id").value;
+                        window.location.href = "event/" + document.getElementById("Event_id").value;
                     });
                 }}>
                     Start!
@@ -118,8 +135,9 @@ export default class CreateEvent extends Component {
                         <DatePicker
                             name="Event_Date"
                             id="Event_Date"
-                            selected={new Date()}
-                            onChange={(date) => this.setState(date)}
+                            minDate={new Date()}
+                            selected={this.state.startDate}
+                            onChange={this.handleChange}
                             dateFormat="dd MMMM, yyyy"
                         />
 

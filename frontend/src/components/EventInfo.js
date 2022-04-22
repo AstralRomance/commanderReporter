@@ -169,16 +169,15 @@ class EventInfo extends Component {
                                     <td><h6><strong>Add player</strong></h6></td>
                                     <td>
                                         <div className="input-field">
-                                            <input id="new_player_name" type="text"
-                                                   className="validate"/>
+                                            <input id="new_player_name" type="text" className="validate"/>
                                             <label htmlFor="new_player_name">Name</label>
                                         </div>
                                     </td>
                                     <td>
                                         <div className="input-field">
-                                            <input id="new_player_commander" type="text"
+                                            <input id={`new_commander`} type="text"
                                                    className="validate"/>
-                                            <label htmlFor="new_player_commander">Commander</label>
+                                            <label htmlFor={`new_commander`}>Commander</label>
                                         </div>
                                     </td>
                                     <td>
@@ -187,7 +186,7 @@ class EventInfo extends Component {
                                                 onClick={() => {
                                                     addPlayer("add-player", eventId, {
                                                         "Player_name": document.getElementById("new_player_name").value,
-                                                        "Commander": document.getElementById("new_player_commander").value,
+                                                        "Commander": document.getElementById("new_commander").value,
                                                         "Deck_link": ""
                                                     }, () => {
                                                         const target_url = "https://edh-reporter.nikitacartes.xyz/event-manager/get-full-event-data/" + eventId
@@ -264,27 +263,35 @@ class EventInfo extends Component {
                                             <div className="input-field push-s1">
                                                 <input id={`PPoints_${player.Player_id}`} type="text"
                                                        className="validate"/>
-                                                <label htmlFor={`Points_${player.Player_id}`}>Points</label>
+                                                <label htmlFor={`PPoints_${player.Player_id}`}>Points</label>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-field">
                                                 <input id={`PTiebreaks_${player.Player_id}`} type="text"
                                                        className="validate"/>
-                                                <label htmlFor={`Tiebreaks_${player.Player_id}`}>Tiebreaks</label>
+                                                <label htmlFor={`PTiebreaks_${player.Player_id}`}>Tiebreaks</label>
                                             </div>
                                         </td>
                                         <td>
                                             <button className="btn waves-effect waves-light" type="submit"
                                                     onClick={() => {
-                                                        const actual_points = document.getElementById(`Points_${player.Player_id}`).value;
-                                                        const actual_tiebreaks = document.getElementById(`Tiebreaks_${player.id}`).value;
+                                                        let actual_points = document.getElementById(`PPoints_${player.Player_id}`).value;
+                                                        let actual_tiebreaks = document.getElementById(`PTiebreaks_${player.Player_id}`).value;
+                                                        if (actual_points === "")
+                                                        {
+                                                            actual_points = 0
+                                                        }
+                                                        if (actual_tiebreaks === "")
+                                                        {
+                                                            actual_tiebreaks = 0
+                                                        }
                                                         updatePointsRequest("update-player-points", eventId, player.Player_id, `round_num=${eventRounds.length}`, {
                                                             "Points": actual_points, "Sub_points": actual_tiebreaks
                                                         }, (result) => {
                                                             console.log(result);
-                                                            document.getElementById(`PPoints_${player.Player_id}`).value = '✅';
-                                                            document.getElementById(`PTiebreaks_${player.Player_id}`).value = '✅';
+                                                            document.getElementById(`PPoints_${player.Player_id}`).value = '';
+                                                            document.getElementById(`PTiebreaks_${player.Player_id}`).value = '';
 
                                                             this.changeState(result);
                                                         }, (error) => {
@@ -341,8 +348,8 @@ class EventInfo extends Component {
                                                                         "Sub_points": actual_tiebreaks
                                                                     }, (result) => {
                                                                         console.log(result);
-                                                                        document.getElementById(`Points_${player.id}`).value = '✅';
-                                                                        document.getElementById(`Tiebreaks_${player.id}`).value = '✅';
+                                                                        document.getElementById(`Points_${player.id}`).value = '';
+                                                                        document.getElementById(`Tiebreaks_${player.id}`).value = '';
 
                                                                         this.changeState(result);
                                                                     }, (error) => {

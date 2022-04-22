@@ -326,23 +326,23 @@ class EventInfo extends Component {
                                                     <div className="col s3"><strong>{player.name}</strong></div>
                                                     <div className="col s2 push-s1">
                                                         <div className="input-field push-s1">
-                                                            <input id={`Points_${player.id}`} type="text"
+                                                            <input id={`Points_${player.id}_${round.Number}`} type="text"
                                                                    className="validate"/>
-                                                            <label htmlFor={`Points_${player.id}`}>Points</label>
+                                                            <label htmlFor={`Points_${player.id}_${round.Number}`}>Points</label>
                                                         </div>
                                                     </div>
                                                     <div className="col s2 push-s1">
                                                         <div className="input-field">
-                                                            <input id={`Tiebreaks_${player.id}`} type="text"
+                                                            <input id={`Tiebreaks_${player.id}_${round.Number}`} type="text"
                                                                    className="validate"/>
-                                                            <label htmlFor={`Tiebreaks_${player.id}`}>Tiebreaks</label>
+                                                            <label htmlFor={`Tiebreaks_${player.id}_${round.Number}`}>Tiebreaks</label>
                                                         </div>
                                                     </div>
                                                     <div className="col s2 push-s2">
                                                         <button className="btn waves-effect waves-light" type="submit"
                                                                 onClick={() => {
-                                                                    const actual_points = document.getElementById(`Points_${player.id}`).value;
-                                                                    const actual_tiebreaks = document.getElementById(`Tiebreaks_${player.id}`).value;
+                                                                    const actual_points = document.getElementById(`Points_${player.id}_${round.Number}`).value;
+                                                                    const actual_tiebreaks = document.getElementById(`Tiebreaks_${player.id}_${round.Number}`).value;
                                                                     updatePointsRequest("update-player-points", eventId, player.id, `round_num=${eventRounds.length}`, {
                                                                         "Points": actual_points,
                                                                         "Sub_points": actual_tiebreaks

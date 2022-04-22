@@ -90,6 +90,7 @@ class EventManagerSvc:
         try:
             target_player = self.session.find_player_on_event(event_id, player_id).get('Players')[0]
         except Exception as e:
+            print('error raised')
             return 404
         target_event_rounds = self.session.find_event(event_id).get('Rounds')
         target_table = None

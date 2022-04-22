@@ -82,14 +82,21 @@ function addPlayer(element) {
         cell.appendChild(deleteButton);
         row.appendChild(cell);
 
-        element.target.parentNode.parentNode.parentNode.appendChild(row);
+        element.target.parentNode.parentNode.parentNode.prepend(row);
     })
 }
 
 
 function deletePlayer(element) {
     doRequest("event-manager/remove-player", document.getElementById("Event_id").value + "/" + element.target.parentNode.children[0].value, "", () => {
-        element.target.parentNode.parentNode.parentNode.removeChild(element.target.parentNode.parentNode.parentNode.lastElementChild);
+        const players = document.getElementsByClassName("Player_id");
+        const playerId = element.target.parentNode.children[0].value;
+        for (let i = 0; i< players.length; i++) {
+            if(players.item(i).value === playerId) {
+                element.target.parentNode.remove();
+                break;
+            }
+        }
     }, "DELETE")
 }
 

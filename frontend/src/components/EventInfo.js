@@ -39,7 +39,7 @@ function finishEvent(endpoint, event_id, params, callback) {
     xhr.send();
 }
 
-function updatePlayerInfo(endpoint, event_id, player_id, data, callback){
+function updatePlayerInfo(endpoint, event_id, player_id, data, callback) {
     const xhr = new XMLHttpRequest();
     xhr.open("PUT", "https://edh-reporter.nikitacartes.xyz/event-manager/" + endpoint + "/" + event_id + "/" + player_id);
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -119,7 +119,8 @@ class EventInfo extends Component {
             <div className="row">
                 <button className="btn waves-effect waves-light-large col s1 offset-s11" type="submit"
                         onClick={() => {
-                            finishEvent("change-event-state", eventId, "target_state=finished", () => {})
+                            finishEvent("change-event-state", eventId, "target_state=finished", () => {
+                            })
                         }}>
                     Finish Event
                 </button>
@@ -207,10 +208,8 @@ class EventInfo extends Component {
                                     </button>
                                 </td>
                             </tr>
-                            {
-                                eventPlayers.map((player) => {
-                                    return (
-                                        <tr>
+                            {eventPlayers.map((player) => {
+                                    return (<tr key={player.Player_id}>
                                             <td>{player.Player_name}</td>
                                             <td>{player.Commander}</td>
                                             <td>
@@ -244,19 +243,20 @@ class EventInfo extends Component {
                                                                                      eventId,
                                                                                      player.Player_id,
                                                                                      {"Player_name": player_name, "Commander": player_commander, "Deck_link": ""},
-                                                                                     () => {
-                                                                                        const target_url = "https://edh-reporter.nikitacartes.xyz/event-manager/get-full-event-data/" + eventId
-                                                                                        fetch(target_url)
-                                                                                            .then(res => res.json())
-                                                                                            .then((result) => {
-                                                                                                console.log(result);
-                                                                                                this.changeState(result);                                                                                
-                                                                                            }, (error) => {
-                                                                                                this.setState({
-                                                                                                    isLoaded: true, error
-                                                                                                });
-                                                                                            });
-                                                                                    })
+                                                                                      (result) => {
+                                                            for (let i = 0; i < this.state.eventPlayers.length; i++) {
+                                                                if (this.state.eventPlayers[i].Player_id === player.Player_id) {
+                                                                    this.state.eventPlayers[i] = result;
+                                                                    this.changeState(this.state.eventPlayers[i]);
+                                                                    break;
+                                                                }
+                                                            }
+                                                            console.log(result);
+                                                        }, (error) => {
+                                                            this.setState({
+                                                                isLoaded: true, error
+                                                            });
+                                                        })
                                                                 }}>
                                                     Change player
                                                 </button>
@@ -299,7 +299,7 @@ class EventInfo extends Component {
                                                                     });
                                                             })
                                                         }}>
-                                                            Submit
+                                                    Submit
                                                 </button>
                                             </td>
                                         </tr>
@@ -327,14 +327,14 @@ class EventInfo extends Component {
                                                     <div className="col s2 push-s1">
                                                         <div className="input-field push-s1">
                                                             <input id={`Points_${player.id}`} type="text"
-                                                                className="validate"/>
+                                                                   className="validate"/>
                                                             <label htmlFor={`Points_${player.id}`}>Points</label>
                                                         </div>
                                                     </div>
                                                     <div className="col s2 push-s1">
                                                         <div className="input-field">
                                                             <input id={`Tiebreaks_${player.id}`} type="text"
-                                                                className="validate"/>
+                                                                   className="validate"/>
                                                             <label htmlFor={`Tiebreaks_${player.id}`}>Tiebreaks</label>
                                                         </div>
                                                     </div>
@@ -343,26 +343,22 @@ class EventInfo extends Component {
                                                                 onClick={() => {
                                                                     const actual_points = document.getElementById(`Points_${player.id}`).value;
                                                                     const actual_tiebreaks = document.getElementById(`Tiebreaks_${player.id}`).value;
-                                                                    document.getElementById(`Points_${player.id}`).value = '';
-                                                                    document.getElementById(`Tiebreaks_${player.id}`).value = '';
                                                                     updatePointsRequest("update-player-points", eventId, player.id, `round_num=${eventRounds.length}`, {
                                                                         "Points": actual_points,
                                                                         "Sub_points": actual_tiebreaks
-                                                                    }, () => {
-                                                                        const target_url = "https://edh-reporter.nikitacartes.xyz/event-manager/get-full-event-data/" + eventId
-                                                                        fetch(target_url)
-                                                                            .then(res => res.json())
-                                                                            .then((result) => {
-                                                                                console.log(result);
-                                                                                this.changeState(result);                                                                                
-                                                                            }, (error) => {
-                                                                                this.setState({
-                                                                                    isLoaded: true, error
-                                                                                });
-                                                                            });
+                                                                    }, (result) => {
+                                                                        console.log(result);
+                                                                        document.getElementById(`Points_${player.id}`).value = '✅';
+                                                                        document.getElementById(`Tiebreaks_${player.id}`).value = '✅';
+
+                                                                        this.changeState(result);
+                                                                    }, (error) => {
+                                                                        this.setState({
+                                                                            isLoaded: true, error
+                                                                        });
                                                                     })
                                                                 }}>
-                                                                    Submit
+                                                            Submit
                                                         </button>
                                                     </div>
                                                 </div>

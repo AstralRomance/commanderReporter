@@ -53,7 +53,7 @@ function updatePlayerInfo(endpoint, event_id, player_id, data, callback){
 
 function addPlayer(endpoint, event_id, data, callback){
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:8000/event-manager/" + endpoint + "/" + event_id)
+    xhr.open("POST", "https://edh-reporter.nikitacartes.xyz/event-manager/" + endpoint + "/" + event_id)
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {

@@ -95,8 +95,18 @@ function deletePlayer(element) {
 
 export default class CreateEvent extends Component {
     constructor(props) {
-        super(props)
+        super(props);
+        this.state = {
+          startDate: new Date()
+        };
+        this.handleChange = this.handleChange.bind(this);
     };
+
+    handleChange(date) {
+        this.setState({
+          startDate: date
+        });
+    }
 
     render() {
         return (<div>
@@ -118,8 +128,9 @@ export default class CreateEvent extends Component {
                         <DatePicker
                             name="Event_Date"
                             id="Event_Date"
-                            selected={new Date()}
-                            onChange={(date) => this.setState(date)}
+                            minDate={new Date()}
+                            selected={this.state.startDate}
+                            onChange={this.handleChange}
                             dateFormat="dd MMMM, yyyy"
                         />
 

@@ -135,11 +135,11 @@ class EventInfo extends Component {
             </div>
 
             <div className="row">
-                <div className="col s12" id="mainThing">
+                <div className="col s12">
                     <ul ref={Tabs => {
                         this.Tabs = Tabs;
                     }} className="tabs z-depth-1" id="eventTabs">
-                        <li className="tab col" id="standingsTab"><a href="#standings">Standings</a></li>
+                        <li className="tab col"><a href="#standings">Standings</a></li>
                         <li className="tab col"><a href="#players">Players</a></li>
                         {eventRounds.map(round => {
                             return (<li className="tab col" key={round.Number}><a

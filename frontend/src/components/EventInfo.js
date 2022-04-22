@@ -108,7 +108,7 @@ class EventInfo extends Component {
                 this.setState({
                     isLoaded: true, error
                 });
-            })
+            });
     }
 
     render() {
@@ -135,11 +135,11 @@ class EventInfo extends Component {
             </div>
 
             <div className="row">
-                <div className="col s12">
+                <div className="col s12" id="mainThing">
                     <ul ref={Tabs => {
                         this.Tabs = Tabs;
                     }} className="tabs z-depth-1" id="eventTabs">
-                        <li className="tab col"><a href="#standings">Standings</a></li>
+                        <li className="tab col" id="standingsTab"><a href="#standings">Standings</a></li>
                         <li className="tab col"><a href="#players">Players</a></li>
                         {eventRounds.map(round => {
                             return (<li className="tab col" key={round.Number}><a
@@ -161,7 +161,7 @@ class EventInfo extends Component {
                             </tbody>
                         </table>
                     </div>
-                    <div id="players">
+                    <div id="players" style={{display: 'none'}}>
                         <div className="col s12">
                         <table className="highlight">
                             <tbody>
@@ -247,7 +247,7 @@ class EventInfo extends Component {
                                                             for (let i = 0; i < this.state.eventPlayers.length; i++) {
                                                                 if (this.state.eventPlayers[i].Player_id === player.Player_id) {
                                                                     this.state.eventPlayers[i] = result;
-                                                                    this.changeState(this.state.eventPlayers[i]);
+                                                                    this.setState(this.state.eventPlayers[i]);
                                                                     break;
                                                                 }
                                                             }
@@ -311,7 +311,8 @@ class EventInfo extends Component {
                         </div>
                     </div>
                     {eventRounds.map(round => {
-                        return (<div id={`round${round.Number}`} className="row" key={`round${round.Number}`}>
+                        return (<div id={`round${round.Number}`} className="row" key={`round${round.Number}`}
+                                     style={{display: 'none'}}>
                             {round.Players_on_table.map(table_info => {
                                 return (<div className="col s4" key={table_info.Table_num}>
                                     <ul className="collection with-header">

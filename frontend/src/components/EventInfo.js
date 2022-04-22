@@ -209,98 +209,94 @@ class EventInfo extends Component {
                                 </tr>
                                 {eventPlayers.map((player) => {
                                     return (<tr key={player.Player_id}>
-                                            <td>{player.Player_name}</td>
-                                            <td>{player.Commander}</td>
-                                            <td>
-                                                <div className="input-field">
-                                                    <input id={`Name_${player.Player_id}`} type="text"
-                                                           className="validate"/>
-                                                    <label htmlFor={`Name_${player.Player_id}`}>Name</label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div className="input-field">
-                                                    <input id={`Commander_${player.Player_id}`} type="text"
-                                                           className="validate"/>
-                                                    <label htmlFor={`Commander_${player.Player_id}`}>Commander</label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <button className="btn waves-effect waves-light" type="submit"
-                                                        onClick={() => {
-                                                            let player_name = document.getElementById(`Name_${player.Player_id}`).value;
-                                                            if (player_name == "") {
-                                                                player_name = player.Player_name
-                                                            }
-                                                            let player_commander = document.getElementById(`Commander_${player.Player_id}`).value
-                                                            if (player_commander == "") {
-                                                                player_commander = player.Commander
-                                                            }
+                                        <td>{player.Player_name}</td>
+                                        <td>{player.Commander}</td>
+                                        <td>
+                                            <div className="input-field">
+                                                <input id={`Name_${player.Player_id}`} type="text"
+                                                       className="validate"/>
+                                                <label htmlFor={`Name_${player.Player_id}`}>Name</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="input-field">
+                                                <input id={`Commander_${player.Player_id}`} type="text"
+                                                       className="validate"/>
+                                                <label htmlFor={`Commander_${player.Player_id}`}>Commander</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button className="btn waves-effect waves-light" type="submit"
+                                                    onClick={() => {
+                                                        let player_name = document.getElementById(`Name_${player.Player_id}`).value;
+                                                        if (player_name === "") {
+                                                            player_name = player.Player_name
+                                                        }
+                                                        let player_commander = document.getElementById(`Commander_${player.Player_id}`).value
+                                                        if (player_commander === "") {
+                                                            player_commander = player.Commander
+                                                        }
 
-                                                            // Deck link is temporary empty.
-                                                            updatePlayerInfo("change-event-player", eventId, player.Player_id, {
-                                                                "Player_name": player_name,
-                                                                "Commander": player_commander,
-                                                                "Deck_link": ""
-                                                            }, (result) => {
-                                                                for (let i = 0; i < this.state.eventPlayers.length; i++) {
-                                                                    if (this.state.eventPlayers[i].Player_id === player.Player_id) {
-                                                                        this.state.eventPlayers[i] = result;
-                                                                        this.setState(this.state.eventPlayers[i]);
-                                                                        break;
-                                                                    }
+                                                        // Deck link is temporary empty.
+                                                        updatePlayerInfo("change-event-player", eventId, player.Player_id, {
+                                                            "Player_name": player_name,
+                                                            "Commander": player_commander,
+                                                            "Deck_link": ""
+                                                        }, (result) => {
+                                                            for (let i = 0; i < this.state.eventPlayers.length; i++) {
+                                                                if (this.state.eventPlayers[i].Player_id === player.Player_id) {
+                                                                    this.state.eventPlayers[i] = result;
+                                                                    this.setState(this.state.eventPlayers[i]);
+                                                                    break;
                                                                 }
-                                                                console.log(result);
-                                                            }, (error) => {
-                                                                this.setState({
-                                                                    isLoaded: true, error
-                                                                });
-                                                            })
-                                                        }}>
-                                                    Change player
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <div className="input-field push-s1">
-                                                    <input id={`PPoints_${player.Player_id}`} type="text"
-                                                           className="validate"/>
-                                                    <label htmlFor={`Points_${player.Player_id}`}>Points</label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div className="input-field">
-                                                    <input id={`PTiebreaks_${player.Player_id}`} type="text"
-                                                           className="validate"/>
-                                                    <label htmlFor={`Tiebreaks_${player.Player_id}`}>Tiebreaks</label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <button className="btn waves-effect waves-light" type="submit"
-                                                        onClick={() => {
-                                                            const actual_points = document.getElementById(`Points_${player.Player_id}`).value;
-                                                            const actual_tiebreaks = document.getElementById(`Tiebreaks_${player.id}`).value;
-                                                            document.getElementById(`PPoints_${player.Player_id}`).value = '';
-                                                            document.getElementById(`PTiebreaks_${player.Player_id}`).value = '';
-                                                            updatePointsRequest("update-player-points", eventId, player.Player_id, `round_num=${eventRounds.length}`, {
-                                                                "Points": actual_points, "Sub_points": actual_tiebreaks
-                                                            }, () => {
-                                                                const target_url = "https://edh-reporter.nikitacartes.xyz/event-manager/get-full-event-data/" + eventId
-                                                                fetch(target_url)
-                                                                    .then(res => res.json())
-                                                                    .then((result) => {
-                                                                        console.log(result);
-                                                                        this.changeState(result);
-                                                                    }, (error) => {
-                                                                        this.setState({
-                                                                            isLoaded: true, error
-                                                                        });
-                                                                    });
-                                                            })
-                                                        }}>
-                                                    Submit
-                                                </button>
-                                            </td>
-                                        </tr>)
+                                                            }
+                                                            console.log(result);
+                                                        }, (error) => {
+                                                            this.setState({
+                                                                isLoaded: true, error
+                                                            });
+                                                        })
+                                                    }}>
+                                                Change player
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <div className="input-field push-s1">
+                                                <input id={`PPoints_${player.Player_id}`} type="text"
+                                                       className="validate"/>
+                                                <label htmlFor={`Points_${player.Player_id}`}>Points</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="input-field">
+                                                <input id={`PTiebreaks_${player.Player_id}`} type="text"
+                                                       className="validate"/>
+                                                <label htmlFor={`Tiebreaks_${player.Player_id}`}>Tiebreaks</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button className="btn waves-effect waves-light" type="submit"
+                                                    onClick={() => {
+                                                        const actual_points = document.getElementById(`Points_${player.Player_id}`).value;
+                                                        const actual_tiebreaks = document.getElementById(`Tiebreaks_${player.id}`).value;
+                                                        updatePointsRequest("update-player-points", eventId, player.Player_id, `round_num=${eventRounds.length}`, {
+                                                            "Points": actual_points, "Sub_points": actual_tiebreaks
+                                                        }, (result) => {
+                                                            console.log(result);
+                                                            document.getElementById(`PPoints_${player.Player_id}`).value = '✅';
+                                                            document.getElementById(`PTiebreaks_${player.Player_id}`).value = '✅';
+
+                                                            this.changeState(result);
+                                                        }, (error) => {
+                                                            this.setState({
+                                                                isLoaded: true, error
+                                                            });
+                                                        })
+                                                    }}>
+                                                Submit
+                                            </button>
+                                        </td>
+                                    </tr>)
                                 })}
                                 </tbody>
                             </table>

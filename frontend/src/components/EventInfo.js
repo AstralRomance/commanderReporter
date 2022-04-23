@@ -348,8 +348,8 @@ class EventInfo extends Component {
                                                                         "Sub_points": actual_tiebreaks
                                                                     }, (result) => {
                                                                         console.log(result);
-                                                                        document.getElementById(`Points_${player.id}`).value = '';
-                                                                        document.getElementById(`Tiebreaks_${player.id}`).value = '';
+                                                                        document.getElementById(`Points_${player.id}_${round.Number}`).value = '';
+                                                                        document.getElementById(`Tiebreaks_${player.id}_${round.Number}`).value = '';
 
                                                                         this.changeState(result);
                                                                     }, (error) => {

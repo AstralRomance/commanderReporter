@@ -11,7 +11,9 @@ jobs:
     environment: ssh_deploy
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Push code update to server
         uses: easingthemes/ssh-deploy@main
         env:
@@ -49,7 +51,8 @@ jobs:
             export WORKDIR=$WORKDIR
             bash ${{ secrets.REMOTE_WORKDIR }}/scripts/deploy.sh
 
-      - uses: actions/setup-node@v1
+      - name: Node setup
+        uses: actions/setup-node@v1
         with:
           node-version: '17'
       - run: npm install

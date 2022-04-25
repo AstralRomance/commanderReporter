@@ -109,8 +109,8 @@ class EventManagerSvc:
         target_player['Sub_points'] += int(player_data.Sub_points)
         player_hidden_points = self.gen_player_hidden_points(player_turn_pos,
                                                              round_number,
-                                                             int(target_player['Points']),
-                                                             int(target_player['Sub_points']))
+                                                             int(player_data.Points),
+                                                             int(player_data.Sub_points))
         if target_player.get('Hidden_points'):
             target_player['Hidden_points'] += player_hidden_points
         else:

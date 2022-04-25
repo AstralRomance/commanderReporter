@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy dev frontend
 
 on:
   push:
@@ -11,7 +11,11 @@ jobs:
     environment: ssh_deploy
 
     steps:
-      - uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Node setup
+        uses: actions/setup-node@v1
         with:
           node-version: '17'
       - run: npm install

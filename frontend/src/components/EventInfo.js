@@ -63,6 +63,17 @@ function addPlayer(endpoint, event_id, data, callback) {
     xhr.send(JSON.stringify(data))
 }
 
+function disableAllButton() {
+    const buttons = document.getElementsByTagName("button");
+    for (let i = 0; i < buttons.length; i++) {
+        buttons.item(i).disabled = true;
+    }
+    const inputs = document.getElementsByTagName("input");
+    for (let i = 0; i < inputs.length; i++) {
+        inputs.item(i).readOnly = true;
+    }
+}
+
 class EventInfo extends Component {
     constructor(props) {
         super(props)
@@ -89,8 +100,11 @@ class EventInfo extends Component {
             eventDate: result.Event_Date,
             eventPlayers: sortedPlayers,
             eventRounds: rounds,
-            finished: result.Is_finished
+            finished: result.Status === "finished"
         });
+        if (this.state.finished) {
+            disableAllButton();
+        }
     }
 
 
@@ -120,6 +134,7 @@ class EventInfo extends Component {
                 <button className="btn waves-effect waves-light-large col s1 offset-s11" type="submit"
                         onClick={() => {
                             finishEvent("change-event-state", eventId, "target_state=finished", () => {
+                                disableAllButton();
                             })
                         }}>
                     Finish Event
@@ -278,12 +293,10 @@ class EventInfo extends Component {
                                                     onClick={() => {
                                                         let actual_points = document.getElementById(`PPoints_${player.Player_id}`).value;
                                                         let actual_tiebreaks = document.getElementById(`PTiebreaks_${player.Player_id}`).value;
-                                                        if (actual_points === "")
-                                                        {
+                                                        if (actual_points === "") {
                                                             actual_points = 0
                                                         }
-                                                        if (actual_tiebreaks === "")
-                                                        {
+                                                        if (actual_tiebreaks === "") {
                                                             actual_tiebreaks = 0
                                                         }
                                                         updatePointsRequest("update-player-points", eventId, player.Player_id, `round_num=${eventRounds.length}`, {
@@ -326,16 +339,20 @@ class EventInfo extends Component {
                                                     <div className="col s3"><strong>{player.name}</strong></div>
                                                     <div className="col s2 push-s1">
                                                         <div className="input-field push-s1">
-                                                            <input id={`Points_${player.id}_${round.Number}`} type="text"
+                                                            <input id={`Points_${player.id}_${round.Number}`}
+                                                                   type="text"
                                                                    className="validate"/>
-                                                            <label htmlFor={`Points_${player.id}_${round.Number}`}>Points</label>
+                                                            <label
+                                                                htmlFor={`Points_${player.id}_${round.Number}`}>Points</label>
                                                         </div>
                                                     </div>
                                                     <div className="col s2 push-s1">
                                                         <div className="input-field">
-                                                            <input id={`Tiebreaks_${player.id}_${round.Number}`} type="text"
+                                                            <input id={`Tiebreaks_${player.id}_${round.Number}`}
+                                                                   type="text"
                                                                    className="validate"/>
-                                                            <label htmlFor={`Tiebreaks_${player.id}_${round.Number}`}>Tiebreaks</label>
+                                                            <label
+                                                                htmlFor={`Tiebreaks_${player.id}_${round.Number}`}>Tiebreaks</label>
                                                         </div>
                                                     </div>
                                                     <div className="col s2 push-s2">

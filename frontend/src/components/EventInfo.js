@@ -65,6 +65,23 @@ function addPlayer(endpoint, event_id, data, callback) {
     xhr.send(JSON.stringify(data))
 }
 
+function removePlayer(endpoint, event_id, player_id, callback) {
+    const xhr = new XMLHttpRequest();
+    xhr.open("DELETE", "https://edh-reporter.nikitacartes.xyz/event-manager/" + endpoint + "/" + event_id + "/" + player_id)
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            callback(JSON.parse(xhr.responseText));
+        }
+    };
+    xhr.send()
+}
+
+function disableButtonById(button_id) {
+    const target_button = document.getElementById(button_id);
+    target_button.disabled = true;
+}
+
 function disableAllButton() {
     const buttons = document.getElementsByTagName("button");
     for (let i = 0; i < buttons.length; i++) {
@@ -319,7 +336,9 @@ class EventInfo extends Component {
                                             </button>
                                         </td>
                                         <td>
-                                            <button className="btn waves-effect waves-light" type="submit">
+                                            <button className="btn waves-effect waves-light" type="submit"
+                                            onClick={() => {disableButtonById(document.getElementById(`PPoints_${player.Player_id}`));
+                                                            disableButtonById(document.getElementById(`PTiebreaks_${player.Player_id}`))}}>
                                                 Remove Player
                                             </button>
                                         </td>

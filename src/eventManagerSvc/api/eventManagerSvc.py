@@ -20,7 +20,8 @@ def add_player_to_event(event_id: str, player_data: AddPlayerToEvent, manager_sv
 
 @router.delete('/remove-player/{event_id}/{player_id}', response_model=GeneralEventInfo)
 def remove_player_from_event(event_id: str, player_id: str, manager_svc: EventManagerSvc = Depends()):
-    return manager_svc.remove_player_from_event(event_id, player_id)
+    manager_svc.remove_player_from_event(event_id, player_id)
+    return manager_svc.get_full_event_data(event_id)
 
 
 @router.put('/update-player-points/{event_id}/{player_id}', response_model=GeneralEventInfo)

@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import M from "materialize-css";
+
 import "materialize-css/dist/css/materialize.min.css";
+import "materialize-css/dist/js/materialize.min.js";
 
 function updatePointsRequest(endpoint, event_id, player_id, params, data, callback) {
     const xhr = new XMLHttpRequest();
@@ -95,7 +97,7 @@ class EventInfo extends Component {
 
 
     componentDidMount() {
-        M.Tabs.init(this.Tabs)
+        M.Tabs.init(this.Tabs);
         const actual_url = document.URL;
         const target_event_id = actual_url.split('/').at(-1)
         const target_url = `https://edh-reporter.nikitacartes.xyz/event-manager/get-full-event-data/${target_event_id}`
@@ -300,7 +302,12 @@ class EventInfo extends Component {
                                                             });
                                                         })
                                                     }}>
-                                                Submit
+                                                    Submit
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button className="btn waves-effect waves-light" type="submit">
+                                                Remove Player
                                             </button>
                                         </td>
                                     </tr>)

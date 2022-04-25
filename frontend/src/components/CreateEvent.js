@@ -37,8 +37,8 @@ function addPlayer(element) {
         "Deck_link": element.target.parentNode.children[3].value
     }, null, 2), (json) => {
         element.target.parentNode.children[0].value = json.Player_id;
-        element.target.parentNode.children[4].setAttribute("disabled", "disabled");
-        element.target.parentNode.children[5].removeAttribute("disabled");
+        element.target.parentNode.children[4].disabled = true;
+        element.target.parentNode.children[5].disabled = false;
         element.target.parentNode.children[5].onclick = deletePlayer;
 
         let row = document.createElement("tr");
@@ -72,7 +72,7 @@ function addPlayer(element) {
         deleteButton.type = "button";
         deleteButton.onclick = deletePlayer;
         deleteButton.textContent = "Delete this player";
-        deleteButton.setAttribute("disabled", "disabled");
+        deleteButton.disabled = true;
 
         cell.appendChild(inputId);
         cell.appendChild(inputName);
@@ -148,7 +148,7 @@ export default class CreateEvent extends Component {
                             }, null, 2), json => {
                                 document.getElementById("Event_id").value = json.Event_id;
                                 document.getElementById("EventCreate").textContent = "Created";
-                                document.getElementById("EventCreate").setAttribute("disabled", "disabled");
+                                document.getElementById("EventCreate").disabled = true;
                                 document.getElementById("PlayerTable").hidden = false;
                             });
                         }}>

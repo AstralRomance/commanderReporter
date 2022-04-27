@@ -257,7 +257,7 @@ class EventInfo extends Component {
                                         <td>{player.Commander}</td>
                                         <td>
                                             <div className="input-field">
-                                                <input id={`Name_${player.Player_id}`} type="text"
+                                                <input id={`Name_${player.Player_id}`} type="text" readOnly={player.Status}
                                                        className="validate"/>
                                                 <label htmlFor={`Name_${player.Player_id}`}>Name</label>
                                             </div>

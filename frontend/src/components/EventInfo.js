@@ -270,7 +270,7 @@ class EventInfo extends Component {
                                             </div>
                                         </td>
                                         <td>
-                                            <button className="btn waves-effect waves-light" type="submit" id={`Name_button_${player.Player_id}`} disabled={!player.Status}
+                                            <button className="btn waves-effect waves-light" type="submit" id={`Name_button_${player.Player_id}`} disabled={player.Status}
                                                     onClick={() => {
                                                         let player_name = document.getElementById(`Name_${player.Player_id}`).value;
                                                         if (player_name === "") {
@@ -319,7 +319,7 @@ class EventInfo extends Component {
                                             </div>
                                         </td>
                                         <td>
-                                            <button className="btn waves-effect waves-light" type="submit" id={`Points_button_${player.Player_id}`} disabled={!player.Status}
+                                            <button className="btn waves-effect waves-light" type="submit" id={`Points_button_${player.Player_id}`} disabled={player.Status}
                                                     onClick={() => {
                                                         let actual_points = document.getElementById(`PPoints_${player.Player_id}`).value;
                                                         let actual_tiebreaks = document.getElementById(`PTiebreaks_${player.Player_id}`).value;

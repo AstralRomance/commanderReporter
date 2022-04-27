@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import M from "materialize-css";
+
 import "materialize-css/dist/css/materialize.min.css";
+import "materialize-css/dist/js/materialize.min.js";
 
 function updatePointsRequest(endpoint, event_id, player_id, params, data, callback) {
     const xhr = new XMLHttpRequest();
@@ -63,14 +65,42 @@ function addPlayer(endpoint, event_id, data, callback) {
     xhr.send(JSON.stringify(data))
 }
 
-function disableAllButton() {
+function removePlayer(endpoint, event_id, player_id, callback) {
+    const xhr = new XMLHttpRequest();
+    xhr.open("DELETE", "https://edh-reporter.nikitacartes.xyz/event-manager/" + endpoint + "/" + event_id + "/" + player_id)
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            callback(JSON.parse(xhr.responseText));
+        }
+    };
+    xhr.send()
+}
+
+function disableElements(player_id = null) {
+    
     const buttons = document.getElementsByTagName("button");
-    for (let i = 0; i < buttons.length; i++) {
-        buttons.item(i).disabled = true;
-    }
     const inputs = document.getElementsByTagName("input");
-    for (let i = 0; i < inputs.length; i++) {
-        inputs.item(i).readOnly = true;
+    if (player_id){
+        for (let i = 0; i < buttons.length; i++) {
+            if (buttons.item(i).id.includes(player_id)) {
+                buttons.item(i).disabled = true;
+            }
+        }
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputs.item(i).id.includes(player_id)) {
+                inputs.item(i).readOnly = true;
+            }
+        }
+    }
+    else {
+        for (let i = 0; i < buttons.length; i++) {
+            buttons.item(i).disabled = true;
+        }
+        
+        for (let i = 0; i < inputs.length; i++) {
+            inputs.item(i).readOnly = true;
+        }
     }
 }
 
@@ -103,13 +133,13 @@ class EventInfo extends Component {
             finished: result.Status === "finished"
         });
         if (this.state.finished) {
-            disableAllButton();
+            disableElements();
         }
     }
 
 
     componentDidMount() {
-        M.Tabs.init(this.Tabs)
+        M.Tabs.init(this.Tabs);
         const actual_url = document.URL;
         const target_event_id = actual_url.split('/').at(-1)
         const target_url = `https://edh-reporter.nikitacartes.xyz/event-manager/get-full-event-data/${target_event_id}`
@@ -134,7 +164,7 @@ class EventInfo extends Component {
                 <button className="btn waves-effect waves-light-large col s1 offset-s11" type="submit"
                         onClick={() => {
                             finishEvent("change-event-state", eventId, "target_state=finished", () => {
-                                disableAllButton();
+                                disableElements();
                             })
                         }}>
                     Finish Event
@@ -234,13 +264,13 @@ class EventInfo extends Component {
                                         </td>
                                         <td>
                                             <div className="input-field">
-                                                <input id={`Commander_${player.Player_id}`} type="text"
+                                                <input id={`Commander_${player.Player_id}`} type="text" readOnly={!!player.Status}
                                                        className="validate"/>
                                                 <label htmlFor={`Commander_${player.Player_id}`}>Commander</label>
                                             </div>
                                         </td>
                                         <td>
-                                            <button className="btn waves-effect waves-light" type="submit"
+                                            <button className="btn waves-effect waves-light" type="submit" id={`Name_button_${player.Player_id}`} disabled={player.Status}
                                                     onClick={() => {
                                                         let player_name = document.getElementById(`Name_${player.Player_id}`).value;
                                                         if (player_name === "") {
@@ -276,20 +306,20 @@ class EventInfo extends Component {
                                         </td>
                                         <td>
                                             <div className="input-field push-s1">
-                                                <input id={`PPoints_${player.Player_id}`} type="text"
+                                                <input id={`PPoints_${player.Player_id}`} type="text" readOnly={!!player.Status}
                                                        className="validate"/>
                                                 <label htmlFor={`PPoints_${player.Player_id}`}>Points</label>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-field">
-                                                <input id={`PTiebreaks_${player.Player_id}`} type="text"
+                                                <input id={`PTiebreaks_${player.Player_id}`} type="text" readOnly={!!player.Status}
                                                        className="validate"/>
                                                 <label htmlFor={`PTiebreaks_${player.Player_id}`}>Tiebreaks</label>
                                             </div>
                                         </td>
                                         <td>
-                                            <button className="btn waves-effect waves-light" type="submit"
+                                            <button className="btn waves-effect waves-light" type="submit" id={`Points_button_${player.Player_id}`} disabled={player.Status}
                                                     onClick={() => {
                                                         let actual_points = document.getElementById(`PPoints_${player.Player_id}`).value;
                                                         let actual_tiebreaks = document.getElementById(`PTiebreaks_${player.Player_id}`).value;
@@ -313,7 +343,13 @@ class EventInfo extends Component {
                                                             });
                                                         })
                                                     }}>
-                                                Submit
+                                                    Submit
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button className="btn waves-effect waves-light" type="submit"
+                                            onClick={() => {disableElements(player.Player_id); console.log(player.Status)}}>
+                                                Remove Player
                                             </button>
                                         </td>
                                     </tr>)
@@ -356,7 +392,7 @@ class EventInfo extends Component {
                                                         </div>
                                                     </div>
                                                     <div className="col s2 push-s2">
-                                                        <button className="btn waves-effect waves-light" type="submit"
+                                                        <button className="btn waves-effect waves-light" type="submit" id={`Points_table_button_${player.id}`}
                                                                 onClick={() => {
                                                                     const actual_points = document.getElementById(`Points_${player.id}_${round.Number}`).value;
                                                                     const actual_tiebreaks = document.getElementById(`Tiebreaks_${player.id}_${round.Number}`).value;

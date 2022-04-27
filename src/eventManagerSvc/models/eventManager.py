@@ -32,7 +32,7 @@ class PlayerInfo(AddPlayerToEvent):
     Points: int
     Sub_points: int
     Hidden_points: float
-
+    Status: bool
 
 class BaseEvenForPlayer(BaseModel):
     Event_id: str

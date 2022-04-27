@@ -79,10 +79,12 @@ class EventManagerSvc:
             return self.session.update_event(event_id,
                                              {'Players': {'Player_id': player_id}},
                                              operation='$pull')
-        elif event['Status'] == 'started':
+        elif event['Status'] == 'Started':
+            target_player = self.session.find_player_on_event(event_id, player_id).get('Players')[0]
+            target_player['Status'] = True
             return self.session.update_player(event_id,
                                               player_id,
-                                              {'Status': True})
+                                              target_player)
         elif event['Status'] == 'finished':
             return {'error': 'Event already finished'}  # Change this to http exception
 

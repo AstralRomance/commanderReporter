@@ -104,6 +104,11 @@ function disableElements(player_id = null) {
     }
 }
 
+function isTableButtonActive(players, player_id) {
+    const target_player = players.filter((player) => {return player.Player_id === player_id});
+    return target_player[0].Status
+}
+
 class EventInfo extends Component {
     constructor(props) {
         super(props)
@@ -257,7 +262,7 @@ class EventInfo extends Component {
                                         <td>{player.Commander}</td>
                                         <td>
                                             <div className="input-field">
-                                                <input id={`Name_${player.Player_id}`} type="text"
+                                                <input id={`Name_${player.Player_id}`} type="text" readOnly={player.Status}
                                                        className="validate"/>
                                                 <label htmlFor={`Name_${player.Player_id}`}>Name</label>
                                             </div>
@@ -348,7 +353,7 @@ class EventInfo extends Component {
                                         </td>
                                         <td>
                                             <button className="btn waves-effect waves-light" type="submit"
-                                            onClick={() => {disableElements(player.Player_id); console.log(player.Status)}}>
+                                            onClick={() => {removePlayer('remove-player', eventId, player.Player_id, (result) => {disableElements(player.Player_id)})}}>
                                                 Remove Player
                                             </button>
                                         </td>
@@ -392,7 +397,7 @@ class EventInfo extends Component {
                                                         </div>
                                                     </div>
                                                     <div className="col s2 push-s2">
-                                                        <button className="btn waves-effect waves-light" type="submit" id={`Points_table_button_${player.id}`}
+                                                        <button className="btn waves-effect waves-light" type="submit" id={`Points_table_button_${player.id}`} disabled={isTableButtonActive(eventPlayers, player.id)}
                                                                 onClick={() => {
                                                                     const actual_points = document.getElementById(`Points_${player.id}_${round.Number}`).value;
                                                                     const actual_tiebreaks = document.getElementById(`Tiebreaks_${player.id}_${round.Number}`).value;

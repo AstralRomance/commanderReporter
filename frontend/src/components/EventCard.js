@@ -12,7 +12,7 @@ export default class EventCard extends Component{
     };
 
     componentDidMount(){
-        fetch("https://edh-reporter.nikitacartes.xyz/events/all-events")
+        fetch("https://DEPLOY_WEBSITE_ADDRESS/events/all-events")
         .then(res => res.json())
         .then(
             (result) => {

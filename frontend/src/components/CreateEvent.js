@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function doRequest(endpoint, id, data, callback, method = "POST") {
     const xhr = new XMLHttpRequest();
-    xhr.open(method, "https://edh-reporter.nikitacartes.xyz/" + endpoint + "/" + id, true);
+    xhr.open(method, "https://DEPLOY_WEBSITE_ADDRESS/" + endpoint + "/" + id, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -19,8 +19,8 @@ function doRequest(endpoint, id, data, callback, method = "POST") {
 
 function changeEventState(endpoint, id, params, callback, method = "POST") {
     const xhr = new XMLHttpRequest();
-    xhr.open(method, "https://edh-reporter.nikitacartes.xyz/" + endpoint + "/" + id + "?" + params, true);
-    console.log("https://edh-reporter.nikitacartes.xyz/" + endpoint + "/" + id + "?" + params)
+    xhr.open(method, "https://DEPLOY_WEBSITE_ADDRESS/" + endpoint + "/" + id + "?" + params, true);
+    console.log("https://DEPLOY_WEBSITE_ADDRESS/" + endpoint + "/" + id + "?" + params)
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {

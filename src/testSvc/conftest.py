@@ -12,7 +12,7 @@ from constants import DEFAULT_TARGET_ENV
 
 @pytest.fixture(scope='session')
 def setup_database_connection():
-    mongo_client = pymongo.MongoClient(os.environ.get('DATABASE_URL'), serverSelectionTimeoutMS=50000)['CommanderPairingService']['events']
+    mongo_client = pymongo.MongoClient("DATABASE_URL", serverSelectionTimeoutMS=50000)['CommanderPairingService']['events']
     yield mongo_client
 
 

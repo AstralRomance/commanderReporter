@@ -3,7 +3,7 @@ from pydantic import BaseSettings
 
 class Settings(BaseSettings):
     server_host: str = '0.0.0.0'
-    server_port: int = 8003
+    server_port: int = DEPLOY_COONECTION_PORT003
     database_url: str
 
 

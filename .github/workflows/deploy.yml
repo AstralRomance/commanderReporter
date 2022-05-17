@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, dev ]
 
 jobs:
   build:
@@ -14,42 +14,34 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Push code update to server
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-          ARGS: "-rltgoDzvO --delete --exclude=.env"
-          SOURCE: "src/"
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.REMOTE_WORKDIR }}/src
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
 
-      - name: Push scripts update to server
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-          ARGS: "-rltgoDzvO --delete"
-          SOURCE: "scripts/"
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.REMOTE_WORKDIR }}/scripts
+      - name: Replace placeholder with actual address
+        shell: bash
+        run: |
+          if ${{ steps.extract_branch.outputs.branch }} -eq "main"
+          then
+            find frontend/src -type f -exec sed -i 's/DEPLOY_WEBSITE_ADDRESS/${{ secrets.SERVER_SSH_KEY }}/g' {} +
+            find src -type f -exec sed -i 's/DEPLOY_WEBSITE_ADDRESS/${{ secrets.SERVER_SSH_KEY }}/g' {} +
+            find src -type f -exec sed -i 's/DEPLOY_COONECTION_PORT/8/g' {} +
+          else
+            find frontend/src -type f -exec sed -i 's/DEPLOY_WEBSITE_ADDRESS/${{ secrets.SERVER_SSH_KEY }}-dev/g' {} +
+            find src -type f -exec sed -i 's/DEPLOY_WEBSITE_ADDRESS/${{ secrets.SERVER_SSH_KEY }}-dev/g' {} +
+            find src -type f -exec sed -i 's/DEPLOY_COONECTION_PORT/9/g' {} +
+          fi
 
-      - name: Deploy backend
-        env:
-          WORKDIR: ${{ secrets.REMOTE_WORKDIR }}
-        uses: appleboy/ssh-action@master
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v1
         with:
-          host: ${{ secrets.REMOTE_HOST }}
-          port: ${{ secrets.REMOTE_PORT }}
-          username: ${{ secrets.REMOTE_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          envs: WORKDIR
-          script_stop: true
-          script: |
-            export WORKDIR=$WORKDIR
-            bash ${{ secrets.REMOTE_WORKDIR }}/scripts/deploy.sh
+          python-version: 3.10
+
+      - name: Install python test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r src/testSvc/requirements.txt
 
       - name: Node setup
         uses: actions/setup-node@v1
@@ -60,6 +52,43 @@ jobs:
       - run: npm run build
         working-directory: frontend
 
+      - name: Push code update to server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          ARGS: "-rltgoDzvO --delete --exclude=.env"
+          SOURCE: "src/"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.REMOTE_WORKDIR }}/${{ steps.extract_branch.outputs.branch }}/src
+
+      - name: Push scripts update to server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          ARGS: "-rltgoDzvO --delete"
+          SOURCE: "scripts/"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.REMOTE_WORKDIR }}/${{ steps.extract_branch.outputs.branch }}/scripts
+
+      - name: Deploy backend
+        env:
+          WORKDIR: ${{ secrets.REMOTE_WORKDIR }}/${{ steps.extract_branch.outputs.branch }}
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          port: ${{ secrets.REMOTE_PORT }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          envs: WORKDIR
+          script_stop: true
+          script: |
+            export WORKDIR=$WORKDIR
+            bash ${{ secrets.REMOTE_WORKDIR }}/${{ steps.extract_branch.outputs.branch }}/scripts/deploy.sh
+
       - name: Push frontend update to server
         uses: easingthemes/ssh-deploy@main
         env:
@@ -69,4 +98,9 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.REMOTE_WORKDIR }}/frontend
+          TARGET: ${{ secrets.REMOTE_WORKDIR }}/${{ steps.extract_branch.outputs.branch }}/frontend
+
+      - name: Run pytest
+        run: |
+          cd src/testSvc/coreWorkflow
+          pytest BaseWorkflow.py

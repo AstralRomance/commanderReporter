@@ -5,7 +5,7 @@ from string import ascii_lowercase
 import requests
 import pytest
 
-from constants import DEFAULT_TARGET_ENV, DEFAULT_LOCAL_MANAGER
+from constants import DEFAULT_TARGET_ENV
 
 
 class TestBaseEventWorkflow:

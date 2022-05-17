@@ -4,7 +4,7 @@ cat python.pid | xargs -n1 kill
 
 source env/bin/activate
 
-pip install -r scripts/requirements.txt --no-cache-dir
+pip install -r requirements.txt --no-cache-dir
 
 cd $WORKDIR/src
 

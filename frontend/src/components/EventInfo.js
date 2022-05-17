@@ -6,7 +6,7 @@ import "materialize-css/dist/js/materialize.min.js";
 
 function updatePointsRequest(endpoint, event_id, player_id, params, data, callback) {
     const xhr = new XMLHttpRequest();
-    xhr.open("PUT", "https://edh-reporter.nikitacartes.xyz/event-manager/" + endpoint + "/" + event_id + "/" + player_id + "?" + params, true);
+    xhr.open("PUT", "https://DEPLOY_WEBSITE_ADDRESS/event-manager/" + endpoint + "/" + event_id + "/" + player_id + "?" + params, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     console.log(data)
     xhr.onreadystatechange = function () {
@@ -19,7 +19,7 @@ function updatePointsRequest(endpoint, event_id, player_id, params, data, callba
 
 function generateNewRound(endpoint, event_id, params, callback) {
     const xhr = new XMLHttpRequest();
-    xhr.open("PUT", "https://edh-reporter.nikitacartes.xyz/event-manager/" + endpoint + "/" + event_id + "?" + params);
+    xhr.open("PUT", "https://DEPLOY_WEBSITE_ADDRESS/event-manager/" + endpoint + "/" + event_id + "?" + params);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -31,7 +31,7 @@ function generateNewRound(endpoint, event_id, params, callback) {
 
 function finishEvent(endpoint, event_id, params, callback) {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://edh-reporter.nikitacartes.xyz/event-manager/" + endpoint + "/" + event_id + "?" + params);
+    xhr.open("POST", "https://DEPLOY_WEBSITE_ADDRESS/event-manager/" + endpoint + "/" + event_id + "?" + params);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -43,7 +43,7 @@ function finishEvent(endpoint, event_id, params, callback) {
 
 function updatePlayerInfo(endpoint, event_id, player_id, data, callback) {
     const xhr = new XMLHttpRequest();
-    xhr.open("PUT", "https://edh-reporter.nikitacartes.xyz/event-manager/" + endpoint + "/" + event_id + "/" + player_id);
+    xhr.open("PUT", "https://DEPLOY_WEBSITE_ADDRESS/event-manager/" + endpoint + "/" + event_id + "/" + player_id);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -55,7 +55,7 @@ function updatePlayerInfo(endpoint, event_id, player_id, data, callback) {
 
 function addPlayer(endpoint, event_id, data, callback) {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://edh-reporter.nikitacartes.xyz/event-manager/" + endpoint + "/" + event_id)
+    xhr.open("POST", "https://DEPLOY_WEBSITE_ADDRESS/event-manager/" + endpoint + "/" + event_id)
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -67,7 +67,7 @@ function addPlayer(endpoint, event_id, data, callback) {
 
 function removePlayer(endpoint, event_id, player_id, callback) {
     const xhr = new XMLHttpRequest();
-    xhr.open("DELETE", "https://edh-reporter.nikitacartes.xyz/event-manager/" + endpoint + "/" + event_id + "/" + player_id)
+    xhr.open("DELETE", "https://DEPLOY_WEBSITE_ADDRESS/event-manager/" + endpoint + "/" + event_id + "/" + player_id)
     xhr.setRequestHeader("Content-Type", "application/json")
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -147,7 +147,7 @@ class EventInfo extends Component {
         M.Tabs.init(this.Tabs);
         const actual_url = document.URL;
         const target_event_id = actual_url.split('/').at(-1)
-        const target_url = `https://edh-reporter.nikitacartes.xyz/event-manager/get-full-event-data/${target_event_id}`
+        const target_url = `https://DEPLOY_WEBSITE_ADDRESS/event-manager/get-full-event-data/${target_event_id}`
         fetch(target_url)
             .then(res => res.json())
             .then((result) => {
@@ -239,7 +239,7 @@ class EventInfo extends Component {
                                                         "Commander": document.getElementById("new_commander").value,
                                                         "Deck_link": ""
                                                     }, () => {
-                                                        const target_url = "https://edh-reporter.nikitacartes.xyz/event-manager/get-full-event-data/" + eventId
+                                                        const target_url = "https://DEPLOY_WEBSITE_ADDRESS/event-manager/get-full-event-data/" + eventId
                                                         fetch(target_url)
                                                             .then(res => res.json())
                                                             .then((result) => {

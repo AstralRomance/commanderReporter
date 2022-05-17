@@ -24,7 +24,7 @@ jobs:
         run: |
           branch="${{ steps.extract_branch.outputs.branch }}"
           main="main"
-          if [ "$branch" == "$main"]
+          if [ "$branch" == "$main" ]
           then
             find frontend/src -type f -exec sed -i 's/DEPLOY_WEBSITE_ADDRESS/${{ secrets.SERVER_SSH_KEY }}/g' {} +
             find src -type f -exec sed -i 's/DEPLOY_WEBSITE_ADDRESS/${{ secrets.SERVER_SSH_KEY }}/g' {} +

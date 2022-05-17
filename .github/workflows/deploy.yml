@@ -26,13 +26,13 @@ jobs:
           main="main"
           if [ "$branch" == "$main" ]
           then
-            find frontend/src -type f -exec sed -i 's/DEPLOY_WEBSITE_ADDRESS/${{ secrets.SERVER_SSH_KEY }}/g' {} +
-            find src -type f -exec sed -i 's/DEPLOY_WEBSITE_ADDRESS/${{ secrets.SERVER_SSH_KEY }}/g' {} +
-            find src -type f -exec sed -i 's/DEPLOY_COONECTION_PORT/8/g' {} +
+            find frontend/src -type f -exec sed -i 's/DEPLOY_WEBSITE_ADDRESS/${{ secrets.DEPLOY_WEBSITE_ADDRESS }}/g' {} +
+            find src -type f -exec sed -i 's/DEPLOY_WEBSITE_ADDRESS/${{ secrets.DEPLOY_WEBSITE_ADDRESS }}/g' {} +
+            find src -type f -exec sed -i 's/DEPLOY_CONNECTION_PORT/8/g' {} +
           else
-            find frontend/src -type f -exec sed -i 's/DEPLOY_WEBSITE_ADDRESS/${{ secrets.SERVER_SSH_KEY }}-dev/g' {} +
-            find src -type f -exec sed -i 's/DEPLOY_WEBSITE_ADDRESS/${{ secrets.SERVER_SSH_KEY }}-dev/g' {} +
-            find src -type f -exec sed -i 's/DEPLOY_COONECTION_PORT/9/g' {} +
+            find frontend/src -type f -exec sed -i 's/DEPLOY_WEBSITE_ADDRESS/${{ secrets.DEPLOY_WEBSITE_ADDRESS }}-dev/g' {} +
+            find src -type f -exec sed -i 's/DEPLOY_WEBSITE_ADDRESS/${{ secrets.DEPLOY_WEBSITE_ADDRESS }}-dev/g' {} +
+            find src -type f -exec sed -i 's/DEPLOY_CONNECTION_PORT/9/g' {} +
           fi
 
       - name: Set up Python 3.10

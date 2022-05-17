@@ -105,5 +105,6 @@ jobs:
 
       - name: Run pytest
         run: |
+          sleep 15s
           cd src/testSvc/coreWorkflow
           pytest BaseWorkflow.py

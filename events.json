@@ -1,0 +1,3912 @@
+[{
+  "_id": {
+    "$oid": "625bd90a2d435dfa49ff3fec"
+  },
+  "Event_name": "Spellmarket_Manadorki",
+  "Event_Date": "2022-04-17 00:00:00",
+  "Status": "finished",
+  "Event_id": "02370ba4-8a24-4931-937a-7266c5ef28ea",
+  "Rounds": [
+    {
+      "Number": 1,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Ретуев Никита",
+              "id": "bad5e49e-fc29-44cb-9b4e-1603f7815c86",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Цыбульник ",
+              "id": "87aa1001-b94d-445a-bd4e-d532b32f04e9",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Чеботарев Артем",
+              "id": "df78df6f-606d-418d-b710-699aaa661165",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Мокшанов Александр",
+              "id": "36178802-7897-411b-936b-e0b8c4e1222c",
+              "Hidden_points": 0
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Муравьев Никита",
+              "id": "70bfa72b-b844-4da7-91f4-6d3243ae4f11",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Сохацкий Александр",
+              "id": "af06dd2f-afab-4c68-810e-96b8d815222a",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Баранов Костя",
+              "id": "8060c656-66b4-4069-a654-b9c1b421f1b2",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Грехов Андрей",
+              "id": "cf60313f-304b-4983-85dd-a6aa988acc97",
+              "Hidden_points": 0
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Ковальчук Илья",
+              "id": "406c08f4-1ab7-4f34-8259-98682ef725df",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Остапов Александр",
+              "id": "d00f31f6-e6e5-439a-a675-998c02cf0d61",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Поздняков Андрей",
+              "id": "2387677d-91b5-474a-96e2-5c46ed078197",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Письменицкий Артем",
+              "id": "bd49f4e7-d083-425a-a7b8-0a54c3df8109",
+              "Hidden_points": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 2,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Цыбульник ",
+              "id": "87aa1001-b94d-445a-bd4e-d532b32f04e9",
+              "Hidden_points": 4.4
+            },
+            {
+              "name": "Зубков Андрей",
+              "id": "33e5b43f-8239-44cd-8e54-5fc52c249561",
+              "Hidden_points": 1.4
+            },
+            {
+              "name": "Поздняков Андрей",
+              "id": "2387677d-91b5-474a-96e2-5c46ed078197",
+              "Hidden_points": 4.4
+            },
+            {
+              "name": "Баранов Костя",
+              "id": "8060c656-66b4-4069-a654-b9c1b421f1b2",
+              "Hidden_points": 4.4
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Грехов Андрей",
+              "id": "cf60313f-304b-4983-85dd-a6aa988acc97",
+              "Hidden_points": 0.3
+            },
+            {
+              "name": "Муравьев Никита",
+              "id": "70bfa72b-b844-4da7-91f4-6d3243ae4f11",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Письменицкий Артем",
+              "id": "bd49f4e7-d083-425a-a7b8-0a54c3df8109",
+              "Hidden_points": 0.3
+            },
+            {
+              "name": "Ретуев Никита",
+              "id": "bad5e49e-fc29-44cb-9b4e-1603f7815c86",
+              "Hidden_points": 0.3
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Остапов Александр",
+              "id": "d00f31f6-e6e5-439a-a675-998c02cf0d61",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Чеботарев Артем",
+              "id": "df78df6f-606d-418d-b710-699aaa661165",
+              "Hidden_points": 0.1
+            },
+            {
+              "name": "Ковальчук Илья",
+              "id": "406c08f4-1ab7-4f34-8259-98682ef725df",
+              "Hidden_points": 0.1
+            },
+            {
+              "name": "Мокшанов Александр",
+              "id": "36178802-7897-411b-936b-e0b8c4e1222c",
+              "Hidden_points": 0.2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 3,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Поздняков Андрей",
+              "id": "2387677d-91b5-474a-96e2-5c46ed078197",
+              "Hidden_points": 13.200000000000001
+            },
+            {
+              "name": "Цыбульник ",
+              "id": "87aa1001-b94d-445a-bd4e-d532b32f04e9",
+              "Hidden_points": 8.9
+            },
+            {
+              "name": "Баранов Костя",
+              "id": "8060c656-66b4-4069-a654-b9c1b421f1b2",
+              "Hidden_points": 9.100000000000001
+            },
+            {
+              "name": "Письменицкий Артем",
+              "id": "bd49f4e7-d083-425a-a7b8-0a54c3df8109",
+              "Hidden_points": 5
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Ретуев Никита",
+              "id": "bad5e49e-fc29-44cb-9b4e-1603f7815c86",
+              "Hidden_points": 0.8999999999999999
+            },
+            {
+              "name": "Сохацкий Александр",
+              "id": "af06dd2f-afab-4c68-810e-96b8d815222a",
+              "Hidden_points": 1.6
+            },
+            {
+              "name": "Зубков Андрей",
+              "id": "33e5b43f-8239-44cd-8e54-5fc52c249561",
+              "Hidden_points": 3
+            },
+            {
+              "name": "Чеботарев Артем",
+              "id": "df78df6f-606d-418d-b710-699aaa661165",
+              "Hidden_points": 4.6
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Грехов Андрей",
+              "id": "cf60313f-304b-4983-85dd-a6aa988acc97",
+              "Hidden_points": 0.8
+            },
+            {
+              "name": "Мокшанов Александр",
+              "id": "36178802-7897-411b-936b-e0b8c4e1222c",
+              "Hidden_points": 0.7
+            },
+            {
+              "name": "Муравьев Никита",
+              "id": "70bfa72b-b844-4da7-91f4-6d3243ae4f11",
+              "Hidden_points": 0.5
+            },
+            {
+              "name": "Остапов Александр",
+              "id": "d00f31f6-e6e5-439a-a675-998c02cf0d61",
+              "Hidden_points": 0.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 4,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Письменицкий Артем",
+              "id": "bd49f4e7-d083-425a-a7b8-0a54c3df8109",
+              "Hidden_points": 9.9
+            },
+            {
+              "name": "Поздняков Андрей",
+              "id": "2387677d-91b5-474a-96e2-5c46ed078197",
+              "Hidden_points": 26.4
+            },
+            {
+              "name": "Баранов Костя",
+              "id": "8060c656-66b4-4069-a654-b9c1b421f1b2",
+              "Hidden_points": 14.100000000000001
+            },
+            {
+              "name": "Цыбульник ",
+              "id": "87aa1001-b94d-445a-bd4e-d532b32f04e9",
+              "Hidden_points": 13.5
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Остапов Александр",
+              "id": "d00f31f6-e6e5-439a-a675-998c02cf0d61",
+              "Hidden_points": 9.9
+            },
+            {
+              "name": "Ретуев Никита",
+              "id": "bad5e49e-fc29-44cb-9b4e-1603f7815c86",
+              "Hidden_points": 5.9
+            },
+            {
+              "name": "Чеботарев Артем",
+              "id": "df78df6f-606d-418d-b710-699aaa661165",
+              "Hidden_points": 9.399999999999999
+            },
+            {
+              "name": "Зубков Андрей",
+              "id": "33e5b43f-8239-44cd-8e54-5fc52c249561",
+              "Hidden_points": 4.7
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Сохацкий Александр",
+              "id": "af06dd2f-afab-4c68-810e-96b8d815222a",
+              "Hidden_points": 3.3
+            },
+            {
+              "name": "Ковальчук Илья",
+              "id": "406c08f4-1ab7-4f34-8259-98682ef725df",
+              "Hidden_points": 0.7
+            },
+            {
+              "name": "Мокшанов Александр",
+              "id": "36178802-7897-411b-936b-e0b8c4e1222c",
+              "Hidden_points": 2.0999999999999996
+            },
+            {
+              "name": "Муравьев Никита",
+              "id": "70bfa72b-b844-4da7-91f4-6d3243ae4f11",
+              "Hidden_points": 1.7000000000000002
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Players": [
+    {
+      "Points": 4,
+      "Sub_points": 10,
+      "Has_autowin": 0,
+      "Hidden_points": 5,
+      "Status": false,
+      "Player_id": "70bfa72b-b844-4da7-91f4-6d3243ae4f11",
+      "Player_name": "Муравьев Никита",
+      "Commander": "Winota"
+    },
+    {
+      "Points": 8,
+      "Sub_points": 13,
+      "Has_autowin": 0,
+      "Hidden_points": 9.3,
+      "Status": false,
+      "Player_id": "bd49f4e7-d083-425a-a7b8-0a54c3df8109",
+      "Player_name": "Письменицкий Артем",
+      "Commander": "Thrasios"
+    },
+    {
+      "Points": 0,
+      "Sub_points": 5,
+      "Has_autowin": 0,
+      "Hidden_points": 0.5,
+      "Status": false,
+      "Player_id": "406c08f4-1ab7-4f34-8259-98682ef725df",
+      "Player_name": "Ковальчук Илья",
+      "Commander": "First Sliver"
+    },
+    {
+      "Points": 12,
+      "Sub_points": 13,
+      "Has_autowin": 0,
+      "Hidden_points": 13.3,
+      "Status": false,
+      "Player_id": "2387677d-91b5-474a-96e2-5c46ed078197",
+      "Player_name": "Поздняков Андрей",
+      "Commander": "Najeela"
+    },
+    {
+      "Points": 0,
+      "Sub_points": 10,
+      "Has_autowin": 0,
+      "Hidden_points": 1,
+      "Status": false,
+      "Player_id": "36178802-7897-411b-936b-e0b8c4e1222c",
+      "Player_name": "Мокшанов Александр",
+      "Commander": "Yuriko"
+    },
+    {
+      "Points": 4,
+      "Sub_points": 8,
+      "Has_autowin": 0,
+      "Hidden_points": 4.8,
+      "Status": false,
+      "Player_id": "87aa1001-b94d-445a-bd4e-d532b32f04e9",
+      "Player_name": "Цыбульник ",
+      "Commander": "Marrow-Gnawer"
+    },
+    {
+      "Points": 8,
+      "Sub_points": 11,
+      "Has_autowin": 0,
+      "Hidden_points": 9.1,
+      "Status": false,
+      "Player_id": "d00f31f6-e6e5-439a-a675-998c02cf0d61",
+      "Player_name": "Остапов Александр",
+      "Commander": "Thrasios, Triton Hero+Vial Smasher the Fierce",
+      "Deck_link": "-"
+    },
+    {
+      "Points": 4,
+      "Sub_points": 9,
+      "Has_autowin": 0,
+      "Hidden_points": 4.9,
+      "Status": false,
+      "Player_id": "df78df6f-606d-418d-b710-699aaa661165",
+      "Player_name": "Чеботарев Артем",
+      "Commander": "Нив-Миззет, Отец",
+      "Deck_link": "+"
+    },
+    {
+      "Points": 1,
+      "Sub_points": 8,
+      "Has_autowin": 0,
+      "Hidden_points": 1.8,
+      "Status": false,
+      "Player_id": "af06dd2f-afab-4c68-810e-96b8d815222a",
+      "Player_name": "Сохацкий Александр",
+      "Commander": "Elsha",
+      "Deck_link": "-"
+    },
+    {
+      "Points": 1,
+      "Sub_points": 10,
+      "Has_autowin": 0,
+      "Hidden_points": 2,
+      "Status": false,
+      "Player_id": "33e5b43f-8239-44cd-8e54-5fc52c249561",
+      "Player_name": "Зубков Андрей",
+      "Commander": "Келль, Хозяин Кузни",
+      "Deck_link": "-"
+    },
+    {
+      "Points": 4,
+      "Sub_points": 13,
+      "Has_autowin": 0,
+      "Hidden_points": 5.3,
+      "Status": false,
+      "Player_id": "8060c656-66b4-4069-a654-b9c1b421f1b2",
+      "Player_name": "Баранов Костя",
+      "Commander": "Yisan",
+      "Deck_link": "+"
+    },
+    {
+      "Points": 4,
+      "Sub_points": 12,
+      "Has_autowin": 0,
+      "Hidden_points": 5.2,
+      "Status": false,
+      "Player_id": "bad5e49e-fc29-44cb-9b4e-1603f7815c86",
+      "Player_name": "Ретуев Никита",
+      "Commander": "Michonne",
+      "Deck_link": "+"
+    },
+    {
+      "Points": 0,
+      "Sub_points": 6,
+      "Has_autowin": 0,
+      "Hidden_points": 0.6,
+      "Status": false,
+      "Player_id": "cf60313f-304b-4983-85dd-a6aa988acc97",
+      "Player_name": "Грехов Андрей",
+      "Commander": ""
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "626415961274027ec0d1bc1d"
+  },
+  "Event_name": "HG allstars",
+  "Event_Date": "2022-04-23 00:00:00",
+  "Status": "finished",
+  "Event_id": "61fd592c-2b15-41ab-ae6d-306853ed3679",
+  "Rounds": [
+    {
+      "Number": 1,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Неклюдов Максим",
+              "id": "a1c02fbc-efda-40eb-a989-f8beae64dd42",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Зелент Дмитрий",
+              "id": "b46f524d-4054-4020-a81d-26cb583d4e66",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Донцов Андрей",
+              "id": "b72238bb-d019-4ed6-a31a-d06390909350",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Алексей Васько",
+              "id": "d5e3112e-0f79-473a-aded-caf7efed4a63",
+              "Hidden_points": 0
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Барышев Дмитрий",
+              "id": "41aa2a40-af06-4ea9-967e-ebad5029d66a",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Куржий Дмитрий",
+              "id": "34b24a80-73ba-49fc-9558-01ac5d5bdb55",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Митрофанов Дмитрий",
+              "id": "2e38365f-db51-4391-b03d-02a3a7331540",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Ковальчук Илья",
+              "id": "b2e93982-d014-4368-9124-1658b7b6f006",
+              "Hidden_points": 0
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Гапоненко Влад",
+              "id": "9d8b32aa-c0cf-4651-afba-23508d8d62dd",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Кондратьев Денис",
+              "id": "4c898044-71aa-4e3e-928a-4e0d84a195fc",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Артем Чеботарев",
+              "id": "6d7a25c7-7027-4e78-a4c6-c0497fac1402",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Козлов Александр",
+              "id": "5ae1748b-b716-4231-a174-4250e1bfae92",
+              "Hidden_points": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 2,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Ковальчук Илья",
+              "id": "b2e93982-d014-4368-9124-1658b7b6f006",
+              "Hidden_points": 0.4
+            },
+            {
+              "name": "Алексей Васько",
+              "id": "d5e3112e-0f79-473a-aded-caf7efed4a63",
+              "Hidden_points": 3.4
+            },
+            {
+              "name": "Артем Чеботарев",
+              "id": "6d7a25c7-7027-4e78-a4c6-c0497fac1402",
+              "Hidden_points": 3.4
+            },
+            {
+              "name": "Митрофанов Дмитрий",
+              "id": "2e38365f-db51-4391-b03d-02a3a7331540",
+              "Hidden_points": 3.3
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Гапоненко Влад",
+              "id": "9d8b32aa-c0cf-4651-afba-23508d8d62dd",
+              "Hidden_points": 0.3
+            },
+            {
+              "name": "Донцов Андрей",
+              "id": "b72238bb-d019-4ed6-a31a-d06390909350",
+              "Hidden_points": 0.3
+            },
+            {
+              "name": "Зелент Дмитрий",
+              "id": "b46f524d-4054-4020-a81d-26cb583d4e66",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Кондратьев Денис",
+              "id": "4c898044-71aa-4e3e-928a-4e0d84a195fc",
+              "Hidden_points": 0.2
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Барышев Дмитрий",
+              "id": "41aa2a40-af06-4ea9-967e-ebad5029d66a",
+              "Hidden_points": 0.1
+            },
+            {
+              "name": "Куржий Дмитрий",
+              "id": "34b24a80-73ba-49fc-9558-01ac5d5bdb55",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Неклюдов Максим",
+              "id": "a1c02fbc-efda-40eb-a989-f8beae64dd42",
+              "Hidden_points": 0.1
+            },
+            {
+              "name": "Козлов Александр",
+              "id": "5ae1748b-b716-4231-a174-4250e1bfae92",
+              "Hidden_points": 0.1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 3,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Артем Чеботарев",
+              "id": "6d7a25c7-7027-4e78-a4c6-c0497fac1402",
+              "Hidden_points": 7.1
+            },
+            {
+              "name": "Митрофанов Дмитрий",
+              "id": "2e38365f-db51-4391-b03d-02a3a7331540",
+              "Hidden_points": 7
+            },
+            {
+              "name": "Алексей Васько",
+              "id": "d5e3112e-0f79-473a-aded-caf7efed4a63",
+              "Hidden_points": 10
+            },
+            {
+              "name": "Зелент Дмитрий",
+              "id": "b46f524d-4054-4020-a81d-26cb583d4e66",
+              "Hidden_points": 3.7
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Донцов Андрей",
+              "id": "b72238bb-d019-4ed6-a31a-d06390909350",
+              "Hidden_points": 0.8
+            },
+            {
+              "name": "Ковальчук Илья",
+              "id": "b2e93982-d014-4368-9124-1658b7b6f006",
+              "Hidden_points": 0.9
+            },
+            {
+              "name": "Кондратьев Денис",
+              "id": "4c898044-71aa-4e3e-928a-4e0d84a195fc",
+              "Hidden_points": 0.8
+            },
+            {
+              "name": "Куржий Дмитрий",
+              "id": "34b24a80-73ba-49fc-9558-01ac5d5bdb55",
+              "Hidden_points": 3.6
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Гапоненко Влад",
+              "id": "9d8b32aa-c0cf-4651-afba-23508d8d62dd",
+              "Hidden_points": 0.7
+            },
+            {
+              "name": "Барышев Дмитрий",
+              "id": "41aa2a40-af06-4ea9-967e-ebad5029d66a",
+              "Hidden_points": 0.30000000000000004
+            },
+            {
+              "name": "Неклюдов Максим",
+              "id": "a1c02fbc-efda-40eb-a989-f8beae64dd42",
+              "Hidden_points": 0.5
+            },
+            {
+              "name": "Козлов Александр",
+              "id": "5ae1748b-b716-4231-a174-4250e1bfae92",
+              "Hidden_points": 0.6
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Players": [
+    {
+      "Points": 3,
+      "Sub_points": 6,
+      "Has_autowin": 0,
+      "Hidden_points": 3.6,
+      "Status": false,
+      "Player_id": "b72238bb-d019-4ed6-a31a-d06390909350",
+      "Player_name": "Донцов Андрей",
+      "Commander": "Tymna // sakashima"
+    },
+    {
+      "Points": 0,
+      "Sub_points": 4,
+      "Has_autowin": 0,
+      "Hidden_points": 0.4,
+      "Status": false,
+      "Player_id": "9d8b32aa-c0cf-4651-afba-23508d8d62dd",
+      "Player_name": "Гапоненко Влад",
+      "Commander": "Zenduu"
+    },
+    {
+      "Points": 0,
+      "Sub_points": 4,
+      "Has_autowin": 0,
+      "Hidden_points": 0.4,
+      "Status": false,
+      "Player_id": "a1c02fbc-efda-40eb-a989-f8beae64dd42",
+      "Player_name": "Неклюдов Максим",
+      "Commander": "Gitrog"
+    },
+    {
+      "Points": 0,
+      "Sub_points": 7,
+      "Has_autowin": 0,
+      "Hidden_points": 0.7,
+      "Status": false,
+      "Player_id": "5ae1748b-b716-4231-a174-4250e1bfae92",
+      "Player_name": "Козлов Александр",
+      "Commander": "Кикар, ярость солнца"
+    },
+    {
+      "Points": 6,
+      "Sub_points": 8,
+      "Has_autowin": 0,
+      "Hidden_points": 6.8,
+      "Status": false,
+      "Player_id": "d5e3112e-0f79-473a-aded-caf7efed4a63",
+      "Player_name": "Алексей Васько",
+      "Commander": "Тешар"
+    },
+    {
+      "Points": 0,
+      "Sub_points": 2,
+      "Has_autowin": 0,
+      "Hidden_points": 0.2,
+      "Status": false,
+      "Player_id": "41aa2a40-af06-4ea9-967e-ebad5029d66a",
+      "Player_name": "Барышев Дмитрий",
+      "Commander": "Тассигур"
+    },
+    {
+      "Points": 3,
+      "Sub_points": 7,
+      "Has_autowin": 0,
+      "Hidden_points": 3.7,
+      "Status": false,
+      "Player_id": "6d7a25c7-7027-4e78-a4c6-c0497fac1402",
+      "Player_name": "Артем Чеботарев",
+      "Commander": "Нив Миззет"
+    },
+    {
+      "Points": 3,
+      "Sub_points": 7,
+      "Has_autowin": 0,
+      "Hidden_points": 3.7,
+      "Status": false,
+      "Player_id": "2e38365f-db51-4391-b03d-02a3a7331540",
+      "Player_name": "Митрофанов Дмитрий",
+      "Commander": "Kess, the dissident mage"
+    },
+    {
+      "Points": 3,
+      "Sub_points": 6,
+      "Has_autowin": 0,
+      "Hidden_points": 3.6,
+      "Status": false,
+      "Player_id": "b46f524d-4054-4020-a81d-26cb583d4e66",
+      "Player_name": "Зелент Дмитрий",
+      "Commander": "Даретти"
+    },
+    {
+      "Points": 3,
+      "Sub_points": 9,
+      "Has_autowin": 0,
+      "Hidden_points": 3.9,
+      "Status": false,
+      "Player_id": "4c898044-71aa-4e3e-928a-4e0d84a195fc",
+      "Player_name": "Кондратьев Денис",
+      "Commander": "Кенрит"
+    },
+    {
+      "Points": 3,
+      "Sub_points": 5,
+      "Has_autowin": 0,
+      "Hidden_points": 3.5,
+      "Status": false,
+      "Player_id": "34b24a80-73ba-49fc-9558-01ac5d5bdb55",
+      "Player_name": "Куржий Дмитрий",
+      "Commander": ""
+    },
+    {
+      "Points": 0,
+      "Sub_points": 5,
+      "Has_autowin": 0,
+      "Hidden_points": 0.5,
+      "Status": false,
+      "Player_id": "b2e93982-d014-4368-9124-1658b7b6f006",
+      "Player_name": "Ковальчук Илья",
+      "Commander": "Кенрит"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "62651f8847851fbd3e025add"
+  },
+  "Event_name": "Spellmarket",
+  "Event_Date": "2022-04-24 00:00:00",
+  "Status": "finished",
+  "Event_id": "2402ed89-3dca-4dfe-8f7c-fad093496739",
+  "Rounds": [
+    {
+      "Number": 1,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Поляков",
+              "id": "03803cd5-aa7b-494d-ad57-20ceb2f2a447",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Милюков",
+              "id": "b5343dc6-de32-42e8-aec6-9ed3deed169f",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Муравьев",
+              "id": "86c5dede-372b-4b11-bb45-3b026d28726b",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Мокшанов",
+              "id": "f68753b5-8968-44bc-a874-e086589a8609",
+              "Hidden_points": 0
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Бортников",
+              "id": "3abadfd0-16c5-4823-8ee7-920cd1cdcf9e",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Антонов",
+              "id": "c01788ef-2982-4417-bf16-cec5e2563a9f",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Сохацкий",
+              "id": "f4957cef-2042-4cb3-91db-916e145ec277",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Романов",
+              "id": "b476d03d-edc2-4e5c-aa94-17be59a671d4",
+              "Hidden_points": 0
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Поздняков",
+              "id": "788d6c0f-a53d-4f76-839a-660013294f62",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Мосяков",
+              "id": "daa2160b-446c-47e8-bbc0-02f1c8714d9a",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Письменицкий",
+              "id": "b8fff599-8e3a-440b-b144-8ccf4109c399",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Звягин",
+              "id": "164c3bc2-99da-4f75-aa98-4ed7c9ca93cd",
+              "Hidden_points": 0
+            }
+          ]
+        },
+        {
+          "Table_num": 4,
+          "Table_players": [
+            {
+              "name": "Ковальчук",
+              "id": "8203ebc9-3593-4f95-8b69-fcbebacf0db4",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Чеботарев",
+              "id": "f0cf13b3-bdce-48e8-8a1d-b697cb3cf315",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Зубков",
+              "id": "d1fc4089-faff-4efd-9927-d4da0dc4c536",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Безрукавников",
+              "id": "8c2653bc-6811-461b-b94c-cbd0afb281ca",
+              "Hidden_points": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 2,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Сохацкий",
+              "id": "f4957cef-2042-4cb3-91db-916e145ec277",
+              "Hidden_points": 4.4
+            },
+            {
+              "name": "Чеботарев",
+              "id": "f0cf13b3-bdce-48e8-8a1d-b697cb3cf315",
+              "Hidden_points": 4.4
+            },
+            {
+              "name": "Поздняков",
+              "id": "788d6c0f-a53d-4f76-839a-660013294f62",
+              "Hidden_points": 4.4
+            },
+            {
+              "name": "Поляков",
+              "id": "03803cd5-aa7b-494d-ad57-20ceb2f2a447",
+              "Hidden_points": 4.4
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Бортников",
+              "id": "3abadfd0-16c5-4823-8ee7-920cd1cdcf9e",
+              "Hidden_points": 0.3
+            },
+            {
+              "name": "Милюков",
+              "id": "b5343dc6-de32-42e8-aec6-9ed3deed169f",
+              "Hidden_points": 0.3
+            },
+            {
+              "name": "Письменицкий",
+              "id": "b8fff599-8e3a-440b-b144-8ccf4109c399",
+              "Hidden_points": 0.3
+            },
+            {
+              "name": "Зубков",
+              "id": "d1fc4089-faff-4efd-9927-d4da0dc4c536",
+              "Hidden_points": 0.3
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Муравьев",
+              "id": "86c5dede-372b-4b11-bb45-3b026d28726b",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Ковальчук",
+              "id": "8203ebc9-3593-4f95-8b69-fcbebacf0db4",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Мосяков",
+              "id": "daa2160b-446c-47e8-bbc0-02f1c8714d9a",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Романов",
+              "id": "b476d03d-edc2-4e5c-aa94-17be59a671d4",
+              "Hidden_points": 0.2
+            }
+          ]
+        },
+        {
+          "Table_num": 4,
+          "Table_players": [
+            {
+              "name": "Безрукавников",
+              "id": "8c2653bc-6811-461b-b94c-cbd0afb281ca",
+              "Hidden_points": 0.1
+            },
+            {
+              "name": "Антонов",
+              "id": "c01788ef-2982-4417-bf16-cec5e2563a9f",
+              "Hidden_points": 0.1
+            },
+            {
+              "name": "Мокшанов",
+              "id": "f68753b5-8968-44bc-a874-e086589a8609",
+              "Hidden_points": 0.1
+            },
+            {
+              "name": "Звягин",
+              "id": "164c3bc2-99da-4f75-aa98-4ed7c9ca93cd",
+              "Hidden_points": 0.1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 3,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Чеботарев",
+              "id": "f0cf13b3-bdce-48e8-8a1d-b697cb3cf315",
+              "Hidden_points": 4.6000000000000005
+            },
+            {
+              "name": "Поздняков",
+              "id": "788d6c0f-a53d-4f76-839a-660013294f62",
+              "Hidden_points": 4.7
+            },
+            {
+              "name": "Милюков",
+              "id": "b5343dc6-de32-42e8-aec6-9ed3deed169f",
+              "Hidden_points": 4.7
+            },
+            {
+              "name": "Сохацкий",
+              "id": "f4957cef-2042-4cb3-91db-916e145ec277",
+              "Hidden_points": 8.8
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Антонов",
+              "id": "c01788ef-2982-4417-bf16-cec5e2563a9f",
+              "Hidden_points": 4.5
+            },
+            {
+              "name": "Поляков",
+              "id": "03803cd5-aa7b-494d-ad57-20ceb2f2a447",
+              "Hidden_points": 4.5
+            },
+            {
+              "name": "Муравьев",
+              "id": "86c5dede-372b-4b11-bb45-3b026d28726b",
+              "Hidden_points": 4.6000000000000005
+            },
+            {
+              "name": "Бортников",
+              "id": "3abadfd0-16c5-4823-8ee7-920cd1cdcf9e",
+              "Hidden_points": 0.6
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Звягин",
+              "id": "164c3bc2-99da-4f75-aa98-4ed7c9ca93cd",
+              "Hidden_points": 0.4
+            },
+            {
+              "name": "Романов",
+              "id": "b476d03d-edc2-4e5c-aa94-17be59a671d4",
+              "Hidden_points": 0.5
+            },
+            {
+              "name": "Мосяков",
+              "id": "daa2160b-446c-47e8-bbc0-02f1c8714d9a",
+              "Hidden_points": 0.4
+            },
+            {
+              "name": "Зубков",
+              "id": "d1fc4089-faff-4efd-9927-d4da0dc4c536",
+              "Hidden_points": 0.5
+            }
+          ]
+        },
+        {
+          "Table_num": 4,
+          "Table_players": [
+            {
+              "name": "Письменицкий",
+              "id": "b8fff599-8e3a-440b-b144-8ccf4109c399",
+              "Hidden_points": 0.4
+            },
+            {
+              "name": "Ковальчук",
+              "id": "8203ebc9-3593-4f95-8b69-fcbebacf0db4",
+              "Hidden_points": 0.30000000000000004
+            },
+            {
+              "name": "Безрукавников",
+              "id": "8c2653bc-6811-461b-b94c-cbd0afb281ca",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Мокшанов",
+              "id": "f68753b5-8968-44bc-a874-e086589a8609",
+              "Hidden_points": 0.30000000000000004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 4,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Муравьев",
+              "id": "86c5dede-372b-4b11-bb45-3b026d28726b",
+              "Hidden_points": 9
+            },
+            {
+              "name": "Поздняков",
+              "id": "788d6c0f-a53d-4f76-839a-660013294f62",
+              "Hidden_points": 5
+            },
+            {
+              "name": "Милюков",
+              "id": "b5343dc6-de32-42e8-aec6-9ed3deed169f",
+              "Hidden_points": 9.100000000000001
+            },
+            {
+              "name": "Сохацкий",
+              "id": "f4957cef-2042-4cb3-91db-916e145ec277",
+              "Hidden_points": 8.9
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Чеботарев",
+              "id": "f0cf13b3-bdce-48e8-8a1d-b697cb3cf315",
+              "Hidden_points": 4.800000000000001
+            },
+            {
+              "name": "Мосяков",
+              "id": "daa2160b-446c-47e8-bbc0-02f1c8714d9a",
+              "Hidden_points": 4.800000000000001
+            },
+            {
+              "name": "Ковальчук",
+              "id": "8203ebc9-3593-4f95-8b69-fcbebacf0db4",
+              "Hidden_points": 4.7
+            },
+            {
+              "name": "Антонов",
+              "id": "c01788ef-2982-4417-bf16-cec5e2563a9f",
+              "Hidden_points": 4.8
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Поляков",
+              "id": "03803cd5-aa7b-494d-ad57-20ceb2f2a447",
+              "Hidden_points": 4.6
+            },
+            {
+              "name": "Бортников",
+              "id": "3abadfd0-16c5-4823-8ee7-920cd1cdcf9e",
+              "Hidden_points": 0.8
+            },
+            {
+              "name": "Звягин",
+              "id": "164c3bc2-99da-4f75-aa98-4ed7c9ca93cd",
+              "Hidden_points": 0.7
+            },
+            {
+              "name": "Зубков",
+              "id": "d1fc4089-faff-4efd-9927-d4da0dc4c536",
+              "Hidden_points": 0.7
+            }
+          ]
+        },
+        {
+          "Table_num": 4,
+          "Table_players": [
+            {
+              "name": "Письменицкий",
+              "id": "b8fff599-8e3a-440b-b144-8ccf4109c399",
+              "Hidden_points": 0.6000000000000001
+            },
+            {
+              "name": "Безрукавников",
+              "id": "8c2653bc-6811-461b-b94c-cbd0afb281ca",
+              "Hidden_points": 0.30000000000000004
+            },
+            {
+              "name": "Мокшанов",
+              "id": "f68753b5-8968-44bc-a874-e086589a8609",
+              "Hidden_points": 0.6000000000000001
+            },
+            {
+              "name": "Романов",
+              "id": "b476d03d-edc2-4e5c-aa94-17be59a671d4",
+              "Hidden_points": 0.6
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Players": [
+    {
+      "Points": 4,
+      "Sub_points": 9,
+      "Has_autowin": 0,
+      "Hidden_points": 4.9,
+      "Status": false,
+      "Player_id": "daa2160b-446c-47e8-bbc0-02f1c8714d9a",
+      "Player_name": "Мосяков",
+      "Commander": ""
+    },
+    {
+      "Points": 8,
+      "Sub_points": 12,
+      "Has_autowin": 0,
+      "Hidden_points": 9.200000000000001,
+      "Status": false,
+      "Player_id": "f4957cef-2042-4cb3-91db-916e145ec277",
+      "Player_name": "Сохацкий",
+      "Commander": ""
+    },
+    {
+      "Points": 0,
+      "Sub_points": 8,
+      "Has_autowin": 0,
+      "Hidden_points": 0.7999999999999999,
+      "Status": false,
+      "Player_id": "164c3bc2-99da-4f75-aa98-4ed7c9ca93cd",
+      "Player_name": "Звягин",
+      "Commander": ""
+    },
+    {
+      "Points": 0,
+      "Sub_points": 7,
+      "Has_autowin": 0,
+      "Hidden_points": 0.7,
+      "Status": false,
+      "Player_id": "b476d03d-edc2-4e5c-aa94-17be59a671d4",
+      "Player_name": "Романов",
+      "Commander": ""
+    },
+    {
+      "Points": 4,
+      "Sub_points": 11,
+      "Has_autowin": 0,
+      "Hidden_points": 5.1,
+      "Status": false,
+      "Player_id": "788d6c0f-a53d-4f76-839a-660013294f62",
+      "Player_name": "Поздняков",
+      "Commander": ""
+    },
+    {
+      "Points": 0,
+      "Sub_points": 10,
+      "Has_autowin": 0,
+      "Hidden_points": 1,
+      "Status": false,
+      "Player_id": "3abadfd0-16c5-4823-8ee7-920cd1cdcf9e",
+      "Player_name": "Бортников",
+      "Commander": ""
+    },
+    {
+      "Points": 4,
+      "Sub_points": 11,
+      "Has_autowin": 0,
+      "Hidden_points": 5.1,
+      "Status": false,
+      "Player_id": "c01788ef-2982-4417-bf16-cec5e2563a9f",
+      "Player_name": "Антонов",
+      "Commander": ""
+    },
+    {
+      "Points": 0,
+      "Sub_points": 5,
+      "Has_autowin": 0,
+      "Hidden_points": 0.5,
+      "Status": false,
+      "Player_id": "8c2653bc-6811-461b-b94c-cbd0afb281ca",
+      "Player_name": "Безрукавников",
+      "Commander": ""
+    },
+    {
+      "Points": 0,
+      "Sub_points": 9,
+      "Has_autowin": 0,
+      "Hidden_points": 0.9000000000000001,
+      "Status": false,
+      "Player_id": "f68753b5-8968-44bc-a874-e086589a8609",
+      "Player_name": "Мокшанов",
+      "Commander": ""
+    },
+    {
+      "Points": 8,
+      "Sub_points": 12,
+      "Has_autowin": 0,
+      "Hidden_points": 9.200000000000001,
+      "Status": false,
+      "Player_id": "f0cf13b3-bdce-48e8-8a1d-b697cb3cf315",
+      "Player_name": "Чеботарев",
+      "Commander": ""
+    },
+    {
+      "Points": 8,
+      "Sub_points": 10,
+      "Has_autowin": 0,
+      "Hidden_points": 9,
+      "Status": false,
+      "Player_id": "03803cd5-aa7b-494d-ad57-20ceb2f2a447",
+      "Player_name": "Поляков",
+      "Commander": ""
+    },
+    {
+      "Points": 4,
+      "Sub_points": 10,
+      "Has_autowin": 0,
+      "Hidden_points": 5,
+      "Status": false,
+      "Player_id": "b8fff599-8e3a-440b-b144-8ccf4109c399",
+      "Player_name": "Письменицкий",
+      "Commander": ""
+    },
+    {
+      "Points": 8,
+      "Sub_points": 13,
+      "Has_autowin": 0,
+      "Hidden_points": 9.3,
+      "Status": false,
+      "Player_id": "b5343dc6-de32-42e8-aec6-9ed3deed169f",
+      "Player_name": "Милюков",
+      "Commander": ""
+    },
+    {
+      "Points": 0,
+      "Sub_points": 10,
+      "Has_autowin": 0,
+      "Hidden_points": 1,
+      "Status": false,
+      "Player_id": "d1fc4089-faff-4efd-9927-d4da0dc4c536",
+      "Player_name": "Зубков",
+      "Commander": ""
+    },
+    {
+      "Points": 4,
+      "Sub_points": 9,
+      "Has_autowin": 0,
+      "Hidden_points": 4.9,
+      "Status": false,
+      "Player_id": "8203ebc9-3593-4f95-8b69-fcbebacf0db4",
+      "Player_name": "Ковальчук",
+      "Commander": ""
+    },
+    {
+      "Points": 12,
+      "Sub_points": 14,
+      "Has_autowin": 0,
+      "Hidden_points": 13.4,
+      "Status": false,
+      "Player_id": "86c5dede-372b-4b11-bb45-3b026d28726b",
+      "Player_name": "Муравьев",
+      "Commander": ""
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "626e5de9f7c264edcabdfc81"
+  },
+  "Event_name": "Spellmarket",
+  "Event_Date": "2022-05-01 00:00:00",
+  "Status": "finished",
+  "Event_id": "45404389-d45a-4ea4-a393-4152fc2c2b3d",
+  "Rounds": [
+    {
+      "Number": 1,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Чеботарев",
+              "id": "6dfd3edf-1c41-4b9c-9884-e8a84b71bf85",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Ретуев",
+              "id": "e6d94f11-353b-4be1-8c1b-76168ec91191",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Семушкин",
+              "id": "df0f033c-96b9-4a4f-91c4-90532437986d",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Мокшанов",
+              "id": "394c1bdd-f411-4c60-9d07-6e928c012492",
+              "Hidden_points": 0
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Кузнецов",
+              "id": "abaaf444-e7da-4cec-bddb-831a79ae69df",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Лычковский",
+              "id": "9caa4a74-16c5-4fa1-bc35-2c0785053b08",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Кедреновский",
+              "id": "69aacce9-eae2-4287-9e43-b44bbb4fd0c1",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Фомин",
+              "id": "9a0d0507-c51d-4e16-9b00-2af52c2aafe9",
+              "Hidden_points": 0
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Бортников",
+              "id": "8fc4d34a-3fe2-4280-a38c-80489df9217f",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Милюков",
+              "id": "95855357-35e3-4c9b-b321-e27d136b49df",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Бойков",
+              "id": "05a8f761-a5e5-4e62-bf6e-356e8a81550a",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Письменицкий",
+              "id": "29099cfe-0477-46a0-ab12-9bae8e3fe167",
+              "Hidden_points": 0
+            }
+          ]
+        },
+        {
+          "Table_num": 4,
+          "Table_players": [
+            {
+              "name": "Карасев",
+              "id": "80c19a58-c8ba-4df5-b274-47cf7ad82f75",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Грехов",
+              "id": "d6805b1e-7bb0-4e02-979e-a1cce8b4a24e",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Кондратьев",
+              "id": "8beef07b-c292-4751-a1d1-49ccae909847",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Колыванов",
+              "id": "48cc5112-65f7-42e0-9c57-e5ead87401d0",
+              "Hidden_points": 0
+            }
+          ]
+        },
+        {
+          "Table_num": 5,
+          "Table_players": [
+            {
+              "name": "Остапов",
+              "id": "a9d19c5e-d45a-4dea-867c-1e785463c657",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Муравьев",
+              "id": "1a684197-c85f-4a66-aab1-739968499f58",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Ковальчук",
+              "id": "c4aefeb6-660b-4539-b9cd-a1eb546d7399",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Сохацкий",
+              "id": "b86712f3-e2e4-436a-b3ed-c5d24c18ef6b",
+              "Hidden_points": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 2,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Милюков",
+              "id": "95855357-35e3-4c9b-b321-e27d136b49df",
+              "Hidden_points": 4.4
+            },
+            {
+              "name": "Поляков",
+              "id": "db43cc7c-0872-4024-a7f3-1ab203883a9f",
+              "Hidden_points": 3.4
+            },
+            {
+              "name": "Остапов",
+              "id": "a9d19c5e-d45a-4dea-867c-1e785463c657",
+              "Hidden_points": 4.4
+            },
+            {
+              "name": "Карасев",
+              "id": "80c19a58-c8ba-4df5-b274-47cf7ad82f75",
+              "Hidden_points": 4.4
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Ретуев",
+              "id": "e6d94f11-353b-4be1-8c1b-76168ec91191",
+              "Hidden_points": 1.3
+            },
+            {
+              "name": "Фомин",
+              "id": "9a0d0507-c51d-4e16-9b00-2af52c2aafe9",
+              "Hidden_points": 1.4
+            },
+            {
+              "name": "Кедреновский",
+              "id": "69aacce9-eae2-4287-9e43-b44bbb4fd0c1",
+              "Hidden_points": 1.3
+            },
+            {
+              "name": "Мокшанов",
+              "id": "394c1bdd-f411-4c60-9d07-6e928c012492",
+              "Hidden_points": 1.3
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Кузнецов",
+              "id": "abaaf444-e7da-4cec-bddb-831a79ae69df",
+              "Hidden_points": 1.2
+            },
+            {
+              "name": "Сохацкий",
+              "id": "b86712f3-e2e4-436a-b3ed-c5d24c18ef6b",
+              "Hidden_points": 0.3
+            },
+            {
+              "name": "Колыванов",
+              "id": "48cc5112-65f7-42e0-9c57-e5ead87401d0",
+              "Hidden_points": 0.3
+            },
+            {
+              "name": "Бортников",
+              "id": "8fc4d34a-3fe2-4280-a38c-80489df9217f",
+              "Hidden_points": 0.3
+            }
+          ]
+        },
+        {
+          "Table_num": 4,
+          "Table_players": [
+            {
+              "name": "Письменицкий",
+              "id": "29099cfe-0477-46a0-ab12-9bae8e3fe167",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Кондратьев",
+              "id": "8beef07b-c292-4751-a1d1-49ccae909847",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Ковальчук",
+              "id": "c4aefeb6-660b-4539-b9cd-a1eb546d7399",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Семушкин",
+              "id": "df0f033c-96b9-4a4f-91c4-90532437986d",
+              "Hidden_points": 0.2
+            }
+          ]
+        },
+        {
+          "Table_num": 5,
+          "Table_players": [
+            {
+              "name": "Чеботарев",
+              "id": "6dfd3edf-1c41-4b9c-9884-e8a84b71bf85",
+              "Hidden_points": 0.1
+            },
+            {
+              "name": "Муравьев",
+              "id": "1a684197-c85f-4a66-aab1-739968499f58",
+              "Hidden_points": 0.1
+            },
+            {
+              "name": "Грехов",
+              "id": "d6805b1e-7bb0-4e02-979e-a1cce8b4a24e",
+              "Hidden_points": 0.1
+            },
+            {
+              "name": "Бойков",
+              "id": "05a8f761-a5e5-4e62-bf6e-356e8a81550a",
+              "Hidden_points": 0.1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 3,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Кедреновский",
+              "id": "69aacce9-eae2-4287-9e43-b44bbb4fd0c1",
+              "Hidden_points": 5.7
+            },
+            {
+              "name": "Сохацкий",
+              "id": "b86712f3-e2e4-436a-b3ed-c5d24c18ef6b",
+              "Hidden_points": 4.7
+            },
+            {
+              "name": "Карасев",
+              "id": "80c19a58-c8ba-4df5-b274-47cf7ad82f75",
+              "Hidden_points": 5.800000000000001
+            },
+            {
+              "name": "Милюков",
+              "id": "95855357-35e3-4c9b-b321-e27d136b49df",
+              "Hidden_points": 5.7
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Поляков",
+              "id": "db43cc7c-0872-4024-a7f3-1ab203883a9f",
+              "Hidden_points": 3.6
+            },
+            {
+              "name": "Остапов",
+              "id": "a9d19c5e-d45a-4dea-867c-1e785463c657",
+              "Hidden_points": 4.5
+            },
+            {
+              "name": "Лычковский",
+              "id": "9caa4a74-16c5-4fa1-bc35-2c0785053b08",
+              "Hidden_points": 3.5
+            },
+            {
+              "name": "Бойков",
+              "id": "05a8f761-a5e5-4e62-bf6e-356e8a81550a",
+              "Hidden_points": 4.5
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Ковальчук",
+              "id": "c4aefeb6-660b-4539-b9cd-a1eb546d7399",
+              "Hidden_points": 1.5
+            },
+            {
+              "name": "Семушкин",
+              "id": "df0f033c-96b9-4a4f-91c4-90532437986d",
+              "Hidden_points": 1.5999999999999999
+            },
+            {
+              "name": "Фомин",
+              "id": "9a0d0507-c51d-4e16-9b00-2af52c2aafe9",
+              "Hidden_points": 1.5
+            },
+            {
+              "name": "Мокшанов",
+              "id": "394c1bdd-f411-4c60-9d07-6e928c012492",
+              "Hidden_points": 1.6
+            }
+          ]
+        },
+        {
+          "Table_num": 4,
+          "Table_players": [
+            {
+              "name": "Кондратьев",
+              "id": "8beef07b-c292-4751-a1d1-49ccae909847",
+              "Hidden_points": 1.4
+            },
+            {
+              "name": "Кузнецов",
+              "id": "abaaf444-e7da-4cec-bddb-831a79ae69df",
+              "Hidden_points": 1.3
+            },
+            {
+              "name": "Письменицкий",
+              "id": "29099cfe-0477-46a0-ab12-9bae8e3fe167",
+              "Hidden_points": 1.3
+            },
+            {
+              "name": "Ретуев",
+              "id": "e6d94f11-353b-4be1-8c1b-76168ec91191",
+              "Hidden_points": 1.5
+            }
+          ]
+        },
+        {
+          "Table_num": 5,
+          "Table_players": [
+            {
+              "name": "Муравьев",
+              "id": "1a684197-c85f-4a66-aab1-739968499f58",
+              "Hidden_points": 0.30000000000000004
+            },
+            {
+              "name": "Бортников",
+              "id": "8fc4d34a-3fe2-4280-a38c-80489df9217f",
+              "Hidden_points": 0.6
+            },
+            {
+              "name": "Колыванов",
+              "id": "48cc5112-65f7-42e0-9c57-e5ead87401d0",
+              "Hidden_points": 0.5
+            },
+            {
+              "name": "Чеботарев",
+              "id": "6dfd3edf-1c41-4b9c-9884-e8a84b71bf85",
+              "Hidden_points": 0.4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 4,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Милюков",
+              "id": "95855357-35e3-4c9b-b321-e27d136b49df",
+              "Hidden_points": 9.11
+            },
+            {
+              "name": "Ковальчук",
+              "id": "c4aefeb6-660b-4539-b9cd-a1eb546d7399",
+              "Hidden_points": 5.9
+            },
+            {
+              "name": "Кедреновский",
+              "id": "69aacce9-eae2-4287-9e43-b44bbb4fd0c1",
+              "Hidden_points": 6
+            },
+            {
+              "name": "Поляков",
+              "id": "db43cc7c-0872-4024-a7f3-1ab203883a9f",
+              "Hidden_points": 8
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Кондратьев",
+              "id": "8beef07b-c292-4751-a1d1-49ccae909847",
+              "Hidden_points": 5.8
+            },
+            {
+              "name": "Карасев",
+              "id": "80c19a58-c8ba-4df5-b274-47cf7ad82f75",
+              "Hidden_points": 5.9
+            },
+            {
+              "name": "Сохацкий",
+              "id": "b86712f3-e2e4-436a-b3ed-c5d24c18ef6b",
+              "Hidden_points": 4.9
+            },
+            {
+              "name": "Бойков",
+              "id": "05a8f761-a5e5-4e62-bf6e-356e8a81550a",
+              "Hidden_points": 4.8
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Лычковский",
+              "id": "9caa4a74-16c5-4fa1-bc35-2c0785053b08",
+              "Hidden_points": 3.7
+            },
+            {
+              "name": "Остапов",
+              "id": "a9d19c5e-d45a-4dea-867c-1e785463c657",
+              "Hidden_points": 4.6
+            },
+            {
+              "name": "Грехов",
+              "id": "d6805b1e-7bb0-4e02-979e-a1cce8b4a24e",
+              "Hidden_points": 3.6
+            },
+            {
+              "name": "Муравьев",
+              "id": "1a684197-c85f-4a66-aab1-739968499f58",
+              "Hidden_points": 4.7
+            }
+          ]
+        },
+        {
+          "Table_num": 4,
+          "Table_players": [
+            {
+              "name": "Семушкин",
+              "id": "df0f033c-96b9-4a4f-91c4-90532437986d",
+              "Hidden_points": 1.8
+            },
+            {
+              "name": "Мокшанов",
+              "id": "394c1bdd-f411-4c60-9d07-6e928c012492",
+              "Hidden_points": 1.9
+            },
+            {
+              "name": "Фомин",
+              "id": "9a0d0507-c51d-4e16-9b00-2af52c2aafe9",
+              "Hidden_points": 1.6
+            },
+            {
+              "name": "Ретуев",
+              "id": "e6d94f11-353b-4be1-8c1b-76168ec91191",
+              "Hidden_points": 1.8
+            }
+          ]
+        },
+        {
+          "Table_num": 5,
+          "Table_players": [
+            {
+              "name": "Кузнецов",
+              "id": "abaaf444-e7da-4cec-bddb-831a79ae69df",
+              "Hidden_points": 1.5
+            },
+            {
+              "name": "Колыванов",
+              "id": "48cc5112-65f7-42e0-9c57-e5ead87401d0",
+              "Hidden_points": 0.7
+            },
+            {
+              "name": "Письменицкий",
+              "id": "29099cfe-0477-46a0-ab12-9bae8e3fe167",
+              "Hidden_points": 1.4
+            },
+            {
+              "name": "Бортников",
+              "id": "8fc4d34a-3fe2-4280-a38c-80489df9217f",
+              "Hidden_points": 0.7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Players": [
+    {
+      "Points": 4,
+      "Sub_points": 7,
+      "Has_autowin": 0,
+      "Hidden_points": 4.7,
+      "Status": false,
+      "Player_id": "1a684197-c85f-4a66-aab1-739968499f58",
+      "Player_name": "Муравьев",
+      "Commander": ""
+    },
+    {
+      "Points": 1,
+      "Sub_points": 5,
+      "Has_autowin": 0,
+      "Hidden_points": 1.5000000000000002,
+      "Status": false,
+      "Player_id": "29099cfe-0477-46a0-ab12-9bae8e3fe167",
+      "Player_name": "Письменицкий",
+      "Commander": ""
+    },
+    {
+      "Points": 3,
+      "Sub_points": 6,
+      "Has_autowin": 0,
+      "Hidden_points": 3.6,
+      "Status": false,
+      "Player_id": "d6805b1e-7bb0-4e02-979e-a1cce8b4a24e",
+      "Player_name": "Грехов",
+      "Commander": ""
+    },
+    {
+      "Points": 1,
+      "Sub_points": 6,
+      "Has_autowin": 0,
+      "Hidden_points": 1.6,
+      "Status": false,
+      "Player_id": "9a0d0507-c51d-4e16-9b00-2af52c2aafe9",
+      "Player_name": "Фомин",
+      "Commander": ""
+    },
+    {
+      "Points": 5,
+      "Sub_points": 12,
+      "Has_autowin": 0,
+      "Hidden_points": 6.2,
+      "Status": false,
+      "Player_id": "69aacce9-eae2-4287-9e43-b44bbb4fd0c1",
+      "Player_name": "Кедреновский",
+      "Commander": ""
+    },
+    {
+      "Points": 1,
+      "Sub_points": 8,
+      "Has_autowin": 0,
+      "Hidden_points": 1.7999999999999998,
+      "Status": false,
+      "Player_id": "df0f033c-96b9-4a4f-91c4-90532437986d",
+      "Player_name": "Семушкин",
+      "Commander": ""
+    },
+    {
+      "Points": 1,
+      "Sub_points": 9,
+      "Has_autowin": 0,
+      "Hidden_points": 1.9000000000000001,
+      "Status": false,
+      "Player_id": "394c1bdd-f411-4c60-9d07-6e928c012492",
+      "Player_name": "Мокшанов",
+      "Commander": ""
+    },
+    {
+      "Points": 5,
+      "Sub_points": 12,
+      "Has_autowin": 0,
+      "Hidden_points": 6.2,
+      "Status": false,
+      "Player_id": "c4aefeb6-660b-4539-b9cd-a1eb546d7399",
+      "Player_name": "Ковальчук",
+      "Commander": ""
+    },
+    {
+      "Points": 6,
+      "Sub_points": 10,
+      "Has_autowin": 0,
+      "Hidden_points": 7.000000000000001,
+      "Status": false,
+      "Player_id": "8beef07b-c292-4751-a1d1-49ccae909847",
+      "Player_name": "Кондратьев",
+      "Commander": ""
+    },
+    {
+      "Points": 5,
+      "Sub_points": 12,
+      "Has_autowin": 0,
+      "Hidden_points": 6.199999999999999,
+      "Status": false,
+      "Player_id": "05a8f761-a5e5-4e62-bf6e-356e8a81550a",
+      "Player_name": "Бойков",
+      "Commander": ""
+    },
+    {
+      "Points": 13,
+      "Sub_points": 15,
+      "Has_autowin": 0,
+      "Hidden_points": 14.500000000000002,
+      "Status": false,
+      "Player_id": "95855357-35e3-4c9b-b321-e27d136b49df",
+      "Player_name": "Милюков",
+      "Commander": ""
+    },
+    {
+      "Points": 8,
+      "Sub_points": 10,
+      "Has_autowin": 0,
+      "Hidden_points": 9,
+      "Status": false,
+      "Player_id": "a9d19c5e-d45a-4dea-867c-1e785463c657",
+      "Player_name": "Остапов",
+      "Commander": ""
+    },
+    {
+      "Points": 4,
+      "Sub_points": 10,
+      "Has_autowin": 0,
+      "Hidden_points": 5,
+      "Status": false,
+      "Player_id": "b86712f3-e2e4-436a-b3ed-c5d24c18ef6b",
+      "Player_name": "Сохацкий",
+      "Commander": ""
+    },
+    {
+      "Points": 7,
+      "Sub_points": 11,
+      "Has_autowin": 0,
+      "Hidden_points": 8.1,
+      "Status": false,
+      "Player_id": "db43cc7c-0872-4024-a7f3-1ab203883a9f",
+      "Player_name": "Поляков",
+      "Commander": ""
+    },
+    {
+      "Points": 0,
+      "Sub_points": 10,
+      "Has_autowin": 0,
+      "Hidden_points": 1,
+      "Status": false,
+      "Player_id": "8fc4d34a-3fe2-4280-a38c-80489df9217f",
+      "Player_name": "Бортников",
+      "Commander": ""
+    },
+    {
+      "Points": 5,
+      "Sub_points": 9,
+      "Has_autowin": 0,
+      "Hidden_points": 5.9,
+      "Status": false,
+      "Player_id": "abaaf444-e7da-4cec-bddb-831a79ae69df",
+      "Player_name": "Кузнецов",
+      "Commander": ""
+    },
+    {
+      "Points": 1,
+      "Sub_points": 8,
+      "Has_autowin": 0,
+      "Hidden_points": 1.8,
+      "Status": false,
+      "Player_id": "e6d94f11-353b-4be1-8c1b-76168ec91191",
+      "Player_name": "Ретуев",
+      "Commander": ""
+    },
+    {
+      "Points": 6,
+      "Sub_points": 12,
+      "Has_autowin": 0,
+      "Hidden_points": 7.2,
+      "Status": false,
+      "Player_id": "80c19a58-c8ba-4df5-b274-47cf7ad82f75",
+      "Player_name": "Карасев",
+      "Commander": ""
+    },
+    {
+      "Points": 3,
+      "Sub_points": 7,
+      "Has_autowin": 0,
+      "Hidden_points": 3.7,
+      "Status": false,
+      "Player_id": "9caa4a74-16c5-4fa1-bc35-2c0785053b08",
+      "Player_name": "Лычковский",
+      "Commander": ""
+    },
+    {
+      "Points": 0,
+      "Sub_points": 9,
+      "Has_autowin": 0,
+      "Hidden_points": 0.8999999999999999,
+      "Status": false,
+      "Player_id": "48cc5112-65f7-42e0-9c57-e5ead87401d0",
+      "Player_name": "Колыванов",
+      "Commander": ""
+    },
+    {
+      "Points": 0,
+      "Sub_points": 7,
+      "Has_autowin": 0,
+      "Hidden_points": 0.7,
+      "Status": false,
+      "Player_id": "6dfd3edf-1c41-4b9c-9884-e8a84b71bf85",
+      "Player_name": "Чеботарев",
+      "Commander": ""
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "627789f5a6085fac353ab6ad"
+  },
+  "Event_name": "Spellmarket_Manadorki",
+  "Event_Date": "2022-05-08 00:00:00",
+  "Status": "finished",
+  "Event_id": "6af9894e-c85e-4d22-9434-91cf030ec2b8",
+  "Rounds": [
+    {
+      "Number": 1,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Сохацкий",
+              "id": "7eff3348-3ad6-4be7-94b1-e50c9145e5ac",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Муравьев",
+              "id": "59cff4a3-fdce-4cc4-9e5e-d4d38f2a3297",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Чабан",
+              "id": "9bd1d889-fbb5-4ab2-a3ff-c166e1c6e781",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Остапов",
+              "id": "201ef0fa-16cc-40c9-969d-10861b66c3b8",
+              "Hidden_points": 0
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Медведев",
+              "id": "1df17544-48b6-4d0a-9676-4b53c5e5b890",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Ахмеров",
+              "id": "1dbd4cfa-e598-465e-b441-8329907ff494",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Письменицкий",
+              "id": "84d82767-9700-4c65-bb59-98c89773fe27",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Шкирандо",
+              "id": "6e2238ae-e490-40bf-89e3-b989614d7b91",
+              "Hidden_points": 0
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Саушкин",
+              "id": "c9175521-c66f-4009-a7f4-e693ef0e2a25",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Иванов",
+              "id": "75e6212e-c895-4c72-b0f4-1f6cc1cacc0f",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Сычев",
+              "id": "c18d8442-9138-46e7-a581-11ba79375fe7",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Ковальчук",
+              "id": "b63e608b-4ab9-4a7d-92b0-5a2e5a692ce6",
+              "Hidden_points": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 2,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Саушкин",
+              "id": "c9175521-c66f-4009-a7f4-e693ef0e2a25",
+              "Hidden_points": 4.4
+            },
+            {
+              "name": "Муравьев",
+              "id": "59cff4a3-fdce-4cc4-9e5e-d4d38f2a3297",
+              "Hidden_points": 4.4
+            },
+            {
+              "name": "Кондратьев",
+              "id": "e55c4f85-8393-4616-97dd-a7a9d73741e0",
+              "Hidden_points": 3.4
+            },
+            {
+              "name": "Письменицкий",
+              "id": "84d82767-9700-4c65-bb59-98c89773fe27",
+              "Hidden_points": 4.4
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Шкирандо",
+              "id": "6e2238ae-e490-40bf-89e3-b989614d7b91",
+              "Hidden_points": 0.3
+            },
+            {
+              "name": "Ковальчук",
+              "id": "b63e608b-4ab9-4a7d-92b0-5a2e5a692ce6",
+              "Hidden_points": 0.3
+            },
+            {
+              "name": "Ахмеров",
+              "id": "1dbd4cfa-e598-465e-b441-8329907ff494",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Чабан",
+              "id": "9bd1d889-fbb5-4ab2-a3ff-c166e1c6e781",
+              "Hidden_points": 0.3
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Сохацкий",
+              "id": "7eff3348-3ad6-4be7-94b1-e50c9145e5ac",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Сычев",
+              "id": "c18d8442-9138-46e7-a581-11ba79375fe7",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Медведев",
+              "id": "1df17544-48b6-4d0a-9676-4b53c5e5b890",
+              "Hidden_points": 0.1
+            },
+            {
+              "name": "Иванов",
+              "id": "75e6212e-c895-4c72-b0f4-1f6cc1cacc0f",
+              "Hidden_points": 0.1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 3,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Чабан",
+              "id": "9bd1d889-fbb5-4ab2-a3ff-c166e1c6e781",
+              "Hidden_points": 4.7
+            },
+            {
+              "name": "Муравьев",
+              "id": "59cff4a3-fdce-4cc4-9e5e-d4d38f2a3297",
+              "Hidden_points": 4.6000000000000005
+            },
+            {
+              "name": "Кондратьев",
+              "id": "e55c4f85-8393-4616-97dd-a7a9d73741e0",
+              "Hidden_points": 7.800000000000001
+            },
+            {
+              "name": "Письменицкий",
+              "id": "84d82767-9700-4c65-bb59-98c89773fe27",
+              "Hidden_points": 4.7
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Саушкин",
+              "id": "c9175521-c66f-4009-a7f4-e693ef0e2a25",
+              "Hidden_points": 4.5
+            },
+            {
+              "name": "Медведев",
+              "id": "1df17544-48b6-4d0a-9676-4b53c5e5b890",
+              "Hidden_points": 4.5
+            },
+            {
+              "name": "Остапов",
+              "id": "201ef0fa-16cc-40c9-969d-10861b66c3b8",
+              "Hidden_points": 3.5
+            },
+            {
+              "name": "Шкирандо",
+              "id": "6e2238ae-e490-40bf-89e3-b989614d7b91",
+              "Hidden_points": 0.6
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Ахмеров",
+              "id": "1dbd4cfa-e598-465e-b441-8329907ff494",
+              "Hidden_points": 0.4
+            },
+            {
+              "name": "Сохацкий",
+              "id": "7eff3348-3ad6-4be7-94b1-e50c9145e5ac",
+              "Hidden_points": 0.4
+            },
+            {
+              "name": "Иванов",
+              "id": "75e6212e-c895-4c72-b0f4-1f6cc1cacc0f",
+              "Hidden_points": 0.4
+            },
+            {
+              "name": "Ковальчук",
+              "id": "b63e608b-4ab9-4a7d-92b0-5a2e5a692ce6",
+              "Hidden_points": 0.4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 4,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Кондратьев",
+              "id": "e55c4f85-8393-4616-97dd-a7a9d73741e0",
+              "Hidden_points": 8.100000000000001
+            },
+            {
+              "name": "Остапов",
+              "id": "201ef0fa-16cc-40c9-969d-10861b66c3b8",
+              "Hidden_points": 7.9
+            },
+            {
+              "name": "Письменицкий",
+              "id": "84d82767-9700-4c65-bb59-98c89773fe27",
+              "Hidden_points": 9.100000000000001
+            },
+            {
+              "name": "Иванов",
+              "id": "75e6212e-c895-4c72-b0f4-1f6cc1cacc0f",
+              "Hidden_points": 4.800000000000001
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Медведев",
+              "id": "1df17544-48b6-4d0a-9676-4b53c5e5b890",
+              "Hidden_points": 4.7
+            },
+            {
+              "name": "Саушкин",
+              "id": "c9175521-c66f-4009-a7f4-e693ef0e2a25",
+              "Hidden_points": 4.6
+            },
+            {
+              "name": "Муравьев",
+              "id": "59cff4a3-fdce-4cc4-9e5e-d4d38f2a3297",
+              "Hidden_points": 4.800000000000001
+            },
+            {
+              "name": "Чабан",
+              "id": "9bd1d889-fbb5-4ab2-a3ff-c166e1c6e781",
+              "Hidden_points": 4.8
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Сычев",
+              "id": "c18d8442-9138-46e7-a581-11ba79375fe7",
+              "Hidden_points": 3.7
+            },
+            {
+              "name": "Ковальчук",
+              "id": "b63e608b-4ab9-4a7d-92b0-5a2e5a692ce6",
+              "Hidden_points": 0.7
+            },
+            {
+              "name": "Шкирандо",
+              "id": "6e2238ae-e490-40bf-89e3-b989614d7b91",
+              "Hidden_points": 0.8999999999999999
+            },
+            {
+              "name": "Ахмеров",
+              "id": "1dbd4cfa-e598-465e-b441-8329907ff494",
+              "Hidden_points": 0.7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Players": [
+    {
+      "Points": 4,
+      "Sub_points": 11,
+      "Has_autowin": 0,
+      "Hidden_points": 5.1,
+      "Status": false,
+      "Player_id": "9bd1d889-fbb5-4ab2-a3ff-c166e1c6e781",
+      "Player_name": "Чабан",
+      "Commander": ""
+    },
+    {
+      "Points": 4,
+      "Sub_points": 11,
+      "Has_autowin": 0,
+      "Hidden_points": 5.1000000000000005,
+      "Status": false,
+      "Player_id": "75e6212e-c895-4c72-b0f4-1f6cc1cacc0f",
+      "Player_name": "Иванов",
+      "Commander": ""
+    },
+    {
+      "Points": 0,
+      "Sub_points": 9,
+      "Has_autowin": 0,
+      "Hidden_points": 0.8999999999999999,
+      "Status": false,
+      "Player_id": "1dbd4cfa-e598-465e-b441-8329907ff494",
+      "Player_name": "Ахмеров",
+      "Commander": ""
+    },
+    {
+      "Points": 8,
+      "Sub_points": 13,
+      "Has_autowin": 0,
+      "Hidden_points": 9.3,
+      "Status": false,
+      "Player_id": "84d82767-9700-4c65-bb59-98c89773fe27",
+      "Player_name": "Письменицкий",
+      "Commander": ""
+    },
+    {
+      "Points": 8,
+      "Sub_points": 10,
+      "Has_autowin": 0,
+      "Hidden_points": 9,
+      "Status": false,
+      "Player_id": "c9175521-c66f-4009-a7f4-e693ef0e2a25",
+      "Player_name": "Саушкин",
+      "Commander": ""
+    },
+    {
+      "Points": 4,
+      "Sub_points": 8,
+      "Has_autowin": 0,
+      "Hidden_points": 4.8,
+      "Status": false,
+      "Player_id": "1df17544-48b6-4d0a-9676-4b53c5e5b890",
+      "Player_name": "Медведев",
+      "Commander": ""
+    },
+    {
+      "Points": 0,
+      "Sub_points": 12,
+      "Has_autowin": 0,
+      "Hidden_points": 1.2,
+      "Status": false,
+      "Player_id": "6e2238ae-e490-40bf-89e3-b989614d7b91",
+      "Player_name": "Шкирандо",
+      "Commander": ""
+    },
+    {
+      "Points": 4,
+      "Sub_points": 11,
+      "Has_autowin": 0,
+      "Hidden_points": 5.1000000000000005,
+      "Status": false,
+      "Player_id": "b63e608b-4ab9-4a7d-92b0-5a2e5a692ce6",
+      "Player_name": "Ковальчук",
+      "Commander": ""
+    },
+    {
+      "Points": 3,
+      "Sub_points": 9,
+      "Has_autowin": 0,
+      "Hidden_points": 3.9,
+      "Status": false,
+      "Player_id": "7eff3348-3ad6-4be7-94b1-e50c9145e5ac",
+      "Player_name": "Сохацкий",
+      "Commander": ""
+    },
+    {
+      "Points": 3,
+      "Sub_points": 8,
+      "Has_autowin": 0,
+      "Hidden_points": 3.8000000000000003,
+      "Status": false,
+      "Player_id": "c18d8442-9138-46e7-a581-11ba79375fe7",
+      "Player_name": "Сычев",
+      "Commander": ""
+    },
+    {
+      "Points": 11,
+      "Sub_points": 13,
+      "Has_autowin": 0,
+      "Hidden_points": 12.3,
+      "Status": false,
+      "Player_id": "201ef0fa-16cc-40c9-969d-10861b66c3b8",
+      "Player_name": "Остапов",
+      "Commander": ""
+    },
+    {
+      "Points": 4,
+      "Sub_points": 10,
+      "Has_autowin": 0,
+      "Hidden_points": 5.000000000000001,
+      "Status": false,
+      "Player_id": "59cff4a3-fdce-4cc4-9e5e-d4d38f2a3297",
+      "Player_name": "Муравьев",
+      "Commander": ""
+    },
+    {
+      "Points": 7,
+      "Sub_points": 12,
+      "Has_autowin": 0,
+      "Hidden_points": 8.200000000000001,
+      "Status": false,
+      "Player_id": "e55c4f85-8393-4616-97dd-a7a9d73741e0",
+      "Player_name": "Кондратьев",
+      "Commander": ""
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6280e760a6085fac353ab6c9"
+  },
+  "Event_name": "Spellmarket",
+  "Event_Date": "2022-05-15 00:00:00",
+  "Status": "finished",
+  "Event_id": "d6e18993-0f42-4547-b1c0-ce53518c32cc",
+  "Rounds": [
+    {
+      "Number": 1,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Ковальчук",
+              "id": "3155f0b3-7946-433d-9d4a-f3b6e6cc05d9",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Смирнов",
+              "id": "48974727-e1d9-4e78-b12e-44a4d7f1b41a",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Бот-Наставник",
+              "id": "06afcffe-8257-4756-a744-af930ed92a7b",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Рамзевич",
+              "id": "e6ce8f62-fc0d-4c38-b568-27b931bf14fb",
+              "Hidden_points": 0
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Сорокин",
+              "id": "4e63ad76-a654-4f77-a1df-8e9f5acef310",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Милюков",
+              "id": "6de01e0d-6018-4152-b32b-aa4bfadadf28",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Григорян",
+              "id": "c418a08e-2b31-49a1-b441-d6a9a2dadeb9",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Чеботарев",
+              "id": "538d1373-9b7e-46a7-a802-d69794dc945f",
+              "Hidden_points": 0
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Сохацкий",
+              "id": "631ca49c-576c-47cf-b71c-26c7981d2d1c",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Сычев",
+              "id": "51b203dc-fcc5-4457-ae8e-bdbfe8ccd197",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Муравьев",
+              "id": "c384de9e-a572-4285-903d-7f72b2c447b1",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Лейбович",
+              "id": "6529d240-4613-466e-a308-efa34650182f",
+              "Hidden_points": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 2,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Лейбович",
+              "id": "6529d240-4613-466e-a308-efa34650182f",
+              "Hidden_points": 4.4
+            },
+            {
+              "name": "Муравьев",
+              "id": "c384de9e-a572-4285-903d-7f72b2c447b1",
+              "Hidden_points": 0.3
+            },
+            {
+              "name": "Рамзевич",
+              "id": "e6ce8f62-fc0d-4c38-b568-27b931bf14fb",
+              "Hidden_points": 4.4
+            },
+            {
+              "name": "Григорян",
+              "id": "c418a08e-2b31-49a1-b441-d6a9a2dadeb9",
+              "Hidden_points": 4.4
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Сохацкий",
+              "id": "631ca49c-576c-47cf-b71c-26c7981d2d1c",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Смирнов",
+              "id": "48974727-e1d9-4e78-b12e-44a4d7f1b41a",
+              "Hidden_points": 0.3
+            },
+            {
+              "name": "Милюков",
+              "id": "6de01e0d-6018-4152-b32b-aa4bfadadf28",
+              "Hidden_points": 0.3
+            },
+            {
+              "name": "Ковальчук",
+              "id": "3155f0b3-7946-433d-9d4a-f3b6e6cc05d9",
+              "Hidden_points": 0.2
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Чеботарев",
+              "id": "538d1373-9b7e-46a7-a802-d69794dc945f",
+              "Hidden_points": 0.1
+            },
+            {
+              "name": "Бот-Наставник",
+              "id": "06afcffe-8257-4756-a744-af930ed92a7b",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Сорокин",
+              "id": "4e63ad76-a654-4f77-a1df-8e9f5acef310",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Сычев",
+              "id": "51b203dc-fcc5-4457-ae8e-bdbfe8ccd197",
+              "Hidden_points": 0.1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 3,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Григорян",
+              "id": "c418a08e-2b31-49a1-b441-d6a9a2dadeb9",
+              "Hidden_points": 4.6000000000000005
+            },
+            {
+              "name": "Милюков",
+              "id": "6de01e0d-6018-4152-b32b-aa4bfadadf28",
+              "Hidden_points": 4.7
+            },
+            {
+              "name": "Муравьев",
+              "id": "c384de9e-a572-4285-903d-7f72b2c447b1",
+              "Hidden_points": 4.7
+            },
+            {
+              "name": "Рамзевич",
+              "id": "e6ce8f62-fc0d-4c38-b568-27b931bf14fb",
+              "Hidden_points": 4.7
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Сорокин",
+              "id": "4e63ad76-a654-4f77-a1df-8e9f5acef310",
+              "Hidden_points": 0.5
+            },
+            {
+              "name": "Смирнов",
+              "id": "48974727-e1d9-4e78-b12e-44a4d7f1b41a",
+              "Hidden_points": 0.6
+            },
+            {
+              "name": "Чеботарев",
+              "id": "538d1373-9b7e-46a7-a802-d69794dc945f",
+              "Hidden_points": 4.5
+            },
+            {
+              "name": "Лейбович",
+              "id": "6529d240-4613-466e-a308-efa34650182f",
+              "Hidden_points": 4.5
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Бот-Наставник",
+              "id": "06afcffe-8257-4756-a744-af930ed92a7b",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Ковальчук",
+              "id": "3155f0b3-7946-433d-9d4a-f3b6e6cc05d9",
+              "Hidden_points": 0.30000000000000004
+            },
+            {
+              "name": "Сычев",
+              "id": "51b203dc-fcc5-4457-ae8e-bdbfe8ccd197",
+              "Hidden_points": 0.30000000000000004
+            },
+            {
+              "name": "Сохацкий",
+              "id": "631ca49c-576c-47cf-b71c-26c7981d2d1c",
+              "Hidden_points": 0.4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 4,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Лейбович",
+              "id": "6529d240-4613-466e-a308-efa34650182f",
+              "Hidden_points": 5.9
+            },
+            {
+              "name": "Рамзевич",
+              "id": "e6ce8f62-fc0d-4c38-b568-27b931bf14fb",
+              "Hidden_points": 5
+            },
+            {
+              "name": "Чеботарев",
+              "id": "538d1373-9b7e-46a7-a802-d69794dc945f",
+              "Hidden_points": 5.8
+            },
+            {
+              "name": "Муравьев",
+              "id": "c384de9e-a572-4285-903d-7f72b2c447b1",
+              "Hidden_points": 9.100000000000001
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Ковальчук",
+              "id": "3155f0b3-7946-433d-9d4a-f3b6e6cc05d9",
+              "Hidden_points": 4.7
+            },
+            {
+              "name": "Милюков",
+              "id": "6de01e0d-6018-4152-b32b-aa4bfadadf28",
+              "Hidden_points": 4.8
+            },
+            {
+              "name": "Смирнов",
+              "id": "48974727-e1d9-4e78-b12e-44a4d7f1b41a",
+              "Hidden_points": 1.7999999999999998
+            },
+            {
+              "name": "Григорян",
+              "id": "c418a08e-2b31-49a1-b441-d6a9a2dadeb9",
+              "Hidden_points": 4.800000000000001
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Бот-Наставник",
+              "id": "06afcffe-8257-4756-a744-af930ed92a7b",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Сохацкий",
+              "id": "631ca49c-576c-47cf-b71c-26c7981d2d1c",
+              "Hidden_points": 0.7
+            },
+            {
+              "name": "Сычев",
+              "id": "51b203dc-fcc5-4457-ae8e-bdbfe8ccd197",
+              "Hidden_points": 0.5
+            },
+            {
+              "name": "Сорокин",
+              "id": "4e63ad76-a654-4f77-a1df-8e9f5acef310",
+              "Hidden_points": 0.6
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Players": [
+    {
+      "Points": 4,
+      "Sub_points": 11,
+      "Has_autowin": 0,
+      "Hidden_points": 5.1000000000000005,
+      "Status": false,
+      "Player_id": "631ca49c-576c-47cf-b71c-26c7981d2d1c",
+      "Player_name": "Сохацкий",
+      "Commander": "Нарсет, просветленная наставница",
+      "Deck_link": ""
+    },
+    {
+      "Points": 0,
+      "Sub_points": 7,
+      "Has_autowin": 0,
+      "Hidden_points": 0.7,
+      "Status": false,
+      "Player_id": "51b203dc-fcc5-4457-ae8e-bdbfe8ccd197",
+      "Player_name": "Сычев",
+      "Commander": "Тумна+трасиос",
+      "Deck_link": ""
+    },
+    {
+      "Points": 4,
+      "Sub_points": 11,
+      "Has_autowin": 0,
+      "Hidden_points": 5.1000000000000005,
+      "Status": false,
+      "Player_id": "c418a08e-2b31-49a1-b441-d6a9a2dadeb9",
+      "Player_name": "Григорян",
+      "Commander": "Проспер",
+      "Deck_link": ""
+    },
+    {
+      "Points": 9,
+      "Sub_points": 15,
+      "Has_autowin": 0,
+      "Hidden_points": 10.500000000000002,
+      "Status": false,
+      "Player_id": "c384de9e-a572-4285-903d-7f72b2c447b1",
+      "Player_name": "Муравьев",
+      "Commander": "Брюс+трасиос",
+      "Deck_link": ""
+    },
+    {
+      "Points": 4,
+      "Sub_points": 10,
+      "Has_autowin": 0,
+      "Hidden_points": 4.999999999999999,
+      "Status": false,
+      "Player_id": "6de01e0d-6018-4152-b32b-aa4bfadadf28",
+      "Player_name": "Милюков",
+      "Commander": "Винота",
+      "Deck_link": ""
+    },
+    {
+      "Points": 8,
+      "Sub_points": 11,
+      "Has_autowin": 0,
+      "Hidden_points": 9.100000000000001,
+      "Status": false,
+      "Player_id": "3155f0b3-7946-433d-9d4a-f3b6e6cc05d9",
+      "Player_name": "Ковальчук",
+      "Commander": "Тумна+Трасиос",
+      "Deck_link": ""
+    },
+    {
+      "Points": 1,
+      "Sub_points": 9,
+      "Has_autowin": 0,
+      "Hidden_points": 1.8999999999999997,
+      "Status": false,
+      "Player_id": "48974727-e1d9-4e78-b12e-44a4d7f1b41a",
+      "Player_name": "Смирнов",
+      "Commander": "Vial Smasher the Fierce+Brinelin, the Moon Kraken",
+      "Deck_link": ""
+    },
+    {
+      "Points": 0,
+      "Sub_points": 9,
+      "Has_autowin": 0,
+      "Hidden_points": 0.8999999999999999,
+      "Status": false,
+      "Player_id": "4e63ad76-a654-4f77-a1df-8e9f5acef310",
+      "Player_name": "Сорокин",
+      "Commander": "Латриль",
+      "Deck_link": ""
+    },
+    {
+      "Points": 6,
+      "Sub_points": 12,
+      "Has_autowin": 0,
+      "Hidden_points": 7.2,
+      "Status": false,
+      "Player_id": "6529d240-4613-466e-a308-efa34650182f",
+      "Player_name": "Лейбович",
+      "Commander": "Винота",
+      "Deck_link": ""
+    },
+    {
+      "Points": 4,
+      "Sub_points": 12,
+      "Has_autowin": 0,
+      "Hidden_points": 5.2,
+      "Status": false,
+      "Player_id": "e6ce8f62-fc0d-4c38-b568-27b931bf14fb",
+      "Player_name": "Рамзевич",
+      "Commander": "Кенрит",
+      "Deck_link": ""
+    },
+    {
+      "Points": 5,
+      "Sub_points": 9,
+      "Has_autowin": 0,
+      "Hidden_points": 5.8999999999999995,
+      "Status": false,
+      "Player_id": "538d1373-9b7e-46a7-a802-d69794dc945f",
+      "Player_name": "Чеботарев",
+      "Commander": "Нив-Миззет, Отец",
+      "Deck_link": ""
+    },
+    {
+      "Points": 0,
+      "Sub_points": 0,
+      "Has_autowin": 0,
+      "Hidden_points": 0,
+      "Status": true,
+      "Player_id": "06afcffe-8257-4756-a744-af930ed92a7b",
+      "Player_name": "Бот-наставник",
+      "Commander": "",
+      "Deck_link": ""
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "628a09c27ca79b495af3f950"
+  },
+  "Event_name": "Spellmarket_Manadorki",
+  "Event_Date": "2022-05-22 00:00:00",
+  "Status": "finished",
+  "Event_id": "c64715b0-c2d6-4ffc-8d67-c8c32d77ccaf",
+  "Rounds": [
+    {
+      "Number": 1,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Байков",
+              "id": "656e832e-0f0e-489d-9d76-d094fb646af1",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Ковальчук",
+              "id": "d3fef641-6cb9-4808-8d96-5911ea4c89f0",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Поляков",
+              "id": "4fa1074a-4dbb-4adf-b3b5-b4e673ae61cd",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Богданов",
+              "id": "76b6c114-65c5-4e95-82e8-5fb29df5a900",
+              "Hidden_points": 0
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Ларионов",
+              "id": "179b44a6-df24-4044-b758-3e907458979c",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Остапов",
+              "id": "4142fa31-814b-4db3-93d8-af739f9f39ab",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Муравьев",
+              "id": "aee8b977-5dd8-4b81-8fad-67acd1ae77d1",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Шкирандо",
+              "id": "274067ea-6509-49a4-958f-f8c3b5eeedd1",
+              "Hidden_points": 0
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Мосяков",
+              "id": "f2ded3ea-354d-43a4-9b4c-27bd8306e9a4",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Чеботарев",
+              "id": "025dddc8-aaed-43ef-ade0-3c480d19bf11",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Сохацкий",
+              "id": "74fbd433-e3aa-4e57-bf6c-9baa9b3f6a63",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Поздняков",
+              "id": "70745b58-a28a-4c46-b914-00b82022f20f",
+              "Hidden_points": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 2,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Безрукавников",
+              "id": "ce04e71a-f789-4f18-8342-b33e0665a2f0",
+              "Hidden_points": 3.4
+            },
+            {
+              "name": "Поздняков",
+              "id": "70745b58-a28a-4c46-b914-00b82022f20f",
+              "Hidden_points": 4.4
+            },
+            {
+              "name": "Муравьев",
+              "id": "aee8b977-5dd8-4b81-8fad-67acd1ae77d1",
+              "Hidden_points": 4.4
+            },
+            {
+              "name": "Поляков",
+              "id": "4fa1074a-4dbb-4adf-b3b5-b4e673ae61cd",
+              "Hidden_points": 4.4
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Чеботарев",
+              "id": "025dddc8-aaed-43ef-ade0-3c480d19bf11",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Мосяков",
+              "id": "f2ded3ea-354d-43a4-9b4c-27bd8306e9a4",
+              "Hidden_points": 0.3
+            },
+            {
+              "name": "Богданов",
+              "id": "76b6c114-65c5-4e95-82e8-5fb29df5a900",
+              "Hidden_points": 0.3
+            },
+            {
+              "name": "Шкирандо",
+              "id": "274067ea-6509-49a4-958f-f8c3b5eeedd1",
+              "Hidden_points": 0.3
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Ковальчук",
+              "id": "d3fef641-6cb9-4808-8d96-5911ea4c89f0",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Ларионов",
+              "id": "179b44a6-df24-4044-b758-3e907458979c",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Остапов",
+              "id": "4142fa31-814b-4db3-93d8-af739f9f39ab",
+              "Hidden_points": 0.1
+            },
+            {
+              "name": "Байков",
+              "id": "656e832e-0f0e-489d-9d76-d094fb646af1",
+              "Hidden_points": 0.1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 3,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Безрукавников",
+              "id": "ce04e71a-f789-4f18-8342-b33e0665a2f0",
+              "Hidden_points": 7.800000000000001
+            },
+            {
+              "name": "Поздняков",
+              "id": "70745b58-a28a-4c46-b914-00b82022f20f",
+              "Hidden_points": 4.6000000000000005
+            },
+            {
+              "name": "Муравьев",
+              "id": "aee8b977-5dd8-4b81-8fad-67acd1ae77d1",
+              "Hidden_points": 4.7
+            },
+            {
+              "name": "Чеботарев",
+              "id": "025dddc8-aaed-43ef-ade0-3c480d19bf11",
+              "Hidden_points": 4.6000000000000005
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Остапов",
+              "id": "4142fa31-814b-4db3-93d8-af739f9f39ab",
+              "Hidden_points": 4.5
+            },
+            {
+              "name": "Сохацкий",
+              "id": "74fbd433-e3aa-4e57-bf6c-9baa9b3f6a63",
+              "Hidden_points": 3.5
+            },
+            {
+              "name": "Шкирандо",
+              "id": "274067ea-6509-49a4-958f-f8c3b5eeedd1",
+              "Hidden_points": 0.6
+            },
+            {
+              "name": "Поляков",
+              "id": "4fa1074a-4dbb-4adf-b3b5-b4e673ae61cd",
+              "Hidden_points": 4.5
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Байков",
+              "id": "656e832e-0f0e-489d-9d76-d094fb646af1",
+              "Hidden_points": 0.4
+            },
+            {
+              "name": "Богданов",
+              "id": "76b6c114-65c5-4e95-82e8-5fb29df5a900",
+              "Hidden_points": 0.5
+            },
+            {
+              "name": "Ларионов",
+              "id": "179b44a6-df24-4044-b758-3e907458979c",
+              "Hidden_points": 0.4
+            },
+            {
+              "name": "Мосяков",
+              "id": "f2ded3ea-354d-43a4-9b4c-27bd8306e9a4",
+              "Hidden_points": 0.4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 4,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Чеботарев",
+              "id": "025dddc8-aaed-43ef-ade0-3c480d19bf11",
+              "Hidden_points": 4.9
+            },
+            {
+              "name": "Муравьев",
+              "id": "aee8b977-5dd8-4b81-8fad-67acd1ae77d1",
+              "Hidden_points": 4.9
+            },
+            {
+              "name": "Поляков",
+              "id": "4fa1074a-4dbb-4adf-b3b5-b4e673ae61cd",
+              "Hidden_points": 8.9
+            },
+            {
+              "name": "Безрукавников",
+              "id": "ce04e71a-f789-4f18-8342-b33e0665a2f0",
+              "Hidden_points": 12.200000000000001
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Сохацкий",
+              "id": "74fbd433-e3aa-4e57-bf6c-9baa9b3f6a63",
+              "Hidden_points": 3.7
+            },
+            {
+              "name": "Поздняков",
+              "id": "70745b58-a28a-4c46-b914-00b82022f20f",
+              "Hidden_points": 4.7
+            },
+            {
+              "name": "Мосяков",
+              "id": "f2ded3ea-354d-43a4-9b4c-27bd8306e9a4",
+              "Hidden_points": 4.800000000000001
+            },
+            {
+              "name": "Остапов",
+              "id": "4142fa31-814b-4db3-93d8-af739f9f39ab",
+              "Hidden_points": 4.6
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Шкирандо",
+              "id": "274067ea-6509-49a4-958f-f8c3b5eeedd1",
+              "Hidden_points": 0.8999999999999999
+            },
+            {
+              "name": "Ларионов",
+              "id": "179b44a6-df24-4044-b758-3e907458979c",
+              "Hidden_points": 0.6000000000000001
+            },
+            {
+              "name": "Богданов",
+              "id": "76b6c114-65c5-4e95-82e8-5fb29df5a900",
+              "Hidden_points": 0.8
+            },
+            {
+              "name": "Ковальчук",
+              "id": "d3fef641-6cb9-4808-8d96-5911ea4c89f0",
+              "Hidden_points": 3.7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Players": [
+    {
+      "Points": 3,
+      "Sub_points": 9,
+      "Has_autowin": 0,
+      "Hidden_points": 3.9,
+      "Status": false,
+      "Player_id": "656e832e-0f0e-489d-9d76-d094fb646af1",
+      "Player_name": "Байков",
+      "Commander": "Капитан Сисай",
+      "Deck_link": ""
+    },
+    {
+      "Points": 4,
+      "Sub_points": 9,
+      "Has_autowin": 0,
+      "Hidden_points": 4.8999999999999995,
+      "Status": false,
+      "Player_id": "4142fa31-814b-4db3-93d8-af739f9f39ab",
+      "Player_name": "Остапов",
+      "Commander": "Тумна+Трасиос",
+      "Deck_link": ""
+    },
+    {
+      "Points": 11,
+      "Sub_points": 15,
+      "Has_autowin": 0,
+      "Hidden_points": 12.500000000000002,
+      "Status": false,
+      "Player_id": "ce04e71a-f789-4f18-8342-b33e0665a2f0",
+      "Player_name": "Безрукавников",
+      "Commander": "Рокко",
+      "Deck_link": ""
+    },
+    {
+      "Points": 4,
+      "Sub_points": 10,
+      "Has_autowin": 0,
+      "Hidden_points": 5,
+      "Status": false,
+      "Player_id": "025dddc8-aaed-43ef-ade0-3c480d19bf11",
+      "Player_name": "Чеботарев",
+      "Commander": "Нив-Мизет Парун",
+      "Deck_link": ""
+    },
+    {
+      "Points": 1,
+      "Sub_points": 8,
+      "Has_autowin": 0,
+      "Hidden_points": 1.8,
+      "Status": false,
+      "Player_id": "179b44a6-df24-4044-b758-3e907458979c",
+      "Player_name": "Ларионов",
+      "Commander": "Урза",
+      "Deck_link": ""
+    },
+    {
+      "Points": 3,
+      "Sub_points": 8,
+      "Has_autowin": 0,
+      "Hidden_points": 3.8000000000000003,
+      "Status": false,
+      "Player_id": "74fbd433-e3aa-4e57-bf6c-9baa9b3f6a63",
+      "Player_name": "Сохацкий",
+      "Commander": "Нарсет",
+      "Deck_link": ""
+    },
+    {
+      "Points": 1,
+      "Sub_points": 11,
+      "Has_autowin": 0,
+      "Hidden_points": 2.1,
+      "Status": false,
+      "Player_id": "76b6c114-65c5-4e95-82e8-5fb29df5a900",
+      "Player_name": "Богданов",
+      "Commander": "Бирги",
+      "Deck_link": ""
+    },
+    {
+      "Points": 12,
+      "Sub_points": 13,
+      "Has_autowin": 0,
+      "Hidden_points": 13.3,
+      "Status": false,
+      "Player_id": "4fa1074a-4dbb-4adf-b3b5-b4e673ae61cd",
+      "Player_name": "Поляков",
+      "Commander": "Тумна+Краум",
+      "Deck_link": ""
+    },
+    {
+      "Points": 4,
+      "Sub_points": 11,
+      "Has_autowin": 0,
+      "Hidden_points": 5.1000000000000005,
+      "Status": false,
+      "Player_id": "aee8b977-5dd8-4b81-8fad-67acd1ae77d1",
+      "Player_name": "Муравьев",
+      "Commander": "Икра+Брюс",
+      "Deck_link": ""
+    },
+    {
+      "Points": 1,
+      "Sub_points": 10,
+      "Has_autowin": 0,
+      "Hidden_points": 2,
+      "Status": false,
+      "Player_id": "274067ea-6509-49a4-958f-f8c3b5eeedd1",
+      "Player_name": "Шкирандо",
+      "Commander": "Хината",
+      "Deck_link": ""
+    },
+    {
+      "Points": 4,
+      "Sub_points": 10,
+      "Has_autowin": 0,
+      "Hidden_points": 5.000000000000001,
+      "Status": false,
+      "Player_id": "f2ded3ea-354d-43a4-9b4c-27bd8306e9a4",
+      "Player_name": "Мосяков",
+      "Commander": "Бирги",
+      "Deck_link": ""
+    },
+    {
+      "Points": 8,
+      "Sub_points": 11,
+      "Has_autowin": 0,
+      "Hidden_points": 9.100000000000001,
+      "Status": false,
+      "Player_id": "70745b58-a28a-4c46-b914-00b82022f20f",
+      "Player_name": "Поздняков",
+      "Commander": "Наджила",
+      "Deck_link": ""
+    },
+    {
+      "Points": 4,
+      "Sub_points": 11,
+      "Has_autowin": 0,
+      "Hidden_points": 5.1,
+      "Status": false,
+      "Player_id": "d3fef641-6cb9-4808-8d96-5911ea4c89f0",
+      "Player_name": "Ковальчук",
+      "Commander": "Орвар",
+      "Deck_link": ""
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "628b11c7739bd651677d730c"
+  },
+  "Event_name": "Test",
+  "Event_Date": "2022-05-23 00:00:00",
+  "Status": "created",
+  "Event_id": "f02eff4e-dfc7-4343-8477-11141e8c21aa",
+  "Rounds": []
+},{
+  "_id": {
+    "$oid": "62934b5eb09681eca09154a5"
+  },
+  "Event_name": "Spellmarket_Guests",
+  "Event_Date": "2022-05-29 00:00:00",
+  "Status": "Started",
+  "Event_id": "cbad9b18-9a31-4ffa-98c7-5c1fa054a509",
+  "Rounds": [
+    {
+      "Number": 1,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Донцов",
+              "id": "58f8e747-f3b7-4809-a6af-32a0dfad7ce8",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Муравьев",
+              "id": "e9bf4151-fcb3-4533-bc08-c9b1ae57231a",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Смирнов",
+              "id": "68b97b0f-5806-4eec-b4e5-820331951b4b",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Грехов",
+              "id": "d2e7d7cc-ad32-4d9e-97fe-a0d125b87d29",
+              "Hidden_points": 0
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Чеботарев",
+              "id": "e2e1b79a-e54f-430a-bbb3-d1413ac3e634",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Карасев",
+              "id": "a7a1b086-d222-4206-904f-814d369228e0",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Поляков",
+              "id": "f1be5a43-5e59-46d6-8ff6-46a9485642e7",
+              "Hidden_points": 0
+            },
+            {
+              "name": "Антонов",
+              "id": "6cc28d0a-008c-48dc-9753-2ec1fc6a1c6f",
+              "Hidden_points": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 2,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Асеев",
+              "id": "9752120e-3fa8-48a2-bfc8-16b53a6dbffd",
+              "Hidden_points": 3.4
+            },
+            {
+              "name": "Муравьев",
+              "id": "e9bf4151-fcb3-4533-bc08-c9b1ae57231a",
+              "Hidden_points": 4.2
+            },
+            {
+              "name": "Сохацкий",
+              "id": "7a8b15ba-565a-49c0-a16c-fa3784f56f4a",
+              "Hidden_points": 3.4
+            },
+            {
+              "name": "Чеботарев",
+              "id": "e2e1b79a-e54f-430a-bbb3-d1413ac3e634",
+              "Hidden_points": 4.2
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Смирнов",
+              "id": "68b97b0f-5806-4eec-b4e5-820331951b4b",
+              "Hidden_points": 0.3
+            },
+            {
+              "name": "Карасев",
+              "id": "a7a1b086-d222-4206-904f-814d369228e0",
+              "Hidden_points": 0.3
+            },
+            {
+              "name": "Поляков",
+              "id": "f1be5a43-5e59-46d6-8ff6-46a9485642e7",
+              "Hidden_points": 0.4
+            },
+            {
+              "name": "Грехов",
+              "id": "d2e7d7cc-ad32-4d9e-97fe-a0d125b87d29",
+              "Hidden_points": 0.4
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Донцов",
+              "id": "58f8e747-f3b7-4809-a6af-32a0dfad7ce8",
+              "Hidden_points": 0.1
+            },
+            {
+              "name": "Антонов",
+              "id": "6cc28d0a-008c-48dc-9753-2ec1fc6a1c6f",
+              "Hidden_points": 0.1
+            },
+            {
+              "name": "Шкирандо",
+              "id": "68126354-8b5c-4eb4-966e-b71ae6a112b5",
+              "Hidden_points": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Number": 3,
+      "Players_on_table": [
+        {
+          "Table_num": 1,
+          "Table_players": [
+            {
+              "name": "Антонов",
+              "id": "6cc28d0a-008c-48dc-9753-2ec1fc6a1c6f",
+              "Hidden_points": 4.5
+            },
+            {
+              "name": "Чеботарев",
+              "id": "e2e1b79a-e54f-430a-bbb3-d1413ac3e634",
+              "Hidden_points": 4.4
+            },
+            {
+              "name": "Поляков",
+              "id": "f1be5a43-5e59-46d6-8ff6-46a9485642e7",
+              "Hidden_points": 4.800000000000001
+            },
+            {
+              "name": "Муравьев",
+              "id": "e9bf4151-fcb3-4533-bc08-c9b1ae57231a",
+              "Hidden_points": 4.4
+            }
+          ]
+        },
+        {
+          "Table_num": 2,
+          "Table_players": [
+            {
+              "name": "Грехов",
+              "id": "d2e7d7cc-ad32-4d9e-97fe-a0d125b87d29",
+              "Hidden_points": 0.7
+            },
+            {
+              "name": "Карасев",
+              "id": "a7a1b086-d222-4206-904f-814d369228e0",
+              "Hidden_points": 0.5
+            },
+            {
+              "name": "Асеев",
+              "id": "9752120e-3fa8-48a2-bfc8-16b53a6dbffd",
+              "Hidden_points": 3.4
+            },
+            {
+              "name": "Сохацкий",
+              "id": "7a8b15ba-565a-49c0-a16c-fa3784f56f4a",
+              "Hidden_points": 3.4
+            }
+          ]
+        },
+        {
+          "Table_num": 3,
+          "Table_players": [
+            {
+              "name": "Донцов",
+              "id": "58f8e747-f3b7-4809-a6af-32a0dfad7ce8",
+              "Hidden_points": 0.2
+            },
+            {
+              "name": "Смирнов",
+              "id": "68b97b0f-5806-4eec-b4e5-820331951b4b",
+              "Hidden_points": 0.4
+            },
+            {
+              "name": "Шкирандо",
+              "id": "68126354-8b5c-4eb4-966e-b71ae6a112b5",
+              "Hidden_points": 0.3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Players": [
+    {
+      "Points": 4,
+      "Sub_points": 6,
+      "Has_autowin": 0,
+      "Hidden_points": 4.6,
+      "Status": false,
+      "Player_id": "6cc28d0a-008c-48dc-9753-2ec1fc6a1c6f",
+      "Player_name": "Антонов",
+      "Commander": "Казур+Укимма"
+    },
+    {
+      "Points": 4,
+      "Sub_points": 6,
+      "Has_autowin": 0,
+      "Hidden_points": 4.6000000000000005,
+      "Status": false,
+      "Player_id": "58f8e747-f3b7-4809-a6af-32a0dfad7ce8",
+      "Player_name": "Донцов",
+      "Commander": "Тумна+Сакашима"
+    },
+    {
+      "Points": 4,
+      "Sub_points": 9,
+      "Has_autowin": 0,
+      "Hidden_points": 4.9,
+      "Status": false,
+      "Player_id": "e2e1b79a-e54f-430a-bbb3-d1413ac3e634",
+      "Player_name": "Чеботарев",
+      "Commander": "Нив-Миззет, Отец"
+    },
+    {
+      "Points": 0,
+      "Sub_points": 5,
+      "Has_autowin": 0,
+      "Hidden_points": 0.5,
+      "Status": false,
+      "Player_id": "68b97b0f-5806-4eec-b4e5-820331951b4b",
+      "Player_name": "Смирнов",
+      "Commander": "Корвольд"
+    },
+    {
+      "Points": 4,
+      "Sub_points": 11,
+      "Has_autowin": 0,
+      "Hidden_points": 5.1000000000000005,
+      "Status": false,
+      "Player_id": "d2e7d7cc-ad32-4d9e-97fe-a0d125b87d29",
+      "Player_name": "Грехов",
+      "Commander": "Ишай+Джеска"
+    },
+    {
+      "Points": 8,
+      "Sub_points": 11,
+      "Has_autowin": 0,
+      "Hidden_points": 9.100000000000001,
+      "Status": false,
+      "Player_id": "e9bf4151-fcb3-4533-bc08-c9b1ae57231a",
+      "Player_name": "Муравьев",
+      "Commander": "Тумна+Трасиос"
+    },
+    {
+      "Points": 3,
+      "Sub_points": 8,
+      "Has_autowin": 0,
+      "Hidden_points": 3.8,
+      "Status": false,
+      "Player_id": "9752120e-3fa8-48a2-bfc8-16b53a6dbffd",
+      "Player_name": "Асеев",
+      "Commander": "Эммара душа соглашения"
+    },
+    {
+      "Points": 0,
+      "Sub_points": 7,
+      "Has_autowin": 0,
+      "Hidden_points": 0.7,
+      "Status": false,
+      "Player_id": "a7a1b086-d222-4206-904f-814d369228e0",
+      "Player_name": "Карасев",
+      "Commander": "Малкольм+кедисс"
+    },
+    {
+      "Points": 3,
+      "Sub_points": 7,
+      "Has_autowin": 0,
+      "Hidden_points": 3.7,
+      "Status": false,
+      "Player_id": "7a8b15ba-565a-49c0-a16c-fa3784f56f4a",
+      "Player_name": "Сохацкий",
+      "Commander": "Нарсет"
+    },
+    {
+      "Points": 8,
+      "Sub_points": 10,
+      "Has_autowin": 0,
+      "Hidden_points": 9.000000000000002,
+      "Status": false,
+      "Player_id": "f1be5a43-5e59-46d6-8ff6-46a9485642e7",
+      "Player_name": "Поляков",
+      "Commander": "Тумна+Краум"
+    },
+    {
+      "Points": 0,
+      "Sub_points": 5,
+      "Has_autowin": 0,
+      "Hidden_points": 0.5,
+      "Status": false,
+      "Player_id": "68126354-8b5c-4eb4-966e-b71ae6a112b5",
+      "Player_name": "Шкирандо",
+      "Commander": "Хината"
+    }
+  ]
+}]

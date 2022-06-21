@@ -21,9 +21,27 @@ TRANSLITERATED_BASE = {'тумна': 'tymna',
                        'краум': 'Kraum, Ludevic',
                        'кедисс': 'Kediss, Emberclaw Familiar',
                        'малкольм': 'Malcolm, Keen-Eyed Navigator',
+                       'малькольм': 'Malcolm, Keen-Eyed Navigator',
+                       'маклькольм': 'Malcolm, Keen-Eyed Navigator',
+                       'бричс': '',
                        'корвольд': 'Korvold, Fae-Cursed King',
                        'казур': 'Cazur, Ruthless Stalker',
-                       'укимма': 'Ukkima, Stalking Shadow'}
+                       'укимма': 'Ukkima, Stalking Shadow',
+                       'аеси': 'Aesi, Tyrant of Gyre Strait',
+                       'сельвала г': 'Selvala, Heart of the Wilds',
+                       'глен': 'Glenn, the Voice of Calm',
+                       'гленн': 'Glenn, the Voice of Calm',
+                       'марсиль': 'Mairsil, the Pretender',
+                       'чулан': 'Chulane, Teller of Tales',
+                       'элевен': 'Cecily, Haunted Mage',
+                       'елевен': 'Cecily, Haunted Mage',
+                       'майк': 'Othelm, Sigardian Outcast',
+                       'макс': 'Elmar, Ulvenwald Informant',
+                       'ишаль': 'Ishai, Ojutai Dragonspeaker',
+                       'ишай': 'Ishai, Ojutai Dragonspeaker',
+                       'джеска': 'Jeska, Thrice Reborn',
+                       'тана': 'Tana, the Bloodsower',
+                       'бричс': 'Breeches, Brazen Plunderer'}
 
 def get_sorted_players(players: list)-> list:
     return sorted(players, key=itemgetter('Hidden_points'), reverse=True)

@@ -4,26 +4,26 @@ import pandas as pd
 import requests
 
 
-# os.chdir(Path(__file__).resolve().parents[1])
+os.chdir(Path(__file__).resolve().parents[1])
 
-# import pymongo
-
-
-# with open('.env') as env_doc:
-#     target_mongo_creds = env_doc.read()
-#     target_mongo_creds = target_mongo_creds.split(r'"')[1]
-# mongo_session = pymongo.MongoClient(target_mongo_creds, serverSelectionTimeoutMS=5000)['CommanderPairingService']['events']
-# os.chdir(Path(__file__).resolve().parents[0])
-
-# events = mongo_session.find({})
-# attendance_list = []
-# for event in events:
-#     if 'spellmarket' in event['Event_name'].lower():
-#         attendance_list.append((event['Event_Date'].split()[0], len(event['Players'])))
+import pymongo
 
 
-# df = pd.DataFrame(attendance_list, columns=['date', 'players'])
-# df.to_csv('spellmarket_players.csv')
+with open('.env') as env_doc:
+    target_mongo_creds = env_doc.read()
+    target_mongo_creds = target_mongo_creds.split(r'"')[1]
+mongo_session = pymongo.MongoClient(target_mongo_creds, serverSelectionTimeoutMS=5000)['CommanderPairingService']['events']
+os.chdir(Path(__file__).resolve().parents[0])
+
+events = mongo_session.find({})
+attendance_list = []
+for event in events:
+    if 'spellmarket' in event['Event_name'].lower():
+        attendance_list.append((event['Event_Date'].split()[0], len(event['Players'])))
+
+
+df = pd.DataFrame(attendance_list, columns=['date', 'players'])
+df.to_csv('spellmarket_players.csv')
 
 
 

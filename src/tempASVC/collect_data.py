@@ -1,3 +1,9 @@
+import os
+from pathlib import Path
+
+os.chdir(Path(__file__).resolve().parents[1])
+
+
 from enum import unique
 from operator import itemgetter
 from collections import Counter
@@ -58,6 +64,7 @@ with open('.env') as env_doc:
     target_mongo_creds = env_doc.read()
     target_mongo_creds = target_mongo_creds.split(r'"')[1]
 mongo_session = pymongo.MongoClient(target_mongo_creds, serverSelectionTimeoutMS=5000)['CommanderPairingService']['events']
+os.chdir(Path(__file__).resolve().parents[0])
 events = mongo_session.find({})
 spellmarket_events = [event for event in events if 'spellmarket' in event['Event_name'].lower()]
 global_player_names = []

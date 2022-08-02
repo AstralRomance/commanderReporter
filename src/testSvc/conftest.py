@@ -31,3 +31,13 @@ def generate_workflow_target_event(setup_database_connection):
     yield event_data
     mongo_session = setup_database_connection
     mongo_session.delete_one({'Event_name': target_event_name})
+
+
+@pytest.fixture(scope='class')
+def add_player(self, generate_workflow_target_event, setup_database_connection):
+        event_data = generate_workflow_target_event
+        mongo_session = setup_database_connection
+        target_endpoint = f'{DEFAULT_TARGET_ENV}/event-manager/add-player/{event_data["Event_id"]}'
+        player_name = ''.join('someone')
+        player_commander = ''.join('sometwo')
+        resp = requests.post(target_endpoint, data = json.dumps({'Player_name': player_name, 'Commander': player_commander}))

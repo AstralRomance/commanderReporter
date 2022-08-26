@@ -1,2 +1,2 @@
-DEFAULT_TARGET_ENV = 'https://DEPLOY_WEBSITE_ADDRESS'
+DEFAULT_TARGET_ENV = 'https://edh-reporter.nikitacartes.xyz'
 

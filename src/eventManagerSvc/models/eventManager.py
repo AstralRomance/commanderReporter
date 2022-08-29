@@ -1,4 +1,4 @@
-from typing import Dict, List, Union
+from typing import Dict, List, Union, Optional
 from datetime import datetime
 from pydantic import BaseModel
 
@@ -7,8 +7,8 @@ from pydantic import BaseModel
 
 class AddPlayerToEvent(BaseModel):
     Player_name: str
-    Commander: str
-    Deck_link: str
+    Commander: Optional[str] = None
+    Deck_link: Optional[str] = None
 
 
 # TODO: change model naming to avoid using reserved words
@@ -20,10 +20,11 @@ class PlayerOnTable(BaseModel):
 class FullPlayerData(AddPlayerToEvent):
     Points: int
     Sub_points: int
-    Has_autowin: List[int]
+    Has_autowin: int
     Hidden_points: float
     Status: bool
     Player_id: str
+    Player_name: str
     
 
 class UpdatePlayerResponse:

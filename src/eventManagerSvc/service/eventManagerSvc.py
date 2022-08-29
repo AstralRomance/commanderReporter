@@ -33,15 +33,15 @@ class EventManagerSvc:
         target_event = self.session.find_event(event_id)
         if not target_event:
             raise HTTPException(status_code=404,
-                                details={'status': False, 'details': f'Not found event {event_id}'})
+                                detail={'status': False, 'details': f'Not found event {event_id}'})
         return target_event
 
     def get_event_player(self, event_id: str, player_id: str) -> dict:
         target_player = self.session.find_player_on_event(event_id, player_id)
         if not target_player:
             raise HTTPException(status_code=404,
-                                details={'status': False,
-                                         'details': f'Player {player_id} not found on {event_id}'})
+                                detail={'status': False,
+                                'details': f'Player {player_id} not found on {event_id}'})
         return target_player
 
     def change_event_state(self, event_id: str, target_state: str) -> dict:
@@ -50,7 +50,7 @@ class EventManagerSvc:
         except Exception as e:
             # TODO: catch target exceptions
             raise HTTPException(status_code=500,
-                                details={'status': False,
+                                detail={'status': False,
                                          'details': f'Error while change event state: {e}'})
         return self.session.find_event(event_id)
 
@@ -58,29 +58,31 @@ class EventManagerSvc:
         player = self.get_event_player(event_id, player_id)
         if not player:
             raise HTTPException(status_code=404,
-                                details={'status': False,
-                                         'details': player_data})
+                                detail={'status': False,
+                                        'details': player_data})
         player_data = dict(player_data)
         for target_key in player_data:
             if not player.get(target_key):
                 raise HTTPException(status_code=502,
-                                    details={'status': False,
-                                             'details': f'player_id: {player_id}; Not found field: {target_key};'})
+                                    detail={'status': False,
+                                            'details': f'player_id: {player_id}; Not found field: {target_key};'})
             player[target_key] = player_data[target_key]
         try:
             self.session.update_player(event_id, player_id, dict(player))
             self.session.update_player_on_table(event_id, player_id, player_data['Player_name'])
         except Exception as e:
             # TODO: find exceptions to catch
-            raise HTTPException(status_code=500, details={'status': False, 'details': 'Player data was not updated in db'})
+            raise HTTPException(status_code=500, 
+                                detail={'status': False,
+                                'details': 'Player data was not updated in db'})
         return {'status': True, 'player_data': player_data}
 
     def add_player_to_event(self, event_id: str, player_data: AddPlayerToEvent) -> dict:
         target_event = self.session.find_event(event_id)
         if not target_event:
             raise HTTPException(status_code=404,
-                                details={'status': False,
-                                         'details': f'Not found event {event_id}'})
+                                detail={'status': False,
+                                        'details': f'Not found event {event_id}'})
         target_player_data = DefaultPlayerModel.gen_default_player_params(player_data)
         if target_event.get('Players'):
             target_event['Players'].append(target_player_data)
@@ -90,15 +92,18 @@ class EventManagerSvc:
         try:
             self.session.replace_event(event_id, target_event)
         except Exception as e:
-            raise HTTPException(status_code=500, details={'status': False,
-                                                          'details': f'Cant update event {event_id} in db;\n{player_data}'})
+            raise HTTPException(status_code=500,
+                                detail={'status': False,
+                                        'details': f'Cant update event {event_id} in db;\n{player_data}'})
         return target_player_data
 
     # TODO: look at this thing additional time and improve test coverage starting from this!
     def remove_player_from_event(self, event_id: str, player_id: str) -> dict:
         event = self.session.find_event(event_id)
         if not event:
-            raise HTTPException(status_code=404, details={'status': False, 'details': f'Not found event {event_id}'})
+            raise HTTPException(status_code=404,
+                                detail={'status': False,
+                                        'details': f'Not found event {event_id}'})
         if event['Status'] == 'created':
             # TODO: catch exception
             return self.session.update_event(event_id,
@@ -112,12 +117,12 @@ class EventManagerSvc:
                                               target_player)
         elif event['Status'] == 'finished':
             return HTTPException(status_code = 304,
-                                 details = {'status': False,
+                                 detail = {'status': False,
                                             'details': 'Event already finished'})
         else:
             # TODO: check statuscode
             return HTTPException(status_code=500,
-                                 details={'status': False,
+                                 detail={'status': False,
                                           'details': 'Unknown event status'})
 
     # TODO: this method needs MAJOR refactoring. Check database interractions and improve it
@@ -127,14 +132,18 @@ class EventManagerSvc:
             target_player = self.session.find_player_on_event(event_id, player_id).get('Players')
         except Exception as e:
             # TODO: catch exceptions not Exception
-            raise HTTPException(error_code=500, details={'status': False, 'details': f'Error while find player in db {e}'})
+            raise HTTPException(error_code=500,
+                                detail={'status': False,
+                                        'details': f'Error while find player in db {e}'})
         if not target_player[0]:
             raise HTTPException(error_code=404,
-                                details={'status': False,
-                                         'details': 'On event {event_id} not found {player_id}'})
+                                detail={'status': False,
+                                        'details': 'On event {event_id} not found {player_id}'})
         target_event_rounds = self.session.find_event(event_id).get('Rounds')
         if not target_event_rounds:
-            raise HTTPException(error_code=404, details={'status': False, 'details': 'Not found generated Rounds in {event_id}'})
+            raise HTTPException(error_code=404,
+                                detail={'status': False,
+                                        'details': 'Not found generated Rounds in {event_id}'})
         target_table = None
         for event_round in target_event_rounds:
             if event_round['Number'] == round_number:

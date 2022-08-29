@@ -1,11 +1,11 @@
 from uuid import uuid4
 
-from eventManagerSvc.models.eventManager import AddPlayerToEvent, DefaultPlayerData
+from eventManagerSvc.models.eventManager import AddPlayerToEvent
 
 
 class DefaultPlayerModel:
     @staticmethod
-    def gen_default_player_params(self, player_data: AddPlayerToEvent) -> DefaultPlayerData:
+    def gen_default_player_params(self, player_data: AddPlayerToEvent):
         new_player = {'Points': 0,
                       'Sub_points': 0,
                       'Has_autowin': [],

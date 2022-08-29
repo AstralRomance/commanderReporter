@@ -8,10 +8,14 @@ class EventBase(BaseModel):
     Event_Date: str
     Event_id: str
 
+class PlayerData(BaseModel):
+    Player_id: str
+    Player_name: str
+    Player_points: int
 
 class EventFullData(EventBase):
     Status: str
-    Players: List
+    Players: List[]
     Rounds: List
 
 

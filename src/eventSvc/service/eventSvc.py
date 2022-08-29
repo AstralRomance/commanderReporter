@@ -1,9 +1,9 @@
 from typing import List
 from datetime import datetime
 
-from databaseSvc.databaseManipulation import DataBaseManipulation
 from fastapi import HTTPException, Depends
 
+from databaseSvc.databaseManipulation import DataBaseManipulation
 from eventSvc.models.events import CreateEvent, EventBase
 from eventSvc.service.gen_default import GenDefaultEventData
 
@@ -18,7 +18,9 @@ class EventService:
     def get_event(self, event_id: str) -> dict:
         event = self.session.find_event(event_id)
         if not event:
-            raise HTTPException(status_code=404, detail='No event with ID: {event_id}')
+            raise HTTPException(status_code=404,
+                                detail={'status': False,
+                                        'details': 'No event with ID: {event_id}'})
         return event
 
     def create_event(self, event_data: CreateEvent) -> EventBase:

@@ -2,13 +2,14 @@ import random
 import time
 from copy import copy, deepcopy
 from operator import itemgetter
+from typing import List
 
-from fastapi import Depends, HTTPException, Response, Body
+from fastapi import Depends, HTTPException
 from loguru import logger
 
 from databaseSvc.databaseManipulation import DataBaseManipulation
 
-from eventManagerSvc.models.eventManager import AddPlayerToEvent, UpdatePlayerResponse
+from eventManagerSvc.models.eventManager import AddPlayerToEvent, FullPlayerData, UpdatePlayerResponse, RoundGenData
 from eventManagerSvc.service.default_gen import DefaultPlayerModel
 
 
@@ -33,7 +34,8 @@ class EventManagerSvc:
         target_event = self.session.find_event(event_id)
         if not target_event:
             raise HTTPException(status_code=404,
-                                detail={'status': False, 'details': f'Not found event {event_id}'})
+                                detail={'status': False,
+                                        'details': f'Not found event with id: {event_id}'})
         return target_event
 
     def get_event_player(self, event_id: str, player_id: str) -> dict:
@@ -77,7 +79,7 @@ class EventManagerSvc:
                                 'details': 'Player data was not updated in db'})
         return {'status': True, 'player_data': player_data}
 
-    def add_player_to_event(self, event_id: str, player_data: AddPlayerToEvent) -> dict:
+    def add_player_to_event(self, event_id: str, player_data: AddPlayerToEvent) -> FullPlayerData:
         target_event = self.session.find_event(event_id)
         if not target_event:
             raise HTTPException(status_code=404,
@@ -94,11 +96,12 @@ class EventManagerSvc:
         except Exception as e:
             raise HTTPException(status_code=500,
                                 detail={'status': False,
-                                        'details': f'Cant update event {event_id} in db;\n{player_data}'})
+                                        'details': f'Cant update event {event_id} in db;'
+                                                    '\n{player_data};\nDB message: {e}'})
         return target_player_data
 
     # TODO: look at this thing additional time and improve test coverage starting from this!
-    def remove_player_from_event(self, event_id: str, player_id: str) -> dict:
+    def remove_player_from_event(self, event_id: str, player_id: str) -> List[FullPlayerData]:
         event = self.session.find_event(event_id)
         if not event:
             raise HTTPException(status_code=404,
@@ -132,18 +135,18 @@ class EventManagerSvc:
             target_player = self.session.find_player_on_event(event_id, player_id).get('Players')
         except Exception as e:
             # TODO: catch exceptions not Exception
-            raise HTTPException(error_code=500,
+            raise HTTPException(status_code=500,
                                 detail={'status': False,
-                                        'details': f'Error while find player in db {e}'})
+                                        'details': f'Error while find player in db:\n{e}'})
         if not target_player[0]:
             raise HTTPException(error_code=404,
                                 detail={'status': False,
                                         'details': 'On event {event_id} not found {player_id}'})
         target_event_rounds = self.session.find_event(event_id).get('Rounds')
         if not target_event_rounds:
-            raise HTTPException(error_code=404,
+            raise HTTPException(status_code=404,
                                 detail={'status': False,
-                                        'details': 'Not found generated Rounds in {event_id}'})
+                                        'details': f'Not found generated Rounds in {event_id}'})
         target_table = None
         for event_round in target_event_rounds:
             if event_round['Number'] == round_number:
@@ -164,7 +167,7 @@ class EventManagerSvc:
         return self.session.update_player(event_id, player_id, target_player)
 
     # INFO: It looks better for now, but still suspective
-    def generate_round(self, event_id: str, round_number: int):
+    def generate_round(self, event_id: str, round_number: int) -> RoundGenData:
         target_event = self.session.find_event(event_id)
         target_players_data = [{'name': player['Player_name'],
                                 'id': player['Player_id'],
@@ -187,7 +190,7 @@ class EventManagerSvc:
                                                                         round_number,
                                                                         player['Points'],
                                                                         player['Sub_Points'])
-                player['Has_autowin'].append({'Round': round_number})
+                # player['Has_autowin'].append({'Round': round_number})
                 self.session.update_player(event_id, player['id'], player)
         [random.shuffle(table) for table in players_on_tables]
         tables_data = [{'Table_num': table_num+1,

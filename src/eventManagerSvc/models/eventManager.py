@@ -20,7 +20,6 @@ class PlayerOnTable(BaseModel):
 class FullPlayerData(AddPlayerToEvent):
     Points: int
     Sub_points: int
-    Has_autowin: int
     Hidden_points: float
     Status: bool
     Player_id: str
@@ -38,7 +37,7 @@ class UpdatePlayerResponse:
 class RoundGenData(BaseModel):
     round_number: int
     tables: List[PlayerOnTable]
-    byus: List[PlayerOnTable]
+    buys: List[PlayerOnTable]
 
 
 class Table(BaseModel):
@@ -49,6 +48,7 @@ class Table(BaseModel):
 class Round(BaseModel):
     Number: int
     Players_on_table: List[Table]
+
 
 class TagretPlayerPoints(BaseModel):
     Points: int

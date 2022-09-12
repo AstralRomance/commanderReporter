@@ -60,7 +60,7 @@ class DataBaseManipulation:
 
     @Logger()
     def delete_event(self, event_id: str) -> bool:
-        return self.session.delete_one({'Event_id': event_id}).deleted_count == 1
+        return self.session.delete_one({'Event_id': event_id}).deleted_count
 
     @Logger()
     def update_player(self, event_id: str, player_id: str, player_data: dict) -> bool:

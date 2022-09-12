@@ -139,3 +139,4 @@ Events
 
 /frontend/node_modules
 /testenv
+src/analyticSvc/parserMod/chromedriver.exe

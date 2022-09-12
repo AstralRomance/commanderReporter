@@ -1,11 +1,12 @@
-from typing import List
+from datetime import datetime
+from typing import List, Union
 
 from pydantic import BaseModel
 
 
 class EventBase(BaseModel):
     Event_name: str
-    Event_Date: str
+    Event_Date: Union[str, datetime]
     Event_id: str
 
 class PlayerData(BaseModel):
@@ -15,10 +16,13 @@ class PlayerData(BaseModel):
 
 class EventFullData(EventBase):
     Status: str
-    Players: List[]
+    Players: List
     Rounds: List
-
 
 class CreateEvent(BaseModel):
     Event_name: str
     Event_Date: str
+
+class DeleteEvent(BaseModel):
+    status: bool
+    delete_count: int

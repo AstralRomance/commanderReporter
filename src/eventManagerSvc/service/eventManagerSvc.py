@@ -56,7 +56,7 @@ class EventManagerSvc:
                                          'details': f'Error while change event state: {e}'})
         return self.session.find_event(event_id)
 
-    def update_player_on_event(self, event_id: str, player_id: str, player_data: dict) -> UpdatePlayerResponse:
+    def update_player_on_event(self, event_id: str, player_id: str, player_data: dict):
         player = self.get_event_player(event_id, player_id)
         if not player:
             raise HTTPException(status_code=404,
@@ -142,6 +142,7 @@ class EventManagerSvc:
             raise HTTPException(error_code=404,
                                 detail={'status': False,
                                         'details': 'On event {event_id} not found {player_id}'})
+        target_player = target_player[0]
         target_event_rounds = self.session.find_event(event_id).get('Rounds')
         if not target_event_rounds:
             raise HTTPException(status_code=404,
@@ -158,31 +159,33 @@ class EventManagerSvc:
             player_turn_pos = table_players.index(target_player['Player_id']) + 1
         else:
             player_turn_pos = 4
-        target_player['Points'] += int(player_data['Points'])
-        target_player['Sub_points'] += int(player_data['Sub_points'])
-        target_player['Hidden_points'] = self.gen_player_hidden_points(player_turn_pos,
-                                                             round_number,
-                                                             int(player_data.Points),
-                                                             int(player_data.Sub_points))
-        return self.session.update_player(event_id, player_id, target_player)
+        target_player['Points'] += int(player_data.Points)
+        target_player['Sub_points'] += int(player_data.Sub_points)
+        target_player['Hidden_points'] += self.gen_player_hidden_points(player_turn_pos,
+                                                                       round_number,
+                                                                       int(player_data.Points),
+                                                                       int(player_data.Sub_points))
+        self.session.update_player(event_id, player_id, target_player)
+        return target_player
 
     # INFO: It looks better for now, but still suspective
     def generate_round(self, event_id: str, round_number: int) -> RoundGenData:
         target_event = self.session.find_event(event_id)
         target_players_data = [{'name': player['Player_name'],
                                 'id': player['Player_id'],
-                                'Hidden_points': player['Hidden_points']} for player in target_event['Players'] if not player['Status']]
+                                'Hidden_points': player['Hidden_points']} for
+                                player in target_event['Players'] if not player['Status']]
         random.seed(33)
         if round_number == 1:
             for _ in range(5):
                 random.shuffle(target_players_data)
         else:
-            target_players_data = sorted(target_players_data, key=itemgetter('Hidden_points'), reverse=True)
+            target_players_data = sorted(target_players_data,
+                                         key=itemgetter('Hidden_points'),
+                                         reverse=True)
         players_on_tables = [target_players_data[i:i + 4] for i in range(0, len(target_players_data), 4)]
-        valid_players = True
         # Now automatically give buys to players
         if len(players_on_tables[-1]) < 3:
-            valid_players = False
             for player in players_on_tables[-1]:
                 player['Points'] = 3
                 player['Sub_Points'] = 4
@@ -190,7 +193,6 @@ class EventManagerSvc:
                                                                         round_number,
                                                                         player['Points'],
                                                                         player['Sub_Points'])
-                # player['Has_autowin'].append({'Round': round_number})
                 self.session.update_player(event_id, player['id'], player)
         [random.shuffle(table) for table in players_on_tables]
         tables_data = [{'Table_num': table_num+1,
@@ -202,7 +204,8 @@ class EventManagerSvc:
         else:
             target_event['Rounds'] = [{'Number': round_number,
                                        'Players_on_table': tables_data}]
+        buyed_players = players_on_tables[-1] if len(players_on_tables[-1]) < 2 else None
         self.session.update_event(event_id, target_event)
         return {'round_number': round_number,
-                'tables': players_on_tables[:-1],
-                'buys': players_on_tables[-1] if not valid_players else []}
+                'tables': [table for table in tables_data if len(table['Table_players']) > 2],
+                'buys': buyed_players}

@@ -12,9 +12,16 @@ class AddPlayerToEvent(BaseModel):
 
 
 # TODO: change model naming to avoid using reserved words
+
 class PlayerOnTable(BaseModel):
     name: str
     id: str
+    Hidden_points: float
+
+
+class TableBase(BaseModel):
+    Table_num: int
+    Table_players: List[PlayerOnTable]
 
 
 class FullPlayerData(AddPlayerToEvent):
@@ -36,8 +43,8 @@ class UpdatePlayerResponse:
 
 class RoundGenData(BaseModel):
     round_number: int
-    tables: List[PlayerOnTable]
-    buys: List[PlayerOnTable]
+    tables: List[TableBase]
+    buys: Union[List[PlayerOnTable], None]
 
 
 class Table(BaseModel):

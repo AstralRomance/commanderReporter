@@ -9,7 +9,9 @@ from loguru import logger
 
 from databaseSvc.databaseManipulation import DataBaseManipulation
 
-from eventManagerSvc.models.eventManager import AddPlayerToEvent, FullPlayerData, UpdatePlayerResponse, RoundGenData
+from eventManagerSvc.models.eventManager import (AddPlayerToEvent, FullPlayerData, GeneralEventInfo, 
+                                                 UpdatePlayerResponse, RoundGenData,
+                                                 FullPlayerData)
 from eventManagerSvc.service.default_gen import DefaultPlayerModel
 
 
@@ -17,7 +19,11 @@ class EventManagerSvc:
     def __init__(self, session=Depends(DataBaseManipulation)):
         self.session = session
 
-    def gen_player_hidden_points(self, turn_postition: int, round_number: int, points: int, sub_points: int) -> float:
+    def gen_player_hidden_points(self,
+                                 turn_postition: int,
+                                 round_number: int,
+                                 points: int,
+                                 sub_points: int) -> float:
         """
             This is only my fantasies, we need to discuss this thing. This is only template for calculating points.
             Now used basic standings generation. Sort by points than by tiebreaks
@@ -30,7 +36,7 @@ class EventManagerSvc:
         logger.debug((points * position_coefficient * round_coefficient) + sub_points / 15)
         return points + (sub_points / 10)         
 
-    def get_full_event_data(self, event_id: str) -> dict:
+    def get_full_event_data(self, event_id: str) -> GeneralEventInfo:
         target_event = self.session.find_event(event_id)
         if not target_event:
             raise HTTPException(status_code=404,
@@ -38,7 +44,7 @@ class EventManagerSvc:
                                         'details': f'Not found event with id: {event_id}'})
         return target_event
 
-    def get_event_player(self, event_id: str, player_id: str) -> dict:
+    def get_event_player(self, event_id: str, player_id: str) -> FullPlayerData:
         target_player = self.session.find_player_on_event(event_id, player_id)
         if not target_player:
             raise HTTPException(status_code=404,
@@ -46,17 +52,24 @@ class EventManagerSvc:
                                 'details': f'Player {player_id} not found on {event_id}'})
         return target_player
 
-    def change_event_state(self, event_id: str, target_state: str) -> dict:
+    def change_event_state(self, event_id: str, target_state: str) -> GeneralEventInfo:
         try:
-            self.session.update_event(event_id, {'Status': target_state})
+            event_data = self.session.update_event(event_id, {'Status': target_state})
         except Exception as e:
             # TODO: catch target exceptions
             raise HTTPException(status_code=500,
                                 detail={'status': False,
                                          'details': f'Error while change event state: {e}'})
-        return self.session.find_event(event_id)
+        if not event_data:
+            raise HTTPException(ststus_code=404,
+                                detail={'status': False,
+                                        'details': f'Not found event by id: {event_id}'})
+        return event_data
 
-    def update_player_on_event(self, event_id: str, player_id: str, player_data: dict):
+    def update_player_on_event(self,
+                               event_id: str,
+                               player_id: str,
+                               player_data: dict) -> FullPlayerData:
         player = self.get_event_player(event_id, player_id)
         if not player:
             raise HTTPException(status_code=404,
@@ -77,9 +90,11 @@ class EventManagerSvc:
             raise HTTPException(status_code=500, 
                                 detail={'status': False,
                                 'details': 'Player data was not updated in db'})
-        return {'status': True, 'player_data': player_data}
+        return player_data
 
-    def add_player_to_event(self, event_id: str, player_data: AddPlayerToEvent) -> FullPlayerData:
+    def add_player_to_event(self,
+                            event_id: str,
+                            player_data: AddPlayerToEvent) -> FullPlayerData:
         target_event = self.session.find_event(event_id)
         if not target_event:
             raise HTTPException(status_code=404,
@@ -101,7 +116,9 @@ class EventManagerSvc:
         return target_player_data
 
     # TODO: look at this thing additional time and improve test coverage starting from this!
-    def remove_player_from_event(self, event_id: str, player_id: str) -> List[FullPlayerData]:
+    def remove_player_from_event(self,
+                                 event_id: str,
+                                 player_id: str) -> List[FullPlayerData]:
         event = self.session.find_event(event_id)
         if not event:
             raise HTTPException(status_code=404,
@@ -130,7 +147,11 @@ class EventManagerSvc:
 
     # TODO: this method needs MAJOR refactoring. Check database interractions and improve it
     # TODO: we can try to search players already on table, not on event
-    def update_player_points(self, event_id: str, player_id: str, round_number: int, player_data: dict):
+    def update_player_points(self,
+                             event_id: str,
+                             player_id: str,
+                             round_number: int,
+                             player_data: dict) -> FullPlayerData:
         try:
             target_player = self.session.find_player_on_event(event_id, player_id).get('Players')
         except Exception as e:

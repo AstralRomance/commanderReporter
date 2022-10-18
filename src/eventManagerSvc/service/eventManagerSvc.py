@@ -3,6 +3,7 @@ import time
 from copy import copy, deepcopy
 from operator import itemgetter
 from typing import List
+from decimal import Decimal
 
 from fastapi import Depends, HTTPException
 from loguru import logger
@@ -31,10 +32,7 @@ class EventManagerSvc:
         """
         position_coefficient = 1 + (turn_postition / 10)
         round_coefficient = 1 + round_number / 10 if round_number > 1 else 1
-        logger.debug(position_coefficient)
-        logger.debug(round_coefficient)
-        logger.debug((points * position_coefficient * round_coefficient) + sub_points / 15)
-        return points + (sub_points / 10)         
+        return round(points + (sub_points / 10) + round_number / 1000, 3)
 
     def get_full_event_data(self, event_id: str) -> GeneralEventInfo:
         target_event = self.session.find_event(event_id)
@@ -70,15 +68,16 @@ class EventManagerSvc:
                                event_id: str,
                                player_id: str,
                                player_data: dict) -> FullPlayerData:
-        player = self.get_event_player(event_id, player_id)
+        player = self.get_event_player(event_id, player_id)['Players'][0]
         if not player:
             raise HTTPException(status_code=404,
                                 detail={'status': False,
                                         'details': player_data})
         player_data = dict(player_data)
         for target_key in player_data:
+            logger.debug(target_key)
             if not player.get(target_key):
-                raise HTTPException(status_code=502,
+                raise HTTPException(status_code=404,
                                     detail={'status': False,
                                             'details': f'player_id: {player_id}; Not found field: {target_key};'})
             player[target_key] = player_data[target_key]
@@ -90,7 +89,9 @@ class EventManagerSvc:
             raise HTTPException(status_code=500, 
                                 detail={'status': False,
                                 'details': 'Player data was not updated in db'})
-        return player_data
+        logger.debug('*'*100)
+        logger.debug(player)
+        return player
 
     def add_player_to_event(self,
                             event_id: str,

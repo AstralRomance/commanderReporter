@@ -41,15 +41,15 @@ def generate_round(event_id: str, round_number: int, manager_svc: EventManagerSv
 
 # TODO: think about optimizing this endpoint response
 # Looks like we can make more complex processing on frontend and avoid full event data in response
-@router.put('/change-event-player/{event_id}/{player_id}')
+@router.put('/change-event-player/{event_id}/{player_id}', response_model=FullPlayerData)
 def update_player_on_event(event_id: str, player_id: str, player_data: AddPlayerToEvent,
                            manager_svc: EventManagerSvc = Depends()):
-    manager_svc.update_player_on_event(event_id, player_id, player_data)
-    return manager_svc.get_event_player(event_id, player_id)
+    updated_player_info = manager_svc.update_player_on_event(event_id, player_id, player_data)
+    return updated_player_info
 
 
 # TODO: same as upper
-@router.delete('/remove-player-from-event/{event_id}/{player_id}')
+@router.delete('/remove-player-from-event/{event_id}/{player_id}', response_model=GeneralEventInfo)
 def remove_player_from_event(event_id: str, player_id: str, manager_svc: EventManagerSvc = Depends()):
     manager_svc.remove_player_from_event(event_id, player_id)
     return manager_svc.get_full_event_data(event_id)

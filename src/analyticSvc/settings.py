@@ -2,8 +2,8 @@ from pydantic import BaseSettings
 
 
 class Settings(BaseSettings):
-    server_host: str = '0.0.0.0'
-    server_port: int = DEPLOY_CONNECTION_PORT003
+    analytic_svc_host: str
+    analytic_svc_port: int
     database_url: str
 
 

@@ -8,22 +8,10 @@ import requests
 
 from constants import DEFAULT_TARGET_ENV
 
-from pydantic import BaseSettings
-
-
-class Settings(BaseSettings):
-    database_test_url: str
-
-
-settings = Settings(
-    _env_file='.env',
-    _env_file_encoding='utf-8'
-)
-
 
 @pytest.fixture(scope='session')
 def setup_database_connection():
-    mongo_client = pymongo.MongoClient(settings.database_test_url, serverSelectionTimeoutMS=50000)['CommanderPairingService']['events']
+    mongo_client = pymongo.MongoClient("DATABASE_URL", serverSelectionTimeoutMS=50000)['CommanderPairingService']['events']
     yield mongo_client
 
 

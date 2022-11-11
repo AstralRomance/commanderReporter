@@ -4,7 +4,7 @@ from .settings import settings
 
 uvicorn.run(
     'eventManagerSvc.app:app',
-    host=settings.server_host,
-    port=settings.server_port,
+    host=settings.database_svc_host,
+    port=settings.database_svc_port,
     reload=True,
 )

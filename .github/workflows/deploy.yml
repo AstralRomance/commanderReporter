@@ -32,6 +32,7 @@ jobs:
             find frontend/src -type f -exec sed -i 's/DEPLOY_WEBSITE_ADDRESS/${{ secrets.DEPLOY_DEV_WEBSITE_ADDRESS }}/g' {} +
             find src -type f -exec sed -i 's/DEPLOY_WEBSITE_ADDRESS/${{ secrets.DEPLOY_DEV_WEBSITE_ADDRESS }}/g' {} +
           fi
+          find src/testSvc/conftest.py -type f -exec sed -i 's!DATABASE_URL!${{ secrets.DATABASE_URL }}!g' {} +
 
       - name: Set up Python 3.10
         uses: actions/setup-python@v1

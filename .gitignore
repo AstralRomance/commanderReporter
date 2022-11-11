@@ -111,6 +111,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+/src/tempASVC/avenv
+/testenv
 
 # Spyder project settings
 .spyderproject
@@ -137,3 +139,4 @@ Events
 
 /frontend/node_modules
 /testenv
+src/analyticSvc/parserMod/chromedriver.exe

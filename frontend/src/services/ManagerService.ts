@@ -22,4 +22,7 @@ export class ManagerService implements Service {
   public static addPlayer(eventId: qParam, body: IManagerService.IAddPlayer.Body, params?: AxiosRequestConfig) {
     return new ApiCaller().post<IManagerService.IDeletePlayer.Response>(`/event-manager/add-player/${eventId}`, body, params);
   }
+  public static getEventPlayers(eventId: qParam, params?: AxiosRequestConfig) {
+    return new ApiCaller().get<IManagerService.IGetEventPlayers.Response>(`/players/players_on_event/${eventId}`, params)
+  }
 }

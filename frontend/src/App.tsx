@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Root } from "routes";
 
-import { EventsPage, CreateEventPage } from "pages";
+import { EventsPage, CreateEventPage, EventDetailsPage } from "pages";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "/create-event",
         element: <CreateEventPage />,
+      },
+      {
+        path: "/event/:id",
+        element: <EventDetailsPage />,
       },
     ],
   },

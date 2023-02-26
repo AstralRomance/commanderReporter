@@ -5,7 +5,7 @@ import { useEvents } from "./hooks";
 const EventsPage = () => {
   const { events, isLoading, error } = useEvents();
 
-  if (isLoading) return <p>Пожалуйста, подождите...</p>;
+  if (isLoading) return <h2 style={{ textAlign: "center" }}>Loading events...</h2>;
 
   if (error) return <h2>Error {error.message}</h2>;
 

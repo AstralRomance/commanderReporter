@@ -26,4 +26,7 @@ export declare namespace IManagerService {
     type Body = Omit<IPlayer, 'Player_id'>;
     type Response = any;
   }
+  namespace IGetEventPlayers {
+    type Response = any;
+  }
 }
